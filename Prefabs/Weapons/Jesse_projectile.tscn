@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp3a8vswo7qr5"]
+
+[ext_resource type="PackedScene" uid="uid://bf2tm7ixltvdl" path="res://Prefabs/Classes/Projectile.tscn" id="1_na826"]
+[ext_resource type="Texture2D" uid="uid://cftfnkepkh13m" path="res://Sprites/Weapons/Jesse bullet.png" id="2_thci4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjcau"]
+atlas = ExtResource("2_thci4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cbep"]
+atlas = ExtResource("2_thci4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srn1a"]
+atlas = ExtResource("2_thci4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fq846"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjcau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cbep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srn1a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Jesse_projectile" instance=ExtResource("1_na826")]
+projectile_speed = 1700.0
+damage = 25.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.134, 0.134)
+sprite_frames = SubResource("SpriteFrames_fq846")
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.118, 0.118)
+
+[node name="Area2D" parent="." index="2"]
+position = Vector2(-0.158, 0)
+scale = Vector2(0.139, 0.139)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(6.33108, -3.12444e-06)

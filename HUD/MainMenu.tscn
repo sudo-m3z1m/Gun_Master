@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4f37tnsy8tlo"]
+
+[ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
+[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_n5e3b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1606.0
+offset_top = -1445.0
+offset_right = -1606.0
+offset_bottom = -605.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.83399, 1.3668)
+expand_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -239.0
+offset_top = 50.0
+offset_right = 239.0
+offset_bottom = 176.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -50.0
+offset_right = 92.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Start"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = 91.0
+offset_right = 141.5
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Settings"
+flat = true
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = 232.0
+offset_right = 141.5
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Exit"
+flat = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,166 @@
+[gd_scene load_steps=23 format=3 uid="uid://caipthveg7qqr"]
+
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player.gd" id="1_xlnxc"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/InputHandler.gd" id="2_ejbk7"]
+[ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/Player_state_machine.gd" id="3_wy0ui"]
+[ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://bot6b6m7cn8v0" path="res://HUD/PauseMenu.tscn" id="6_cix6o"]
+[ext_resource type="PackedScene" uid="uid://bx3eii6h1ii33" path="res://HUD/HPBar.tscn" id="7_j3u71"]
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("3")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("3")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("3")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("3")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}],
+"loop": true,
+"name": &"MOVE",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="21"]
+radius = 45.0001
+height = 173.0
+
+[sub_resource type="CapsuleShape2D" id="22"]
+radius = 45.0
+height = 173.0
+
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_xlnxc")
+
+[node name="InputHandler" type="Node2D" parent="."]
+script = ExtResource("2_ejbk7")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_wy0ui")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5.50001)
+scale = Vector2(0.716797, 0.785156)
+sprite_frames = SubResource("20")
+animation = &"IDLE"
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+modulate = Color(0.360784, 0.74902, 0.00392157, 1)
+position = Vector2(-4.17232e-06, -2.5)
+scale = Vector2(0.999998, 0.999998)
+shape = SubResource("21")
+
+[node name="Area_for_Hurt_Box" type="Area2D" parent="." groups=["Player"]]
+
+[node name="HurtBox" type="CollisionShape2D" parent="Area_for_Hurt_Box"]
+position = Vector2(0, -2.49999)
+shape = SubResource("22")
+
+[node name="Camera3D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="HUD" parent="Camera3D" instance=ExtResource("6_cix6o")]
+
+[node name="HPBar" parent="." instance=ExtResource("7_j3u71")]
+
+[node name="NavigationObstacle" type="NavigationObstacle2D" parent="."]
+estimate_radius = false
+radius = 130.0
+
+[connection signal="area_entered" from="Area_for_Hurt_Box" to="." method="_collision_area_checker"]
+[connection signal="body_entered" from="Area_for_Hurt_Box" to="." method="_collision_checker"]

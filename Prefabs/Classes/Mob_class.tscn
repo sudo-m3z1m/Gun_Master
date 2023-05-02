@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5or6esv0iwl"]
+
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Mob_class.gd" id="2"]
+
+[node name="Mob_class" type="CharacterBody2D" groups=["Mob"]]
+script = ExtResource("2")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false

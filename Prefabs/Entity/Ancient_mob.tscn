@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://c57wwvpgpwad4"]
+
+[ext_resource type="PackedScene" uid="uid://l5or6esv0iwl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Ancient_mob.gd" id="2_a1h6i"]
+[ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_g4rv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71dfg"]
+atlas = ExtResource("2_g4rv4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrloh"]
+atlas = ExtResource("2_g4rv4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2uhr"]
+atlas = ExtResource("2_g4rv4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qvki"]
+atlas = ExtResource("2_g4rv4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb530"]
+atlas = ExtResource("2_g4rv4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyc72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71dfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrloh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2uhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qvki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb530")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd57u"]
+size = Vector2(128, 214)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yy7ht"]
+radius = 523.004
+
+[node name="Ancient_mob" instance=ExtResource("1_otsup")]
+position = Vector2(0, 1)
+script = ExtResource("2_a1h6i")
+health_points = 100.0
+speed = 200.0
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_gyc72")
+animation = &"IDLE"
+autoplay = "IDLE"
+frame_progress = 0.969161
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_pd57u")
+
+[node name="RayCast2D" parent="." index="2"]
+visible = true
+target_position = Vector2(0, 0)
+
+[node name="Agent" type="NavigationAgent2D" parent="." index="3"]
+path_max_distance = 500.0
+avoidance_enabled = true
+max_speed = 1000.0
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.380392, 0.580392, 1)
+
+[node name="AreaForDashes" type="Area2D" parent="." index="4"]
+
+[node name="ZoneForDashes" type="CollisionShape2D" parent="AreaForDashes" index="0"]
+shape = SubResource("CircleShape2D_yy7ht")
+
+[node name="PathUpdateTimer" type="Timer" parent="." index="5"]
+wait_time = 0.001
+autostart = true
+
+[node name="DashRange" type="Timer" parent="." index="6"]
+wait_time = 0.1
+
+[connection signal="velocity_computed" from="Agent" to="." method="_on_agent_velocity_computed"]
+[connection signal="body_exited" from="AreaForDashes" to="." method="_on_area_for_dashes_body_exited"]
+[connection signal="timeout" from="DashRange" to="." method="_on_dash_range_timeout"]

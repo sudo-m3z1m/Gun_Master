@@ -1,0 +1,140 @@
+[gd_scene load_steps=20 format=3 uid="uid://6a3y8him0rwm"]
+
+[ext_resource type="PackedScene" uid="uid://daiuwlsbv2pj5" path="res://Prefabs/Classes/Weapon_range_class.tscn" id="1_qh73x"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="2_ji0li"]
+[ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_1mmou"]
+[ext_resource type="AudioStream" uid="uid://bqbadbnu2jpi3" path="res://Audio/GunShots/Slime/zapsplat_cartoon_slime_hit_002_89575.mp3" id="3_q6cbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvgij"]
+atlas = ExtResource("2_ji0li")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4257v"]
+atlas = ExtResource("2_ji0li")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p3nr"]
+atlas = ExtResource("2_ji0li")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3c5m"]
+atlas = ExtResource("2_ji0li")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mvdr"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwrg4"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8xbn"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mct8j"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ome7w"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldyvs"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0mx6"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f184f"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn04a"]
+atlas = ExtResource("3_1mmou")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eres1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvgij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4257v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p3nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3c5m")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mvdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwrg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8xbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mct8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ome7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldyvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0mx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f184f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn04a")
+}],
+"loop": false,
+"name": &"Shot",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w46ox"]
+radius = 63.675
+
+[node name="Jesse" instance=ExtResource("1_qh73x")]
+id = 1
+cooldown = 1.0
+bullet_path = "res://Prefabs/Weapons/Jesse_projectile.tscn"
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_eres1")
+animation = &"Shot"
+autoplay = "IDLE"
+frame = 8
+frame_progress = 1.0
+
+[node name="AreaForHits" parent="Pivot" index="1"]
+position = Vector2(-13, 1)
+
+[node name="Hitbox" parent="Pivot/AreaForHits" index="0"]
+shape = SubResource("CircleShape2D_w46ox")
+
+[node name="ShotPosition" parent="Pivot" index="3"]
+position = Vector2(99, -9)
+
+[node name="AudioPlayer" parent="." index="2"]
+stream = ExtResource("3_q6cbx")
+
+[node name="CoolDown_timer" parent="." index="4"]
+one_shot = true

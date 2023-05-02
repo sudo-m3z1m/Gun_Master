@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://brnhbfajhs0fk"]
+
+[ext_resource type="PackedScene" uid="uid://caipthveg7qqr" path="res://Prefabs/Classes/Character.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="2_ai1gb"]
+[ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3_mpl8u"]
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("2_ai1gb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("2_ai1gb")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("2_ai1gb")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("2_ai1gb")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("2_ai1gb")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="13"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("3_mpl8u")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("8")
+}, {
+"duration": 1.0,
+"texture": SubResource("9")
+}, {
+"duration": 1.0,
+"texture": SubResource("10")
+}, {
+"duration": 1.0,
+"texture": SubResource("11")
+}, {
+"duration": 1.0,
+"texture": SubResource("12")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("13")
+}, {
+"duration": 1.0,
+"texture": SubResource("14")
+}, {
+"duration": 1.0,
+"texture": SubResource("15")
+}, {
+"duration": 1.0,
+"texture": SubResource("16")
+}, {
+"duration": 1.0,
+"texture": SubResource("17")
+}, {
+"duration": 1.0,
+"texture": SubResource("18")
+}, {
+"duration": 1.0,
+"texture": SubResource("19")
+}],
+"loop": true,
+"name": &"MOVE",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mma35"]
+radius = 45.0
+height = 173.0
+
+[node name="Jacket_Man" instance=ExtResource("1")]
+health_points = 100.0
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("20")
+frame = 3
+
+[node name="HitBox" parent="." index="3"]
+position = Vector2(-1.90735e-06, -2.5)
+shape = SubResource("CapsuleShape2D_mma35")

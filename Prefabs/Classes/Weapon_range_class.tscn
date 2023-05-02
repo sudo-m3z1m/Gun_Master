@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://daiuwlsbv2pj5"]
+
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Weapon_range.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cl1qmj5mf4ep0" path="res://Sprites/light.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(207, 117)
+
+[sub_resource type="Animation" id="Animation_2ghmc"]
+resource_name = "Attack"
+length = 0.6
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.185, 0.23, 0.28, 0.33, 0.38, 0.43, 0.48, 0.575, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -20.0, -60.0, -84.0, -95.0, -97.0, -100.0, -98.0, -95.0, -95.0, -84.0, -60.0, -45.0, -30.0, -15.0, 0.0, 10.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep6n0"]
+_data = {
+"WeaponsAttack": SubResource("Animation_2ghmc")
+}
+
+[node name="Range" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+
+[node name="AreaForHits" type="Area2D" parent="Pivot" groups=["Weapon"]]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Pivot/AreaForHits"]
+modulate = Color(0.109804, 0.227451, 1, 1)
+shape = SubResource("3")
+
+[node name="ShotLight" type="PointLight2D" parent="Pivot"]
+enabled = false
+color = Color(0.960784, 0.72549, 0.027451, 1)
+texture = ExtResource("3")
+texture_scale = 20.0
+
+[node name="ShotPosition" type="Marker2D" parent="Pivot"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep6n0")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="LightTime" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="CoolDown_timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="LightTime" to="." method="_on_LightTime_timeout"]

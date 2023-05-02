@@ -1,8 +1,7 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683047631
+::res://::1683048754
 default_env.tres::Environment::8291689419539467533::1682969999::0::1::::<><>::
 icon.png::CompressedTexture2D::6763876180502962817::1668182097::1679343437::1::::<><>::
-Speelunker.txt::TextFile::-1::1668274985::0::1::::<><>::
 ::res://Animations/::1677880642
 WeaponsAttack.tres::Animation::-1::1679343430::0::1::::<><>::
 WeaponsMeleeAttack.tres::Animation::-1::1679343430::0::1::::<><>::
@@ -68,11 +67,11 @@ PauseMenu.gd::GDScript::-1::1679343430::0::1::::<>Node2D<>::
 Rigid_Weapon.gd::GDScript::-1::1680949953::0::1::::<>RigidBody2D<>::
 Weapon_melee.gd::GDScript::-1::1682355287::0::1::::Weapon_melee<>Node2D<>::
 Weapon_range.gd::GDScript::-1::1681649379::0::1::::Weapon_range<>Node2D<>res://Sprites/Weapons/Gun.png::
-::res://Sprites/::1682347429
+::res://Sprites/::1683052838
 Blood_Progress_HP_Bar.png::CompressedTexture2D::735697076048089779::1680037798::1680038013::1::::<><>::
 light.png::CompressedTexture2D::5599585890028570207::1676805209::1679343437::1::::<><>::
 Over_HP_Bar.png::CompressedTexture2D::4878866428054004321::1680037624::1680038013::1::::<><>::
-TileMap.png::CompressedTexture2D::8409291075934805720::1676653814::1679343437::1::::<><>::
+TileSpriteSheet.png::CompressedTexture2D::8190301669951987632::1683052824::1683052848::1::::<><>::
 ::res://Sprites/Background_sprites/::1682347436
 38fba017-b817-4305-977f-ccec657c9937.jpg::CompressedTexture2D::2700531798314367038::1682347432::1682347436::1::::<><>::
 ::res://Sprites/Characters/::1679343437

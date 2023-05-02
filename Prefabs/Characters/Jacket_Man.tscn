@@ -103,7 +103,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mma35"]
 radius = 45.0
-height = 173.0
+height = 97.0002
 
 [node name="Jacket_Man" instance=ExtResource("1")]
 health_points = 100.0

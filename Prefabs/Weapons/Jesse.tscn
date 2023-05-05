@@ -130,6 +130,10 @@ position = Vector2(-13, 1)
 [node name="Hitbox" parent="Pivot/AreaForHits" index="0"]
 shape = SubResource("CircleShape2D_w46ox")
 
+[node name="ShotLight" parent="Pivot" index="2"]
+shadow_color = Color(0.0980392, 0.0627451, 0, 0.698039)
+shadow_filter = 2
+
 [node name="ShotPosition" parent="Pivot" index="3"]
 position = Vector2(99, -9)
 

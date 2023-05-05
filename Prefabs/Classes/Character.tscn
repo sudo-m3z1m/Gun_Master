@@ -114,6 +114,7 @@ radius = 45.0
 height = 173.0
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
+y_sort_enabled = true
 script = ExtResource("1_xlnxc")
 
 [node name="InputHandler" type="Node2D" parent="."]

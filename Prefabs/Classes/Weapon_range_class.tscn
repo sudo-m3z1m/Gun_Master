@@ -44,6 +44,8 @@ shape = SubResource("3")
 [node name="ShotLight" type="PointLight2D" parent="Pivot"]
 enabled = false
 color = Color(0.960784, 0.72549, 0.027451, 1)
+shadow_enabled = true
+shadow_color = Color(0.960784, 0.72549, 0.027451, 0.423529)
 texture = ExtResource("3")
 texture_scale = 20.0
 

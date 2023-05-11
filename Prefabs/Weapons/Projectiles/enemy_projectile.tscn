@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm0ehlsi78fto"]
+
+[ext_resource type="PackedScene" uid="uid://bf2tm7ixltvdl" path="res://Prefabs/Classes/Projectile.tscn" id="1_2h4q5"]
+[ext_resource type="Texture2D" uid="uid://dfb2ibi8anbin" path="res://Sprites/Weapons/Enemy_projectile.png" id="2_5l0th"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkof4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5l0th")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy_projectile" instance=ExtResource("1_2h4q5")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_gkof4")
+
+[node name="PointLight2D" parent="." index="4"]
+enabled = true
+color = Color(0.564706, 0.129412, 0.137255, 1)
+energy = 0.8
+texture_scale = 0.1

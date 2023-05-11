@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://3ke7jk3nhlj7"]
+
+[ext_resource type="PackedScene" uid="uid://bf2tm7ixltvdl" path="res://Prefabs/Classes/Projectile.tscn" id="1_xr42f"]
+[ext_resource type="Texture2D" uid="uid://cg86t0lyiipaq" path="res://Sprites/Weapons/Poison_projectile.png" id="2_mxvtn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5m3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mxvtn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="poison_projectile" instance=ExtResource("1_xr42f")]
+projectile_speed = 500.0
+damage = 25.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.416, 0.4)
+sprite_frames = SubResource("SpriteFrames_a5m3w")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1.19209e-07, -1)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -16.129)
+
+[node name="PointLight2D" parent="." index="4"]
+enabled = true
+color = Color(0.364706, 0.733333, 0.384314, 1)
+energy = 0.7
+texture_scale = 0.1

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ektxavsk2fbb"]
+
+[ext_resource type="PackedScene" uid="uid://diofvpt5pvmo" path="res://Prefabs/Classes/weapon_class.tscn" id="1_ly4cw"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/melee_weapon_class.gd" id="2_xmcyq"]
+
+[node name="melee_weapon_class" instance=ExtResource("1_ly4cw")]
+script = ExtResource("2_xmcyq")

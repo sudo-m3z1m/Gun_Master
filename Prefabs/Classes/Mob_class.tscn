@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Mob_class.gd" id="2"]
 
-[node name="Mob_class" type="CharacterBody2D" groups=["Mob"]]
+[node name="Mob_class" type="CharacterBody2D" groups=["Mob", "Persist"]]
 script = ExtResource("2")
 metadata/_edit_group_ = true
 

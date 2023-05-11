@@ -91,8 +91,7 @@ wait_time = 0.001
 autostart = true
 
 [node name="DashRange" type="Timer" parent="." index="6"]
-wait_time = 0.1
+wait_time = 0.22
 
-[connection signal="velocity_computed" from="Agent" to="." method="_on_agent_velocity_computed"]
-[connection signal="body_exited" from="AreaForDashes" to="." method="_on_area_for_dashes_body_exited"]
+[connection signal="body_entered" from="AreaForDashes" to="." method="_on_area_for_dashes_body_entered"]
 [connection signal="timeout" from="DashRange" to="." method="_on_dash_range_timeout"]

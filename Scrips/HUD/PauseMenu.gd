@@ -15,12 +15,16 @@ func _enable(enable = true):
 
 
 func _on_ContinueButton_pressed():
+	#var save = get_parent().get_parent().get_parent().get_node("Save_handler")
+	#save.load_game()
 	get_tree().paused = false
 	_enable(false)
 
 
 func _on_SettingsButton_pressed():
 	pass
+	#var save = get_parent().get_parent().get_parent().get_node("Save_handler")
+	#save.save_game()
 
 
 func _on_ExitButton_pressed():

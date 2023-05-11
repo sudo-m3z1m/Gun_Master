@@ -1,9 +1,9 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_enemy($EnemySpawnPos.global_position)
+	pass
+	#spawn_enemy($EnemySpawnPos.global_position)
 
 func spawn_enemy(spawn_position: Vector2):
 	var enemy = preload("res://Prefabs/Entity/Ancient_mob.tscn").instantiate()

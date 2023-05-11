@@ -107,7 +107,7 @@ offset_bottom = 245.0
 theme_override_fonts/font = SubResource("2")
 theme_override_styles/hover = SubResource("3")
 disabled = true
-text = "Exit"
+text = "Save and Exit"
 
 [connection signal="pressed" from="Display/ContinueButton" to="." method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="Display/SettingsButton" to="." method="_on_SettingsButton_pressed"]

@@ -1,0 +1,2 @@
+{"current_hp":100,"parent":"TestRoom:<Node2D#33822868641>","pos_x":316,"pos_y":411,"scene":"res://Prefabs/Characters/Jacket_Man.tscn","size_x":0.600000023841858,"size_y":0.600000023841858,"weapon":null}
+{"_is_picked":false,"parent":"TestRoom:<Node2D#33822868641>","pos_x":495,"pos_y":438,"scene":"res://Prefabs/Weapons/Jesse.tscn","size_x":0.300000011920929,"size_y":0.300000011920929}

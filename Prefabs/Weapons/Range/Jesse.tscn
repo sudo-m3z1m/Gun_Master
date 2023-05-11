@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://csqdb5fr8lu6i"]
+
+[ext_resource type="PackedScene" uid="uid://bmywfkqi04bd1" path="res://Prefabs/Classes/range_weapon_class.tscn" id="1_xweje"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="2_fug74"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvrxt"]
+atlas = ExtResource("2_fug74")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264r1"]
+atlas = ExtResource("2_fug74")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjeep"]
+atlas = ExtResource("2_fug74")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xduuk"]
+atlas = ExtResource("2_fug74")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hda7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvrxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_264r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjeep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xduuk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Jesse" instance=ExtResource("1_xweje")]
+damage = 25
+length_from_player = 100.0
+animation = "null"
+throw_strength = 300.0
+
+[node name="Sprite" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_hda7c")
+frame_progress = 0.594982
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(15, -2.5)

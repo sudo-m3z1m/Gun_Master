@@ -1,2 +1,10 @@
 res://default_env.tres
+res://Rooms/test_tile_map.tscn
+res://Prefabs/Entity/Ancient_mob.tscn
 res://HUD/MainMenu.tscn
+res://HUD/PauseMenu.tscn
+res://Prefabs/Classes/Character.tscn
+res://Prefabs/Weapons/Range/Jesse.tscn
+res://Prefabs/Classes/weapon_class.tscn
+res://Scrips/Weapon_Logic/weapon_class.gd
+res://Scrips/Entity_Logic/Player.gd

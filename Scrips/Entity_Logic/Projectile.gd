@@ -9,8 +9,6 @@ class_name projectile
 var direction: Vector2
 
 func shot(_target_position):
-	rotation = get_angle_to(_target_position)
-	
 	direction = _target_position - global_position
 	direction = direction.limit_length(1)
 	

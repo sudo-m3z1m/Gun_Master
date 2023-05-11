@@ -15,8 +15,7 @@ var _weapon_is_picked: bool = false
 
 var attacked_groups: Array = ["Player"]
 
-func move(_velocity):
-	velocity = _velocity.normalized() * speed
+func move():
 	move_and_slide()
 
 func weapon_ready():
@@ -43,3 +42,12 @@ func attack(target):
 
 func kill():
 	call_deferred("queue_free")
+
+func save():
+	var save_dict = {
+		"name": self.get_name(),
+		"current_hp": health_points,
+		"pos_x": global_position.x,
+		"pos_y": global_position.y
+	}
+	return save_dict

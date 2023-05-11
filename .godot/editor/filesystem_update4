@@ -5,6 +5,6 @@ res://HUD/MainMenu.tscn
 res://HUD/PauseMenu.tscn
 res://Prefabs/Classes/Character.tscn
 res://Prefabs/Weapons/Range/Jesse.tscn
-res://Prefabs/Classes/weapon_class.tscn
 res://Scrips/Weapon_Logic/weapon_class.gd
+res://Prefabs/Classes/range_weapon_class.tscn
 res://Scrips/Entity_Logic/Player.gd

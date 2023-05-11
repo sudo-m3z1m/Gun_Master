@@ -93,7 +93,7 @@ func rotate_weapon():
 		return
 		
 	var angle = get_angle_to(get_global_mouse_position())
-	weapon.rotate_to_target(angle, global_position)
+	weapon.rotate_to_target(angle, get_local_mouse_position())
 
 func save():
 	var save_dict = {

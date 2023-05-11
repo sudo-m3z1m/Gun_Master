@@ -79,10 +79,10 @@ layer_2/tile_data = PackedInt32Array()
 [node name="EnemySpawnPos" type="Marker2D" parent="."]
 position = Vector2(942, 542)
 
+[node name="range_weapon_class" parent="." instance=ExtResource("6_wmnl3")]
+position = Vector2(519, 426)
+scale = Vector2(1, 1)
+
 [node name="Jacket_Man" parent="." instance=ExtResource("3_4cogd")]
 position = Vector2(316, 411)
 scale = Vector2(0.6, 0.6)
-
-[node name="range_weapon_class" parent="Jacket_Man" instance=ExtResource("6_wmnl3")]
-position = Vector2(338.333, 25)
-scale = Vector2(1.66667, 1.66667)

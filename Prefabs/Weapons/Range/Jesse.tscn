@@ -47,7 +47,7 @@ throw_strength = 300.0
 
 [node name="Sprite" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_hda7c")
-frame_progress = 0.594982
+frame_progress = 0.529582
 
 [node name="HitBox" parent="." index="1"]
 position = Vector2(15, -2.5)

@@ -48,13 +48,13 @@ func load_game():
 			get_parent().add_child(new_saved_object)
 		else:
 			get_parent().get_node(save_data["parent"]).add_child(new_saved_object)#call_deferred("add_child", new_saved_object)
-		
+			print(new_saved_object)
 		new_saved_object.position.x = save_data["pos_x"]
 		new_saved_object.position.y = save_data["pos_y"]
 		new_saved_object.scale.x = save_data["size_x"]
 		new_saved_object.scale.y = save_data["size_y"]
 		
-		print(new_saved_object.position, new_saved_object.scale)
+		#print(new_saved_object.position, new_saved_object.scale)
 		
 		for i in save_data.keys():
 			if i == "pos_x" or i == "pos_y" or i == "parent" or i == "scene":

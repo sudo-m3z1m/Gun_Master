@@ -3,4 +3,3 @@ res://Rooms/test_tile_map.tscn
 res://HUD/MainMenu.tscn
 res://Prefabs/Classes/Character.tscn
 res://Prefabs/Classes/weapon.tscn
-res://Scrips/Game_Logic/Save_handler.gd

@@ -1,2 +1,2 @@
-{"current_hp":100,"parent":"TestRoom:<Node2D#32396805307>","pos_x":515.999694824219,"pos_y":411,"scene":"res://Prefabs/Characters/Jacket_Man.tscn","size_x":0.600000023841858,"size_y":0.600000023841858,"weapon":"Jesse:<Area2D#33420215621>"}
-{"parent":"Jacket_Man:<CharacterBody2D#32463914276>","pos_x":515.999694824219,"pos_y":411,"scene":"res://Prefabs/Weapons/Range/Jesse.tscn","size_x":0.5,"size_y":0.5}
+{"current_hp":100,"parent":"/root/TestRoom","pos_x":316,"pos_y":411,"scene":"res://Prefabs/Characters/Jacket_Man.tscn","size_x":0.600000023841858,"size_y":0.600000023841858,"weapon":null}
+{"parent":"/root/TestRoom","pos_x":518,"pos_y":423,"scene":"res://Prefabs/Weapons/Range/Jesse.tscn","size_x":0.300000011920929,"size_y":0.300000011920929}

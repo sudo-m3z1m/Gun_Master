@@ -115,7 +115,7 @@ func kill():
 
 func save():
 	var save_dict = {
-		"parent": get_parent(),
+		"parent": get_parent().get_path(),
 		"scene": get_scene_file_path(),
 		"pos_x": global_position.x,
 		"pos_y": global_position.y,

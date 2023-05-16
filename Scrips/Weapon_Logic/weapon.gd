@@ -65,7 +65,7 @@ func throw_self(global_target_position: Vector2) -> void: #I need to write it in
 
 func save():
 	var save_dict: Dictionary = {
-		"parent": get_parent(),
+		"parent": get_parent().get_path(),#get_parent(),
 		"scene": get_scene_file_path(),
 		"pos_x": global_position.x,
 		"pos_y": global_position.y,

@@ -4,6 +4,12 @@ class_name SAVE_HANDLER
 
 const SAVE_FILE_DIRECTORY = "res://Saves/saves.save"
 const GROUP = "Persist"
+@onready var _root = get_tree().get_root()
+
+func pack_and_save_scene(_root, _file_path):
+	var scene = PackedScene.new()
+	scene.pack(_root)
+	ResourceSaver.save(_file_path, scene)
 
 func save_game():
 	var save_file = FileAccess.open(SAVE_FILE_DIRECTORY, FileAccess.WRITE)
@@ -43,12 +49,15 @@ func load_game():
 		
 		var save_data = json_object.get_data()
 		
+#		prints("TEST PARENT:", str(get_parent().get_path()), save_data["parent"])
 		var new_saved_object = load(save_data["scene"]).instantiate()
-		if str(get_parent()) == save_data["parent"]:
-			get_parent().add_child(new_saved_object)
-		else:
-			get_parent().get_node(save_data["parent"]).add_child(new_saved_object)#call_deferred("add_child", new_saved_object)
-			print(new_saved_object)
+#		if str(get_parent().get_path()) == save_data["parent"]:
+#			get_parent().add_child(new_saved_object)
+#		else:
+#			get_parent().get_node(save_data["parent"]).add_child(new_saved_object)#call_deferred("add_child", new_saved_object)
+		
+		_root.get_node(save_data["parent"]).add_child(new_saved_object)
+		print(new_saved_object)
 		new_saved_object.position.x = save_data["pos_x"]
 		new_saved_object.position.y = save_data["pos_y"]
 		new_saved_object.scale.x = save_data["size_x"]

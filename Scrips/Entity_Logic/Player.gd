@@ -9,9 +9,11 @@ signal killed
 		$Camera/HPBar._check_value(hp)
 		health_points = hp
 
+const K = 1.2
+
+var weapons: Array = []
 var weapon = null
 var weapon_scale
-var k
 var id_for_weapons: Dictionary
 var id_for_rigid: Dictionary
 
@@ -23,11 +25,11 @@ var _is_killed: bool = false
 @onready var screen = $Camera.get_viewport_rect().size
 
 func _ready():
-	k = scene.get_scale() / get_scale()
+	weapon_scale = get_scale() / K
 
 func _physics_process(delta):
-	rotate_weapon()
 	pass
+	rotate_weapon()
 
 func choose_velocity(velocity, flip):
 	if velocity.length() > 0:
@@ -52,26 +54,49 @@ func actions_handler(action):
 				attack()
 			"Throw":
 				throw_weapon(get_global_mouse_position())
-				
+			#"ScrollUp":
+				#weapon_scroll(true)
+
 func attack():
 	weapon._attack(get_global_mouse_position())
+	
+func weapon_scroll():
+	pass
 
-func _collision_checker(body):
-	if body.is_in_group("Weapon") and _weapon_is_picked == false:
-		take_weapon(body)
-		scene.remove_child(body)
+func _collision_checker(area):
+	if area.is_in_group("Weapon") and _weapon_is_picked == false:
+		take_weapon(area)
+		scene.remove_child(area)
+
+func bodies_collision_checker(body):
+	if _is_killed == false and _weapon_is_picked == false:
+		for i in weapons:
+			if i.visible == false \
+			and body.get_name() == i.get_name():
+				i.visible = true
+				_weapon_is_picked = true
+				i._is_picked = _weapon_is_picked
+				body.queue_free()
 
 func take_weapon(_weapon):
 	_weapon_is_picked = true
 	weapon = _weapon
+	weapons.append(weapon)
 	weapon._is_picked = _weapon_is_picked
-	weapon.size = get_scale() / k
+	weapon.scale = weapon_scale
 	call_deferred("add_child", weapon)
 	weapon.position = Vector2(0, 0)
 
 func throw_weapon(target_position):
 	_weapon_is_picked = false
-	weapon.throw_self(self.global_position, target_position)
+	weapon.throw_self(target_position)
+
+func rotate_weapon():
+	if _is_killed == true or _weapon_is_picked == false:
+		return
+	
+	var angle_to_target = get_angle_to(get_global_mouse_position())
+	weapon.rotate_to_target(angle_to_target, weapon_scale)
 
 func pause():
 	var pause_screen = $Camera/HUD
@@ -87,13 +112,6 @@ func kill():
 	_is_killed = true
 
 	emit_signal("killed", _is_killed)
-
-func rotate_weapon():
-	if _is_killed or _weapon_is_picked == false:
-		return
-		
-	var angle = get_angle_to(get_global_mouse_position())
-	weapon.rotate_to_target(angle, global_position)
 
 func save():
 	var save_dict = {

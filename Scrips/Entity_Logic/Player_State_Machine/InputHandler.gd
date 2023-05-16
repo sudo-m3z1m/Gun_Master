@@ -2,7 +2,7 @@ extends Node2D
 
 class_name inputHandler
 
-var inputs:Array = ["Up", "Down", "Left", "Right", "Attack", "Throw", "Escape"]
+var inputs:Array = ["Up", "Down", "Left", "Right", "Attack", "Throw", "Escape", "ScrollUp", "ScrollDown"]
 
 @onready var player = get_parent()
 @onready var state_machine = player.get_node("StateMachine")
@@ -44,3 +44,7 @@ func input_handler(input):
 			player.actions_handler("Throw")
 		"Escape":
 			player.actions_handler("Escape")
+		"ScrollUp":
+			player.actions_handler("ScrollUp")
+		"ScrollDown":
+			player.actions_handler("ScrollDown")

@@ -41,17 +41,18 @@ func take_weapon() -> void:
 		hitbox.set_deferred("disabled", false)
 		return
 	
-func rotate_to_target(angle_to_target, target_position: Vector2) -> void:
+func rotate_to_target(angle_to_target, local_target_position: Vector2) -> void:
 	rotation = angle_to_target
 	#print(position, get_parent())
-	if target_position.x < 0:
-		size.y = -size.y
-
-	if target_position.x > 0:
-		size.y = -size.y 
+#	if local_target_position.x <= 0:
+#		if size.y > 0:
+#			size.y = -size.y
+#	if local_target_position.x > 0:
+#		if size.y <= 0:
+#			size.y = -size.y 
 	#it may drop some conflicts >:
 
-func throw_self(aim_position: Vector2, target_position: Vector2) -> void:
+func throw_self(aim_position: Vector2, target_position: Vector2) -> void: #I need to write it in player script
 	var throw_velocity = aim_position.direction_to(target_position) * 100000
 	if throw_velocity.length() < 1:
 		throw_velocity *= 100000

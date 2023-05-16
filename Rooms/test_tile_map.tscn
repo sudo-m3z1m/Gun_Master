@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdjy0cnvedtt8" path="res://Prefabs/Classes/save_handler.tscn" id="2_301yc"]
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
 [ext_resource type="PackedScene" uid="uid://brnhbfajhs0fk" path="res://Prefabs/Characters/Jacket_Man.tscn" id="3_4cogd"]
-[ext_resource type="PackedScene" uid="uid://csqdb5fr8lu6i" path="res://Prefabs/Weapons/Range/Jesse.tscn" id="6_wmnl3"]
+[ext_resource type="PackedScene" uid="uid://hnnws34qyf12" path="res://Prefabs/Weapons/Range/Jesse.tscn" id="5_pq1e5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6b1vg"]
 vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -83,6 +83,6 @@ position = Vector2(942, 542)
 position = Vector2(316, 411)
 scale = Vector2(0.6, 0.6)
 
-[node name="range_weapon_class" parent="Jacket_Man" instance=ExtResource("6_wmnl3")]
-position = Vector2(338.333, 25)
-scale = Vector2(1.66667, 1.66667)
+[node name="Jesse" parent="." instance=ExtResource("5_pq1e5")]
+position = Vector2(518, 423)
+scale = Vector2(0.3, 0.3)

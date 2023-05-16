@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://df46xgrjjh0r"]
+
+[ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Prefabs/Classes/weapon.tscn" id="1_xlwlt"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_range.gd" id="2_3bchy"]
+
+[node name="weapon_range" instance=ExtResource("1_xlwlt")]
+script = ExtResource("2_3bchy")
+bullet_path = null

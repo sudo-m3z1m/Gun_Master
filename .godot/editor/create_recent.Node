@@ -1,7 +1,8 @@
-AnimationPlayer
-Marker2D
 AnimatedSprite2D
+Marker2D
 CollisionShape2D
+Area2D
+AnimationPlayer
 RigidBody2D
 PointLight2D
 ColorRect
@@ -29,5 +30,3 @@ TileMap
 NavigationRegion2D
 StaticBody2D
 Timer
-NavigationAgent2D
-Sprite2D

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://nvwgv8l3rtvp"]
+
+[ext_resource type="PackedScene" uid="uid://c7g1qcycc3lyi" path="res://Prefabs/Classes/weapon_throw.tscn" id="1_1is6u"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="2_4if6o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym7xs"]
+atlas = ExtResource("2_4if6o")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lija0"]
+atlas = ExtResource("2_4if6o")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhudy"]
+atlas = ExtResource("2_4if6o")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huste"]
+atlas = ExtResource("2_4if6o")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32a4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym7xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lija0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhudy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huste")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Jesse" instance=ExtResource("1_1is6u")]
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_32a4p")
+frame_progress = 0.269276
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(5, 0)
+scale = Vector2(0.3, 0.3)

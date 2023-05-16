@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7g1qcycc3lyi"]
+
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_throw.gd" id="1_co4vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlk5y"]
+size = Vector2(182, 103)
+
+[node name="weapon_throw" type="RigidBody2D" groups=["Weapon"]]
+gravity_scale = 0.0
+script = ExtResource("1_co4vw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+autoplay = "default"
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qlk5y")
+
+[connection signal="body_entered" from="." to="." method="_throwing_collision_checker"]

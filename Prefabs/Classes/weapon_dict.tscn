@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blmd2wsq7r272"]
+
+[ext_resource type="Script" path="res://Scrips/Game_Logic/Weapon_dict.gd" id="1_3hkhx"]
+
+[node name="Weapon_dict" type="Node2D"]
+script = ExtResource("1_3hkhx")

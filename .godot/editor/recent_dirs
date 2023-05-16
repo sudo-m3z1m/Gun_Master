@@ -1,12 +1,14 @@
-res://Prefabs/Weapons/Range
 res://Sprites/Weapons
+res://Prefabs/Weapons/Throwable_weapons
 res://Prefabs/Classes
 res://Scrips/Weapon_Logic
+res://Prefabs/Weapons/Range
+res://Scrips/Game_Logic
+res://Scrips
 res://Prefabs/Weapons/Projectiles
 res://Sprites
 res://Scrips/HUD
 res://HUD
-res://Scrips
 res://
 res://Prefabs/Weapons
 res://Scrips/Entity_Logic/Enemies_logic

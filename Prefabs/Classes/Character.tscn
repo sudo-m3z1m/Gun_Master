@@ -164,4 +164,5 @@ drag_bottom_margin = 0.1
 estimate_radius = false
 radius = 130.0
 
-[connection signal="body_entered" from="Area_for_Hurt_Box" to="." method="_collision_checker"]
+[connection signal="area_entered" from="Area_for_Hurt_Box" to="." method="_collision_checker"]
+[connection signal="body_entered" from="Area_for_Hurt_Box" to="." method="bodies_collision_checker"]

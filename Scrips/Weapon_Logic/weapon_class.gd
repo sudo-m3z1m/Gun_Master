@@ -44,12 +44,21 @@ func take_weapon() -> void:
 func rotate_to_target(angle_to_target, local_target_position: Vector2) -> void:
 	rotation = angle_to_target
 	#print(position, get_parent())
+<<<<<<< HEAD
 #	if local_target_position.x <= 0:
 #		if size.y > 0:
 #			size.y = -size.y
 #	if local_target_position.x > 0:
 #		if size.y <= 0:
 #			size.y = -size.y 
+=======
+	if local_target_position.x <= 0:
+		if size.y > 0:
+			size.y = -size.y
+	if local_target_position.x > 0:
+		if size.y <= 0:
+			size.y = -size.y 
+>>>>>>> 3e2cbb7ffff2e6c50bb47cf2eae4a6a44487fa97
 	#it may drop some conflicts >:
 
 func throw_self(aim_position: Vector2, target_position: Vector2) -> void: #I need to write it in player script

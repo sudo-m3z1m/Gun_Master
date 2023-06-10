@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4fjnfulweqqc"]
+
+[ext_resource type="PackedScene" uid="uid://l5or6esv0iwl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_d6wt7"]
+
+[node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
+speed = 200.0

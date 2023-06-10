@@ -113,9 +113,11 @@ height = 173.0
 radius = 45.0
 height = 173.0
 
-[node name="Character" type="CharacterBody2D" groups=["Persist", "Player"]]
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 z_as_relative = false
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_xlnxc")
 
 [node name="InputHandler" type="Node2D" parent="."]
@@ -136,7 +138,7 @@ position = Vector2(-4.17232e-06, -2.5)
 scale = Vector2(0.999998, 0.999998)
 shape = SubResource("21")
 
-[node name="Area_for_Hurt_Box" type="Area2D" parent="." groups=["Player"]]
+[node name="Area_for_Hurt_Box" type="Area2D" parent="."]
 
 [node name="HurtBox" type="CollisionShape2D" parent="Area_for_Hurt_Box"]
 position = Vector2(0, -2.49999)
@@ -159,10 +161,6 @@ drag_bottom_margin = 0.1
 [node name="HUD" parent="Camera" instance=ExtResource("6_cix6o")]
 
 [node name="HPBar" parent="Camera" instance=ExtResource("7_j3u71")]
-
-[node name="NavigationObstacle" type="NavigationObstacle2D" parent="."]
-estimate_radius = false
-radius = 130.0
 
 [connection signal="area_entered" from="Area_for_Hurt_Box" to="." method="_collision_checker"]
 [connection signal="body_entered" from="Area_for_Hurt_Box" to="." method="bodies_collision_checker"]

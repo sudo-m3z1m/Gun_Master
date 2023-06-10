@@ -6,6 +6,7 @@ class_name WEAPON
 @export_category("Weapon properties")
 @export var ID: int = 0
 @export var damage: int
+@export var cooldown: float
 @export_dir var throwable_version_path
 @export var length_from_player: float
 @export var animation: String
@@ -14,6 +15,8 @@ class_name WEAPON
 @onready var pivot = $Pivot
 @onready var hitbox = $HitBox
 @onready var weapon_dict = get_parent().get_node("/root/WeaponDict")
+
+var _ready_to_shot: bool
 
 const ENEMY_GROUP = ["Player", "Mob", "Projectile"]
 
@@ -29,9 +32,11 @@ func change_state() -> void:
 	if _is_picked == true:
 		pivot.position.x = length_from_player
 		hitbox.set_deferred("disabled", true)
+		_ready_to_shot = true
 		return
 	else:
 		pivot.position.x = 0
+		self.visible = false
 		return
 	
 func rotate_to_target(angle_to_target, global_scale: Vector2) -> void:
@@ -57,19 +62,11 @@ func throw_self(global_target_position: Vector2) -> void: #I need to write it in
 	var throwable_weapon = weapon_dict.main_dict[ID].instantiate()
 	throwable_weapon.global_position = pivot.global_position
 	throwable_weapon.rotation = rotation
-	get_parent().get_parent().add_child(throwable_weapon)
+	get_tree().current_scene.add_child(throwable_weapon)
+	throwable_weapon.set_owner(get_tree().current_scene)
 	throwable_weapon.apply_impulse(throw_velocity)
 	
 	_is_picked = false
-	self.visible = false
 
-func save():
-	var save_dict: Dictionary = {
-		"parent": get_parent().get_path(),#get_parent(),
-		"scene": get_scene_file_path(),
-		"pos_x": global_position.x,
-		"pos_y": global_position.y,
-		"size_x": get_scale().x,
-		"size_y": get_scale().y
-	}
-	return save_dict
+func _on_cooldown_timer_timeout():
+	_ready_to_shot = true

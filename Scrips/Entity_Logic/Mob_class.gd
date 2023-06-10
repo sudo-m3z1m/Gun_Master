@@ -8,7 +8,8 @@ class_name Mob_class
 @export var speed: float
 @export_dir var weapon_path
 
-@onready var player: Object = get_tree().current_scene.get_tree().get_nodes_in_group("Player")[0]
+#var player: Object
+@onready var player: Object = get_tree().get_nodes_in_group("Player")[0]
 
 var weapon: Node2D
 var _weapon_is_picked: bool = false
@@ -42,12 +43,3 @@ func attack(target):
 
 func kill():
 	call_deferred("queue_free")
-
-func save():
-	var save_dict = {
-		"name": self.get_name(),
-		"current_hp": health_points,
-		"pos_x": global_position.x,
-		"pos_y": global_position.y
-	}
-	return save_dict

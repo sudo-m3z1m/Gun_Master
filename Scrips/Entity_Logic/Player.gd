@@ -28,7 +28,6 @@ func _ready():
 	weapon_scale = get_scale() / K
 
 func _physics_process(delta):
-	pass
 	rotate_weapon()
 
 func choose_velocity(velocity, flip):
@@ -85,6 +84,7 @@ func take_weapon(_weapon):
 	weapon._is_picked = _weapon_is_picked
 	weapon.scale = weapon_scale
 	call_deferred("add_child", weapon)
+	weapon.call_deferred("set_owner", scene)
 	weapon.position = Vector2(0, 0)
 
 func throw_weapon(target_position):
@@ -94,7 +94,6 @@ func throw_weapon(target_position):
 func rotate_weapon():
 	if _is_killed == true or _weapon_is_picked == false:
 		return
-	
 	var angle_to_target = get_angle_to(get_global_mouse_position())
 	weapon.rotate_to_target(angle_to_target, weapon_scale)
 

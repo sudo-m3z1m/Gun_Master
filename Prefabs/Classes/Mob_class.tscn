@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Mob_class.gd" id="2"]
 
-[node name="Mob_class" type="CharacterBody2D" groups=["Mob", "Persist"]]
+[node name="MobClass" type="CharacterBody2D" groups=["Mob", "Persist"]]
 script = ExtResource("2")
 metadata/_edit_group_ = true
 
@@ -11,4 +11,15 @@ metadata/_edit_group_ = true
 [node name="HitBox" type="CollisionShape2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
+collision_mask = 3
+
+[node name="Agent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 200.0
+path_max_distance = 1000.0
+avoidance_enabled = true
+radius = 300.0
+max_speed = 1000.0
+
+[node name="PathUpdateTimer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true

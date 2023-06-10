@@ -1,7 +1,8 @@
-res://Sprites/Weapons
-res://Prefabs/Weapons/Throwable_weapons
+res://Prefabs/Entity
 res://Prefabs/Classes
 res://Scrips/Weapon_Logic
+res://Sprites/Weapons
+res://Prefabs/Weapons/Throwable_weapons
 res://Prefabs/Weapons/Range
 res://Scrips/Game_Logic
 res://Scrips
@@ -13,7 +14,6 @@ res://
 res://Prefabs/Weapons
 res://Scrips/Entity_Logic/Enemies_logic
 res://Scrips/Entity_Logic
-res://Prefabs/Entity
 res://Sprites/Mobs
 D:/GunKeeper/Demo
 res://Rooms

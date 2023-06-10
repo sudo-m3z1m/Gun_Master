@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var save_handler = get_node("/root/SaveHandler")
+
 func _enable(enable = true):
 	if enable:
 		$Display.show()
@@ -20,12 +22,10 @@ func _on_ContinueButton_pressed():
 	_enable(false)
 
 func _on_SaveButton_pressed():
-	var save = get_parent().get_parent().get_parent().get_node("Save_handler")
-	save.save_game()
+	save_handler.pack_and_save_scene(get_tree().current_scene)
 
 func _on_LoadButton_pressed():
-	var save = get_parent().get_parent().get_parent().get_node("Save_handler")
-	save.load_game()
+	save_handler.load_saved_scene()
 	get_tree().paused = false
 	_enable(false)
 

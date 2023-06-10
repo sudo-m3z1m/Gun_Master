@@ -1,8 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://hnnws34qyf12"]
+[gd_scene load_steps=19 format=3 uid="uid://hnnws34qyf12"]
 
 [ext_resource type="PackedScene" uid="uid://df46xgrjjh0r" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Jesse.gd" id="2_8wxgh"]
+[ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_jfqjk"]
 [ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="3_x2v5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnev2"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3bqw"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yo8u"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56tx8"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1452"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j6nx"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bas31"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrher"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u855l"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmak0"]
 atlas = ExtResource("3_x2v5b")
@@ -24,6 +60,38 @@ region = Rect2(256, 256, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bnev2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3bqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yo8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56tx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1452")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j6nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bas31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrher")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u855l")
+}],
+"loop": false,
+"name": &"SCREAM",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rmak0")
 }, {
 "duration": 1.0,
@@ -36,7 +104,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_o44ho")
 }],
 "loop": true,
-"name": &"default",
+"name": &"STANDART",
 "speed": 5.0
 }]
 
@@ -44,17 +112,22 @@ animations = [{
 size = Vector2(156, 84)
 
 [node name="Jesse" instance=ExtResource("1_vltok")]
-script = ExtResource("2_8wxgh")
-poison_damage = 0
+bullet_path = "res://Prefabs/Weapons/Projectiles/poison_projectile.tscn"
 damage = 25
+cooldown = 1.0
 throwable_version_path = "res://Prefabs/Weapons/Throwable_weapons/jesse_throw.tscn"
 length_from_player = 200.0
+animation = "SCREAM"
 throw_strength = 300.0
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_4rn02")
-autoplay = "default"
-frame_progress = 0.863973
+animation = &"SCREAM"
+autoplay = "STANDART"
+frame_progress = 0.686391
 
 [node name="HitBox" parent="." index="1"]
 shape = SubResource("RectangleShape2D_fh3vx")
+
+[node name="Cooldown_Timer" parent="." index="2"]
+wait_time = 0.1

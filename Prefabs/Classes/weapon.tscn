@@ -10,3 +10,11 @@ script = ExtResource("1_n33ru")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Cooldown_Timer" to="." method="_on_cooldown_timer_timeout"]

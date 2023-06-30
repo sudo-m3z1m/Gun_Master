@@ -9,8 +9,7 @@ class_name projectile
 var direction: Vector2
 
 func shot(_target_position) -> void:
-	direction = _target_position - global_position
-	direction = direction.limit_length(1)
+	direction = global_position.direction_to(_target_position)
 	
 	var velocity = direction * projectile_speed
 	linear_velocity = velocity

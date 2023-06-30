@@ -17,6 +17,14 @@ func _ready():
 func _process(delta):
 	update_timer_hud()
 
+func start_game() -> void:
+	reset_game()
+	start_wave()
+
+func reset_game():
+	#TODO: room and hud reset
+	pass
+
 func start_wave() -> void:
 	update_wave_count()
 	self.start(wave_time)
@@ -51,14 +59,16 @@ func hide_shop() -> void:
 	start_wave()
 
 func restock(_shop) -> void:
-	var ammo: PackedScene = load("res://Prefabs/ShopProducts/ammo.tscn")
-	var hp: PackedScene = load("res://Prefabs/ShopProducts/health_points.tscn")
-	_shop.place_product(ammo, 0, randomise_product_quantity(), 3)
-	_shop.place_product(hp, 2, randomise_product_quantity(), 4)
+	_shop.restock()
+	
+#	var ammo: PackedScene = load("res://Prefabs/ShopProducts/ammo.tscn")
+#	var hp: PackedScene = load("res://Prefabs/ShopProducts/health_points.tscn")
+#	_shop.place_product(ammo, 0, randomise_product_quantity(), 3)
+#	_shop.place_product(hp, 2, randomise_product_quantity(), 4)
 
-func randomise_product_quantity() -> int:
-	var quantity: int = randi_range(1, 5)
-	return quantity
+#func randomise_product_quantity() -> int:
+#	var quantity: int = randi_range(1, 5)
+#	return quantity
 
 func update_timer_hud() -> void:
 	if is_stopped():

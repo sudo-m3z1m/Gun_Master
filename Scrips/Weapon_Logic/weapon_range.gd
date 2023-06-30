@@ -18,10 +18,23 @@ func attack(_target_global_position: Vector2):
 	
 	ammo -= 1
 	$Cooldown_Timer.start(cooldown)
-	bullet_instantiate($Pivot/ShotPosition.global_position, _target_global_position)
+	
+	var _weapon_dir = get_weapon_direction()
+	var _shoot_pos: Vector2 = $Pivot/ShotPosition.global_position
+	var _target_dir = _shoot_pos.direction_to(_target_global_position)
+	
+	if _weapon_dir == _target_dir:
+		bullet_instantiate(_shoot_pos, _target_global_position)
+	else:
+		#Shoot to weapon direction
+		bullet_instantiate(_shoot_pos, _shoot_pos + _weapon_dir)
+	
 	
 	make_some_stuff()
 	shake_camera()
+
+func get_weapon_direction() -> Vector2:
+	return Vector2.RIGHT.rotated(global_rotation)
 
 func shake_camera() -> void:
 	var camera: Camera2D = get_parent().get_node("Camera")

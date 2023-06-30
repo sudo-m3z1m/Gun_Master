@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg6t70jp6fiwh"]
+
+[ext_resource type="PackedScene" uid="uid://c0jhmwbs88uo8" path="res://Prefabs/Classes/product.tscn" id="1_mmbr2"]
+[ext_resource type="Texture2D" uid="uid://yqhxgovvt3ot" path="res://Sprites/Other/jesseAmmo.png" id="2_lgeip"]
+
+[node name="ammo" instance=ExtResource("1_mmbr2")]
+scale = Vector2(0.796875, 0.828125)
+texture = ExtResource("2_lgeip")
+cost = 10
+content = 8
+is_ammo = true
+
+[node name="cost" parent="." index="0"]
+anchor_left = 0.505
+anchor_top = 0.969
+anchor_right = 0.505
+anchor_bottom = 0.969
+offset_left = -96.0126
+offset_top = -95.0509
+offset_right = -32.0126
+offset_bottom = -33.0509
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 50

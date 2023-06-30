@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6e42q518bnel"]
+
+[ext_resource type="Script" path="res://Scrips/HUD/Money.gd" id="1_1ubwy"]
+[ext_resource type="Texture2D" uid="uid://dqk31jlnt47d6" path="res://Sprites/dollar.png" id="2_japh1"]
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://fonts/VCRosdNEUE.ttf" id="3_je0p1"]
+
+[node name="MoneyScore" type="Node2D"]
+script = ExtResource("1_1ubwy")
+
+[node name="MoneyHUD" type="CanvasLayer" parent="."]
+
+[node name="Dollar" type="Sprite2D" parent="MoneyHUD"]
+position = Vector2(211, 292)
+scale = Vector2(0.308594, 0.320313)
+texture = ExtResource("2_japh1")
+
+[node name="Score" type="Label" parent="MoneyHUD"]
+offset_left = 276.0
+offset_top = 236.0
+offset_right = 430.0
+offset_bottom = 354.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_je0p1")
+theme_override_font_sizes/font_size = 65
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

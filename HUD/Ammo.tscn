@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyl7hxpj3tgys"]
+
+[ext_resource type="Script" path="res://Scrips/HUD/Ammo.gd" id="1_q7tkb"]
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://fonts/VCRosdNEUE.ttf" id="3_de57n"]
+
+[node name="AmmoScore" type="Node2D"]
+script = ExtResource("1_q7tkb")
+
+[node name="AmmoHUD" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="AmmoHUD"]
+offset_left = 1667.0
+offset_top = 887.0
+offset_right = 1821.0
+offset_bottom = 1005.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_de57n")
+theme_override_font_sizes/font_size = 85
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

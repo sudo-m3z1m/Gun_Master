@@ -3,9 +3,10 @@ extends RigidBody2D
 
 class_name WEAPON_THROW
 
-const ENEMY_GROUP = ["Mob", "Projectile"]
+const ENEMY_GROUP = ["Mob"]
 
 func _throwing_collision_checker(body):
-	for i in ENEMY_GROUP:
-		if body.is_in_group(i):
-			body.queue_free()
+	pass
+#	for i in ENEMY_GROUP:
+#		if body.is_in_group(i):
+#			body.queue_free()

@@ -10,37 +10,39 @@ class_name WEAPON
 @export_dir var throwable_version_path
 @export var length_from_player: float
 @export var animation: String
-@export var throw_strength: float #might be a const :>
 
-@onready var pivot = $Pivot
-@onready var hitbox = $HitBox
+@onready var pivot: Node = $Pivot
+@onready var hitbox: Node = $HitBox
 @onready var weapon_dict = get_parent().get_node("/root/WeaponDict")
 
-var _ready_to_shot: bool
+const ENEMY_GROUP: Array = ["Mob", "Projectile"]
+const throw_strength: float = 600
 
-const ENEMY_GROUP = ["Player", "Mob", "Projectile"]
-
-var _is_picked: bool = false:
-	set(is_picked):
-		_is_picked = is_picked
+var _is_throwed: bool = false
+var _is_active: bool = false:
+	set(is_active):
+		if _is_throwed == true:
+			return
+		_is_active = is_active
 		change_state()
 
 func _ready():
+	load_to_items()
 	throwable_load()
 
 func change_state() -> void:
-	if _is_picked == true:
+	if _is_active == true:
 		pivot.position.x = length_from_player
 		hitbox.set_deferred("disabled", true)
-		_ready_to_shot = true
+		self.visible = true
 		return
 	else:
 		pivot.position.x = 0
 		self.visible = false
 		return
-	
+
 func rotate_to_target(angle_to_target, global_scale: Vector2) -> void:
-	if _is_picked == false:
+	if _is_active == false:
 		return
 	rotation = angle_to_target
 	if abs(rotation_degrees) >= 90:
@@ -49,9 +51,12 @@ func rotate_to_target(angle_to_target, global_scale: Vector2) -> void:
 		scale.y = global_scale.y
 
 func throwable_load():
-	weapon_dict.main_dict[ID] = load(throwable_version_path)
+	weapon_dict.main_dict[ID] = load(throwable_version_path) # it's literally useless. I need to rewrite this
 
-func throw_self(global_target_position: Vector2) -> void: #I need to write it in player script
+func load_to_items():
+	$"/root/Items".items[ID] = load(scene_file_path)
+
+func throw_self(global_target_position: Vector2) -> void:
 	var throw_velocity = global_position.\
 	direction_to(global_target_position) * 100000
 	if throw_velocity.length() < 1:
@@ -66,7 +71,5 @@ func throw_self(global_target_position: Vector2) -> void: #I need to write it in
 	throwable_weapon.set_owner(get_tree().current_scene)
 	throwable_weapon.apply_impulse(throw_velocity)
 	
-	_is_picked = false
-
-func _on_cooldown_timer_timeout():
-	_ready_to_shot = true
+	_is_active = false
+	return

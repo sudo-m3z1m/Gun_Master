@@ -52,16 +52,18 @@ radius = 56.0
 height = 150.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yy7ht"]
-radius = 300.0
+radius = 450.0
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 1)
+collision_mask = 2
 script = ExtResource("2_a1h6i")
-cooldown_time = 1.0
+cooldown_time = 5.0
 idle_time = 1.0
 prepare_time = 1.0
+stunning_time = 0.1
 health_points = 100.0
 speed = 200.0
 
@@ -83,7 +85,6 @@ target_position = Vector2(0, 0)
 [node name="IdleAndPrepareTimer" type="Timer" parent="." index="6"]
 
 [node name="AreaForDashes" type="Area2D" parent="." index="7"]
-collision_mask = 2
 
 [node name="ZoneForDashes" type="CollisionShape2D" parent="AreaForDashes" index="0"]
 shape = SubResource("CircleShape2D_yy7ht")

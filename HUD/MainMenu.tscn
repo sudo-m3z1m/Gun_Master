@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4f37tnsy8tlo"]
+[gd_scene load_steps=4 format=3 uid="uid://b4f37tnsy8tlo"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
+[ext_resource type="Texture2D" uid="uid://beqfmm8fuvkve" path="res://Sprites/Background_sprites/38fba017-b817-4305-977f-ccec657c9937.jpg" id="2_8yjjp"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
 
 [node name="Control" type="Control"]
@@ -24,13 +25,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1606.0
-offset_top = -1445.0
-offset_right = -1606.0
-offset_bottom = -605.0
+offset_left = -1493.0
+offset_top = -1423.0
+offset_right = 457.0
+offset_bottom = 379.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.83399, 1.3668)
+texture = ExtResource("2_8yjjp")
 expand_mode = 4
 
 [node name="Label" type="Label" parent="Show_handler"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://hnnws34qyf12"]
+[gd_scene load_steps=20 format=3 uid="uid://hnnws34qyf12"]
 
 [ext_resource type="PackedScene" uid="uid://df46xgrjjh0r" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
 [ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_jfqjk"]
 [ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="3_x2v5b"]
+[ext_resource type="AudioStream" uid="uid://cnqyu8yrvuust" path="res://Audio/GunShots/Guns/zapsplat_science_fiction_weapon_gun_shoot_003_32196.mp3" id="4_6kbpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnev2"]
 atlas = ExtResource("3_jfqjk")
@@ -113,21 +114,25 @@ size = Vector2(156, 84)
 
 [node name="Jesse" instance=ExtResource("1_vltok")]
 bullet_path = "res://Prefabs/Weapons/Projectiles/poison_projectile.tscn"
+shake_strength = 15.0
+ammo = 12
 damage = 25
 cooldown = 1.0
 throwable_version_path = "res://Prefabs/Weapons/Throwable_weapons/jesse_throw.tscn"
 length_from_player = 200.0
 animation = "SCREAM"
-throw_strength = 300.0
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_4rn02")
 animation = &"SCREAM"
 autoplay = "STANDART"
-frame_progress = 0.686391
 
 [node name="HitBox" parent="." index="1"]
 shape = SubResource("RectangleShape2D_fh3vx")
 
 [node name="Cooldown_Timer" parent="." index="2"]
 wait_time = 0.1
+
+[node name="AudioPlayer" parent="." index="4"]
+stream = ExtResource("4_6kbpr")
+volume_db = -10.0

@@ -19,6 +19,9 @@ config/icon="res://icon.png"
 
 WeaponDict="*res://Prefabs/Classes/weapon_dict.tscn"
 SaveHandler="*res://Prefabs/Classes/save_handler.tscn"
+Items="*res://Scrips/Game_Logic/items.gd"
+GameManager="*res://Prefabs/Classes/game_manager.tscn"
+MainInterface="*res://HUD/main_interface.tscn"
 
 [display]
 

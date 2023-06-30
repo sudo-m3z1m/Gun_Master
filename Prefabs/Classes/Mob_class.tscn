@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Mob_class.gd" id="2"]
 
-[node name="MobClass" type="CharacterBody2D" groups=["Mob", "Persist"]]
+[node name="MobClass" type="CharacterBody2D" groups=["Mob"]]
 script = ExtResource("2")
+money_path = "res://Prefabs/ShopProducts/money.tscn"
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -14,7 +15,6 @@ metadata/_edit_group_ = true
 collision_mask = 3
 
 [node name="Agent" type="NavigationAgent2D" parent="."]
-path_desired_distance = 200.0
 path_max_distance = 1000.0
 avoidance_enabled = true
 radius = 300.0

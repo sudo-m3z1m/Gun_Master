@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cspl2x5cwnqwe"]
+
+[ext_resource type="Script" path="res://Scrips/Game_Logic/game_manager.gd" id="1_4fh0d"]
+
+[node name="GameManager" type="Timer"]
+one_shot = true
+script = ExtResource("1_4fh0d")
+wave_time = 6.0
+mob_time = 1.0
+enemy_path = "res://Prefabs/Entity/Ancient_mob.tscn"
+
+[node name="MobSpawnTimer" type="Timer" parent="."]

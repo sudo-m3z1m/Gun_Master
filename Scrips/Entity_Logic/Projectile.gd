@@ -18,7 +18,7 @@ func shot(_target_position) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player") or body.is_in_group("Mob"):
-		Damage_MANAGE._give_damage(self, body, direction)
+		DAMAGE_MANAGER._give_damage(self, body, direction)
 		queue_free()
 
 func disapear():

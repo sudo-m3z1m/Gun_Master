@@ -1,5 +1,3 @@
-@icon("res://Sprites/Mobs/MeleeMob.png")
-
 extends CharacterBody2D
 
 class_name Mob_class
@@ -7,6 +5,7 @@ class_name Mob_class
 @export var health_points: float
 @export var speed: float
 @export_dir var weapon_path
+@export_dir var money_path
 
 #var player: Object
 @onready var player: Object = get_tree().get_nodes_in_group("Player")[0]
@@ -37,9 +36,15 @@ func spawn(position: Vector2, scene):
 	scene.call_deferred("add_child", self)
 	weapon_ready()
 	#Animations
-	
+
+func instantiate_money() -> void:
+	var money: Area2D = load(money_path).instantiate()
+	money.position = position
+	get_tree().current_scene.call_deferred("add_child", money)
+
 func attack(target):
 	weapon._attack(target.global_position)
 
 func kill():
+	instantiate_money()
 	call_deferred("queue_free")

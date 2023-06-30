@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0jhmwbs88uo8"]
+
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/product.gd" id="1_g04hd"]
+[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="2_tidtb"]
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://fonts/VCRosdNEUE.ttf" id="3_65kdh"]
+
+[node name="product" type="Sprite2D"]
+script = ExtResource("1_g04hd")
+
+[node name="cost" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 39.5
+anchor_bottom = 39.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_tidtb")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="quantity" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -81.0
+offset_right = 20.0
+offset_bottom = -41.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_65kdh")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1

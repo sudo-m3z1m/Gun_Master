@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bimrblug0pfa"]
+[gd_scene load_steps=3 format=3 uid="uid://exal7rul7a4v"]
 
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Prefabs/Classes/weapon.tscn" id="1_m33bp"]
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_melee.gd" id="2_sxu56"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_melee.gd" id="2_3uf12"]
 
 [node name="weapon_melee" instance=ExtResource("1_m33bp")]
-script = ExtResource("2_sxu56")
+script = ExtResource("2_3uf12")
+
+[node name="area_for_hurt" type="Area2D" parent="Pivot" index="1"]
+
+[node name="hurtbox" type="CollisionShape2D" parent="Pivot/area_for_hurt" index="0"]
+
+[connection signal="body_entered" from="Pivot/area_for_hurt" to="." method="give_damage"]

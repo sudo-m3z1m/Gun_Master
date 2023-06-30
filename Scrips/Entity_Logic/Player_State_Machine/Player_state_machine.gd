@@ -9,14 +9,14 @@ var main_state = idle_state
 func _ready():
 	main_state.start(player)
 
-func define_state(have_input):
+func define_state(velocity):
 	var _next_state
-	match have_input:
-		true:
-			_next_state = move_state
-			change_state(_next_state)
-		false:
+	match velocity:
+		Vector2(0, 0):
 			_next_state = idle_state
+			change_state(_next_state)
+		_:
+			_next_state = move_state
 			change_state(_next_state)
 
 func change_state(next_state):

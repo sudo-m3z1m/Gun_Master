@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqfj1jdlfhdsr"]
+
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/money.gd" id="1_0ku8c"]
+[ext_resource type="Texture2D" uid="uid://dgg6ani40kpsn" path="res://Sprites/Other/Money.png" id="1_xgt5x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pebb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xgt5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx11a"]
+radius = 59.0085
+
+[node name="Money" type="Area2D"]
+script = ExtResource("1_0ku8c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.546875, 0.53125)
+sprite_frames = SubResource("SpriteFrames_7pebb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bx11a")

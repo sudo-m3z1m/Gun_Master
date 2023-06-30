@@ -8,16 +8,15 @@ signal killed
 	set(hp):
 		$Camera/HPBar._check_value(hp)
 		health_points = hp
-
+@export var money: int:
+	set(mon):
+		money = mon
+		$Camera/MoneyScore.update_score(mon)
 const K = 1.2
 
 var weapons: Array = []
-var weapon = null
+var current_weapon = null
 var weapon_scale
-var id_for_weapons: Dictionary
-var id_for_rigid: Dictionary
-
-var _weapon_is_picked: bool = false
 
 var _is_killed: bool = false
 
@@ -29,73 +28,73 @@ func _ready():
 
 func _physics_process(delta):
 	rotate_weapon()
-
-func choose_velocity(velocity, flip):
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	
-	$AnimatedSprite2D.flip_h = flip
-	
-	set_velocity(velocity)
 	move_and_slide()
-	velocity = velocity
-	
+
+func choose_velocity(_velocity, flip):
+	if _velocity.length() > 0:
+		_velocity = _velocity.normalized() * speed
+	$AnimatedSprite2D.flip_h = flip
+
+	set_velocity(_velocity)
+
 func actions_handler(action):
 	if action == "Escape":
 		pause()
 	
-	if !weapon:
+	if !current_weapon:
 		return
 	
-	if _weapon_is_picked and _is_killed == false:
+	if current_weapon._is_active and _is_killed == false:
 		match action:
 			"Attack":
 				attack()
 			"Throw":
 				throw_weapon(get_global_mouse_position())
-			#"ScrollUp":
-				#weapon_scroll(true)
+	if weapons[0] and _is_killed == false:
+		match action:
+			"ScrollUp":
+				change_weapon_from_array(weapons.find(current_weapon) + 1)
+			"ScrollDown":
+				change_weapon_from_array(weapons.find(current_weapon) - 1)
 
 func attack():
-	weapon._attack(get_global_mouse_position())
-	
-func weapon_scroll():
-	pass
+	current_weapon.attack(get_global_mouse_position())
 
 func _collision_checker(area):
-	if area.is_in_group("Weapon") and _weapon_is_picked == false:
+	if area.is_in_group("Weapon"):
 		take_weapon(area)
 		scene.remove_child(area)
 
 func bodies_collision_checker(body):
-	if _is_killed == false and _weapon_is_picked == false:
-		for i in weapons:
-			if i.visible == false \
-			and body.get_name() == i.get_name():
-				i.visible = true
-				_weapon_is_picked = true
-				i._is_picked = _weapon_is_picked
-				body.queue_free()
+	if _is_killed == true:
+		return
+	for weapon in weapons:
+		if weapon._is_throwed == true\
+		and weapon.get_name() == body.get_name():
+			body.queue_free()
+			weapon._is_throwed = false
+			change_weapon_from_array(weapons.find(weapon))
 
 func take_weapon(_weapon):
-	_weapon_is_picked = true
-	weapon = _weapon
-	weapons.append(weapon)
-	weapon._is_picked = _weapon_is_picked
-	weapon.scale = weapon_scale
-	call_deferred("add_child", weapon)
-	weapon.call_deferred("set_owner", scene)
-	weapon.position = Vector2(0, 0)
+	weapons.append(_weapon)
+	
+	change_weapon_from_array(-1)
+	current_weapon.scale = weapon_scale
+	call_deferred("add_child", current_weapon)
+	current_weapon.call_deferred("set_owner", scene)
+	current_weapon.position = Vector2(0, 0)
+	if current_weapon.ammo:
+		update_ammo(current_weapon.ammo)
 
 func throw_weapon(target_position):
-	_weapon_is_picked = false
-	weapon.throw_self(target_position)
+	current_weapon.throw_self(target_position)
+	current_weapon._is_throwed = true
 
 func rotate_weapon():
-	if _is_killed == true or _weapon_is_picked == false:
+	if _is_killed == true or !current_weapon:
 		return
 	var angle_to_target = get_angle_to(get_global_mouse_position())
-	weapon.rotate_to_target(angle_to_target, weapon_scale)
+	current_weapon.rotate_to_target(angle_to_target, weapon_scale)
 
 func pause():
 	var pause_screen = $Camera/HUD
@@ -112,15 +111,18 @@ func kill():
 
 	emit_signal("killed", _is_killed)
 
-func save():
-	var save_dict = {
-		"parent": get_parent().get_path(),
-		"scene": get_scene_file_path(),
-		"pos_x": global_position.x,
-		"pos_y": global_position.y,
-		"weapon": weapon,
-		"current_hp": health_points,
-		"size_x": get_scale().x,
-		"size_y": get_scale().y
-	}
-	return save_dict
+func change_weapon_from_array(next_gun_index) -> void:
+	if !current_weapon:
+		current_weapon = weapons[-1]
+		weapons[-1]._is_active = true
+		return
+	
+	next_gun_index %= weapons.size()
+	for buff_weapon in weapons:
+		buff_weapon._is_active = false
+	current_weapon = weapons[next_gun_index]
+	weapons[next_gun_index]._is_active = true
+	return
+
+func update_ammo(ammo):
+	$Camera/AmmoScore.update_ammo_score(ammo)

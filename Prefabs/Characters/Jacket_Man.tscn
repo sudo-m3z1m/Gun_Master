@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://brnhbfajhs0fk"]
+[gd_scene load_steps=17 format=3 uid="uid://brnhbfajhs0fk"]
 
-[ext_resource type="PackedScene" uid="uid://caipthveg7qqr" path="res://Prefabs/Classes/Character.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://ujrrk8nci0lk" path="res://Prefabs/Classes/Character.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="2_ai1gb"]
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3_mpl8u"]
 
@@ -101,10 +101,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mma35"]
-radius = 45.0
-height = 97.0002
-
 [node name="Jacket_Man" instance=ExtResource("1")]
 health_points = 100.0
 
@@ -114,4 +110,3 @@ frame = 3
 
 [node name="HitBox" parent="." index="3"]
 position = Vector2(-1.90735e-06, -2.5)
-shape = SubResource("CapsuleShape2D_mma35")

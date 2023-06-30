@@ -1,4 +1,4 @@
-@icon("res://Sprites/Mobs/MeleeMob.png")
+#@icon("res://Sprites/Mobs/MeleeMob.png")
 
 extends CharacterBody2D
 

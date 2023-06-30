@@ -5,3 +5,9 @@
 
 [node name="weapon_melee" instance=ExtResource("1_m33bp")]
 script = ExtResource("2_sxu56")
+ID = null
+damage = null
+cooldown = null
+length_from_player = null
+animation = null
+throw_strength = null

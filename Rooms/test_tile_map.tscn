@@ -75,12 +75,13 @@ layer_2/z_index = 5
 layer_2/tile_data = PackedInt32Array()
 
 [node name="EnemySpawnPos" type="Marker2D" parent="."]
-position = Vector2(942, 542)
+position = Vector2(1089, 444)
 
 [node name="Jacket_Man" parent="." groups=["Persist"] instance=ExtResource("3_4cogd")]
-position = Vector2(316, 411)
+position = Vector2(304, 298)
 scale = Vector2(0.6, 0.6)
 
 [node name="Jesse" parent="." instance=ExtResource("5_pq1e5")]
-position = Vector2(518, 423)
+position = Vector2(411, 400)
 scale = Vector2(0.3, 0.3)
+ID = null

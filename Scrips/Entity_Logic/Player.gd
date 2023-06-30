@@ -111,16 +111,3 @@ func kill():
 	_is_killed = true
 
 	emit_signal("killed", _is_killed)
-
-func save():
-	var save_dict = {
-		"parent": get_parent().get_path(),
-		"scene": get_scene_file_path(),
-		"pos_x": global_position.x,
-		"pos_y": global_position.y,
-		"weapon": weapon,
-		"current_hp": health_points,
-		"size_x": get_scale().x,
-		"size_y": get_scale().y
-	}
-	return save_dict

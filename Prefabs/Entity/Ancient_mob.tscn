@@ -52,14 +52,14 @@ radius = 56.0
 height = 150.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yy7ht"]
-radius = 300.0
+radius = 450.0
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 1)
 script = ExtResource("2_a1h6i")
-cooldown_time = 1.0
+cooldown_time = 5.0
 idle_time = 1.0
 prepare_time = 1.0
 health_points = 100.0

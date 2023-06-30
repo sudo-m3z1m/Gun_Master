@@ -14,7 +14,6 @@ metadata/_edit_group_ = true
 collision_mask = 3
 
 [node name="Agent" type="NavigationAgent2D" parent="."]
-path_desired_distance = 200.0
 path_max_distance = 1000.0
 avoidance_enabled = true
 radius = 300.0

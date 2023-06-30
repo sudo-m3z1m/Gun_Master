@@ -6,9 +6,9 @@ enum STATES{IDLE, MOVING, PREPARE, ATTACK}
 @export var idle_time: float
 @export var prepare_time: float
 
-var real_state: int = STATES.MOVING
 var dash_strength: float = 1000
 var _can_attack: bool = true
+var real_state: int = STATES.MOVING
 
 func _ready():
 	$PathUpdateTimer.timeout.connect(make_path)
@@ -16,11 +16,16 @@ func _ready():
 
 func _physics_process(delta):
 	move()
+	prints("player pos:", player.global_position, "target_pos:", \
+	$Agent.get_target_position(), "pos:", global_position)
 	
 func change_state(next_state: int) -> void:
 	if real_state == next_state:
 		return
-
+	
+	prints("real state:", real_state, "next state:", next_state)
+	prints("player pos:", player.global_position, "target_pos:", \
+	$Agent.get_target_position(), "pos:", global_position)
 	real_state = next_state
 	match next_state:
 		STATES.IDLE:
@@ -75,8 +80,7 @@ func idle_prepare_timer_out():
 
 func _on_area_for_dashes_body_entered(body) -> void:
 	for group in attacked_groups:
-		if body.is_in_group(group) and _can_attack\
-		and $RayCast2D.is_colliding() == false:
+		if body.is_in_group(group) and _can_attack:
 			change_state(STATES.PREPARE)
 
 func cooldown_out():

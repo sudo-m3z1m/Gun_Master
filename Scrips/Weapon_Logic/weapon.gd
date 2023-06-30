@@ -8,7 +8,7 @@ class_name WEAPON
 @export var damage: int
 @export var cooldown: float
 @export_dir var throwable_version_path
-@export var length_from_entity: float
+@export var length_from_player: float
 @export var animation: String
 @export var throw_strength: float #might be a const :>
 
@@ -30,7 +30,7 @@ func _ready():
 
 func change_state() -> void:
 	if _is_picked == true:
-		pivot.position.x = length_from_entity
+		pivot.position.x = length_from_player
 		hitbox.set_deferred("disabled", true)
 		_ready_to_shot = true
 		return

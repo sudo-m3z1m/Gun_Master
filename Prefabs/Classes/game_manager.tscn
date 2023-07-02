@@ -6,7 +6,7 @@
 one_shot = true
 script = ExtResource("1_4fh0d")
 wave_time = 6.0
-mob_time = 1.0
+mob_time = 200.0
 enemy_path = "res://Prefabs/Entity/Ancient_mob.tscn"
 
 [node name="MobSpawnTimer" type="Timer" parent="."]

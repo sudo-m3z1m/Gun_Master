@@ -102,6 +102,7 @@ animations = [{
 }]
 
 [node name="Jacket_Man" instance=ExtResource("1")]
+max_speed = 400.0
 health_points = 100.0
 
 [node name="AnimatedSprite2D" parent="." index="2"]

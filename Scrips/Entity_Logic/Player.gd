@@ -3,7 +3,7 @@ class_name character
 
 signal killed
 
-@export var speed = 400
+@export var max_speed: float
 @export var health_points: float:
 	set(hp):
 		$Camera/HPBar._check_value(hp)
@@ -17,6 +17,9 @@ const K = 1.2
 var weapons: Array = []
 var current_weapon = null
 var weapon_scale
+#var character_move_velocity: Vector2 = Vector2.ZERO
+#var friction: float = 0.2
+#var player_acceleration: float = 100
 
 var _is_killed: bool = false
 
@@ -28,14 +31,18 @@ func _ready():
 
 func _physics_process(delta):
 	rotate_weapon()
+#	velocity = lerp(velocity, Vector2.ZERO, friction)
+#	velocity += character_move_velocity
+#	velocity = velocity.limit_length(max_speed) # * delta
 	move_and_slide()
 
-func choose_velocity(_velocity, flip):
-	if _velocity.length() > 0:
-		_velocity = _velocity.normalized() * speed
+func choose_velocity(_direction, flip):
+	if _direction.length() != 0:
+		velocity = velocity.move_toward(_direction * max_speed, 30)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, 50)
+#	character_move_velocity = _direction * player_acceleration
 	$AnimatedSprite2D.flip_h = flip
-
-	set_velocity(_velocity)
 
 func actions_handler(action):
 	if action == "Escape":

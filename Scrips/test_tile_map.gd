@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	spawn_enemy($EnemySpawnPos.global_position)
+	#spawn_enemy($EnemySpawnPos.global_position)
 #	get_node("/root/GameManager").start_wave()
 	GameManager.start_game()
 	

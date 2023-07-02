@@ -14,7 +14,7 @@ func randomise_product_quantity() -> int:
 	return quantity
 
 func restock() -> void:
-	#TODO: 
+	#TODO:
 	var ammo: PackedScene = load("res://Prefabs/ShopProducts/ammo.tscn")
 	var hp: PackedScene = load("res://Prefabs/ShopProducts/health_points.tscn")
 	place_product(ammo, PLACES.LEFT, randomise_product_quantity(), 3)

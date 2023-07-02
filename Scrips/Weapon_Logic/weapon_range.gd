@@ -29,7 +29,6 @@ func attack(_target_global_position: Vector2):
 		#Shoot to weapon direction
 		bullet_instantiate(_shoot_pos, _shoot_pos + _weapon_dir)
 	
-	
 	make_some_stuff()
 	shake_camera()
 

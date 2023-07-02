@@ -21,6 +21,9 @@ func start_game() -> void:
 	reset_game()
 	start_wave()
 
+func stop_game() -> void:
+	pass
+
 func reset_game():
 	#TODO: room and hud reset
 	pass

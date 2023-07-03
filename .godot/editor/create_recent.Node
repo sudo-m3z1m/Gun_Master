@@ -1,7 +1,8 @@
 Marker2D
-AnimatedSprite2D
+NavigationObstacle2D
 CollisionShape2D
 Area2D
+AnimatedSprite2D
 Label
 Timer
 PathFollow2D
@@ -11,7 +12,6 @@ SHOP_CELL
 TileMap
 Node2D
 RigidBody2D
-NavigationObstacle2D
 NavigationAgent2D
 NavigationRegion2D
 AudioStreamPlayer2D

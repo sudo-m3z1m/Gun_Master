@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjp4g8bjdrji2"]
+[gd_scene load_steps=10 format=3 uid="uid://bjp4g8bjdrji2"]
 
 [ext_resource type="Script" path="res://Scrips/test_tile_map.gd" id="1_jvyxb"]
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
-[ext_resource type="PackedScene" uid="uid://brnhbfajhs0fk" path="res://Prefabs/Characters/Jacket_Man.tscn" id="3_4cogd"]
 [ext_resource type="PackedScene" uid="uid://hnnws34qyf12" path="res://Prefabs/Weapons/Range/Jesse.tscn" id="5_pq1e5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
@@ -44,7 +43,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_go7hu")
 
@@ -80,15 +78,11 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 5
 layer_2/tile_data = PackedInt32Array()
 
-[node name="EnemySpawnPos" type="Marker2D" parent="." groups=["EnemySpawnPos"]]
-position = Vector2(831, 259)
-
-[node name="Jacket_Man" parent="." instance=ExtResource("3_4cogd")]
-position = Vector2(316, 411)
-scale = Vector2(0.6, 0.6)
+[node name="PlayerSpawnPos" type="Marker2D" parent="."]
+position = Vector2(923, 515)
 
 [node name="Jesse" parent="." instance=ExtResource("5_pq1e5")]
-position = Vector2(442, 453)
+position = Vector2(1078, 515)
 scale = Vector2(0.3, 0.3)
 damage = 50
 cooldown = 0.5

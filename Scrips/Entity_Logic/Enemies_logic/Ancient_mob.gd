@@ -6,6 +6,7 @@ enum STATES{IDLE, MOVING, PREPARE, ATTACK, STUN}
 @export var idle_time: float
 @export var prepare_time: float
 @export var stunning_time: float
+@export var damage: float
 
 var dash_strength: float = 1000
 var _can_attack: bool = true
@@ -13,6 +14,7 @@ var real_state: int = STATES.MOVING
 
 func _ready():
 	$PathUpdateTimer.timeout.connect(make_path)
+	$AttackArea.body_entered.connect(on_attack_body_entered)
 	$RayCast2D.add_exception(get_tree().get_first_node_in_group("Player"))
 
 func _physics_process(delta):
@@ -34,7 +36,7 @@ func change_state(next_state: int) -> void:
 		STATES.ATTACK:
 			attack($Agent.get_target_position())
 		STATES.STUN:
-			velocity = Vector2()
+			$Agent.set_velocity(Vector2.ZERO)
 			$IdleAndPrepareTimer.start(stunning_time)
 
 func make_path() -> void:
@@ -47,20 +49,22 @@ func make_path() -> void:
 	if $Agent.is_target_reachable() and real_state == STATES.MOVING:
 		next_navigate_point = $Agent.get_next_path_position()
 		direction_to_target = position.direction_to(next_navigate_point)
-		velocity = direction_to_target * speed
+		$Agent.set_velocity(direction_to_target * speed)
 
 func prepare_to_attack() -> void:
 	$Agent.set_target_position(player.global_position)
 	$PathUpdateTimer.stop()
 	$IdleAndPrepareTimer.start(prepare_time)
-	velocity = Vector2()
+	$Agent.set_velocity(Vector2.ZERO)
 
 func to_idle():
 	$IdleAndPrepareTimer.start(idle_time)
-	velocity = Vector2()
+	$AttackArea/AttackShape.disabled = true
+	$Agent.set_velocity(Vector2.ZERO)
 
 func attack(target_position: Vector2) -> void:
 	var dash_direction: Vector2
+	$AttackArea/AttackShape.disabled = false
 	dash_direction = (global_position.direction_to(target_position) * 10000).\
 	limit_length(dash_strength)
 	
@@ -69,6 +73,10 @@ func attack(target_position: Vector2) -> void:
 
 func attack_target_reached() -> void:
 	change_state(STATES.IDLE)
+
+func on_attack_body_entered(_body) -> void:
+	if real_state == STATES.ATTACK and _body.is_in_group("Player"):
+		DAMAGE_MANAGER._give_damage(self, _body, Vector2.ZERO)
 
 func idle_prepare_timer_out() -> void:
 	match real_state:
@@ -90,3 +98,6 @@ func cooldown_out() -> void:
 
 func stun_after_damage_take() -> void:
 	change_state(STATES.STUN)
+
+func _on_agent_velocity_computed(safe_velocity):
+	velocity = safe_velocity

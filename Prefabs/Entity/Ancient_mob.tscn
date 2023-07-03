@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c57wwvpgpwad4"]
+[gd_scene load_steps=13 format=3 uid="uid://c57wwvpgpwad4"]
 
 [ext_resource type="PackedScene" uid="uid://l5or6esv0iwl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Ancient_mob.gd" id="2_a1h6i"]
@@ -54,6 +54,10 @@ height = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_yy7ht"]
 radius = 450.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iw4xd"]
+radius = 70.0
+height = 214.0
+
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 z_index = 1
 y_sort_enabled = true
@@ -64,6 +68,7 @@ cooldown_time = 5.0
 idle_time = 1.0
 prepare_time = 1.0
 stunning_time = 0.1
+damage = 10.0
 health_points = 100.0
 speed = 200.0
 
@@ -74,6 +79,7 @@ autoplay = "IDLE"
 frame_progress = 0.969161
 
 [node name="HitBox" parent="." index="1"]
+modulate = Color(0, 0, 1, 1)
 position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_wjorx")
 
@@ -89,7 +95,14 @@ target_position = Vector2(0, 0)
 [node name="ZoneForDashes" type="CollisionShape2D" parent="AreaForDashes" index="0"]
 shape = SubResource("CircleShape2D_yy7ht")
 
+[node name="AttackArea" type="Area2D" parent="." index="8"]
+
+[node name="AttackShape" type="CollisionShape2D" parent="AttackArea" index="0"]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("CapsuleShape2D_iw4xd")
+
 [connection signal="target_reached" from="Agent" to="." method="attack_target_reached"]
+[connection signal="velocity_computed" from="Agent" to="." method="_on_agent_velocity_computed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="cooldown_out"]
 [connection signal="timeout" from="IdleAndPrepareTimer" to="." method="idle_prepare_timer_out"]
 [connection signal="body_entered" from="AreaForDashes" to="." method="_on_area_for_dashes_body_entered"]

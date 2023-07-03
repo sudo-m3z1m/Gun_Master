@@ -4,11 +4,14 @@ extends Timer
 @export var wave_time: float
 @export var mob_time: float
 @export_dir var enemy_path
+@export_dir var player_path
 
 var wave_count: int = 0
 
 const SHOP_PATH: String = "res://Prefabs/Buildings/shop.tscn"
 const SHOP_TIME: float = 15
+const PLAYER_SCALE: Vector2 = Vector2(0.6, 0.6)
+const MAX_MOB_COUNT: int = 15
 
 func _ready():
 	self.timeout.connect(timer_timeout)
@@ -19,14 +22,20 @@ func _process(delta):
 
 func start_game() -> void:
 	reset_game()
+	var _player = instantiate_player()
+	spawn_player(_player)
 	start_wave()
 
 func stop_game() -> void:
-	pass
+	#HUD
+	reset_game()
 
 func reset_game():
-	#TODO: room and hud reset
-	pass
+	$MobSpawnTimer.stop()
+	stop()
+	wave_count = 0
+	wave_time = 6
+	rm_mobs()
 
 func start_wave() -> void:
 	update_wave_count()
@@ -37,6 +46,16 @@ func finish_wave() -> void:
 	$MobSpawnTimer.stop()
 	rm_mobs()
 	show_shop()
+	call_deferred("set_coin_mag_targ")
+
+func instantiate_player() -> PhysicsBody2D:
+	return load(player_path).instantiate()
+
+func spawn_player(_player: PhysicsBody2D) -> void:
+	_player.set_scale(PLAYER_SCALE)
+	_player.global_position = get_node("/root/TestRoom/PlayerSpawnPos")\
+	.global_position
+	get_node("/root/TestRoom").add_child(_player)
 
 func spawn_enemy() -> void:
 	var enemy: CharacterBody2D = load(enemy_path).instantiate()
@@ -45,11 +64,14 @@ func spawn_enemy() -> void:
 	
 	enemy.spawn(mob_spawn_location.position, get_node("/root/TestRoom"))
 	enemy.set_scale(Vector2(0.5, 0.5))
-
+	
 func rm_mobs() -> void:
-	var mobs: Array = get_tree().get_nodes_in_group("Mob")
-	for mob in mobs:
-		mob.queue_free()
+	for mob in get_tree().get_nodes_in_group("Mob"):
+		REWARD_MANAGER.set_reward(mob, 1)
+	get_tree().call_group("Mob", "kill")
+
+func set_coin_mag_targ() -> void:
+	get_tree().call_group("Coin", "set_player", get_tree().get_first_node_in_group("Player"))
 
 func show_shop() -> void:
 	var shop: Node2D = load(SHOP_PATH).instantiate()
@@ -63,15 +85,6 @@ func hide_shop() -> void:
 
 func restock(_shop) -> void:
 	_shop.restock()
-	
-#	var ammo: PackedScene = load("res://Prefabs/ShopProducts/ammo.tscn")
-#	var hp: PackedScene = load("res://Prefabs/ShopProducts/health_points.tscn")
-#	_shop.place_product(ammo, 0, randomise_product_quantity(), 3)
-#	_shop.place_product(hp, 2, randomise_product_quantity(), 4)
-
-#func randomise_product_quantity() -> int:
-#	var quantity: int = randi_range(1, 5)
-#	return quantity
 
 func update_timer_hud() -> void:
 	if is_stopped():

@@ -15,12 +15,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bx11a"]
-radius = 59.0085
+radius = 18.0278
 
-[node name="Money" type="Area2D"]
+[node name="Money" type="Area2D" groups=["Coin"]]
 script = ExtResource("1_0ku8c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
 scale = Vector2(0.546875, 0.53125)
 sprite_frames = SubResource("SpriteFrames_7pebb")
 

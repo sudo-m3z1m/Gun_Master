@@ -14,12 +14,13 @@ signal killed
 		$Camera/MoneyScore.update_score(mon)
 const K = 1.2
 
+var friction: float = 45
+var acceleration: float = 90
 var weapons: Array = []
 var current_weapon = null
 var weapon_scale
 #var character_move_velocity: Vector2 = Vector2.ZERO
-#var friction: float = 0.2
-#var player_acceleration: float = 100
+
 
 var _is_killed: bool = false
 
@@ -38,9 +39,9 @@ func _physics_process(delta):
 
 func choose_velocity(_direction, flip):
 	if _direction.length() != 0:
-		velocity = velocity.move_toward(_direction * max_speed, 30)
+		velocity = velocity.move_toward(_direction.normalized() * max_speed, acceleration)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, 50)
+		velocity = velocity.move_toward(Vector2.ZERO, friction)
 #	character_move_velocity = _direction * player_acceleration
 	$AnimatedSprite2D.flip_h = flip
 
@@ -108,6 +109,11 @@ func pause():
 	pause_screen._enable()
 	get_tree().paused = true
 
+func check_hp(_damage) -> void:
+	health_points -= _damage
+	if health_points <= 0:
+		kill()
+
 func kill():
 	hide()
 	$Camera.set_enabled(false)
@@ -117,6 +123,7 @@ func kill():
 	_is_killed = true
 
 	emit_signal("killed", _is_killed)
+	GameManager.stop_game()
 
 func change_weapon_from_array(next_gun_index) -> void:
 	if !current_weapon:

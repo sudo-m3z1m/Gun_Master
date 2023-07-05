@@ -28,6 +28,7 @@ var _is_killed: bool = false
 @onready var screen = $Camera.get_viewport_rect().size
 
 func _ready():
+	$AnimatedSprite2D.frame_changed.connect(play_steps_audio)
 	weapon_scale = get_scale() / K
 
 func _physics_process(delta):
@@ -89,7 +90,7 @@ func take_weapon(_weapon):
 	change_weapon_from_array(-1)
 	current_weapon.scale = weapon_scale
 	call_deferred("add_child", current_weapon)
-	current_weapon.call_deferred("set_owner", scene)
+	current_weapon.call_deferred("set_owner", self)
 	current_weapon.position = Vector2(0, 0)
 	if current_weapon.ammo:
 		update_ammo(current_weapon.ammo)
@@ -140,3 +141,10 @@ func change_weapon_from_array(next_gun_index) -> void:
 
 func update_ammo(ammo):
 	$Camera/AmmoScore.update_ammo_score(ammo)
+
+func play_steps_audio():
+	if $AnimatedSprite2D.animation == "IDLE":
+		return
+	var pitch = randf_range(1, 1.5)
+	if $AnimatedSprite2D.frame == 2 or $AnimatedSprite2D.frame == 5:
+		SoundManager.steps_player.play()

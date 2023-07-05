@@ -13,15 +13,20 @@ config_version=5
 config/name="Gun Keeper"
 run/main_scene="res://HUD/MainMenu.tscn"
 config/features=PackedStringArray("4.0")
+boot_splash/bg_color=Color(0.0980392, 0.0980392, 0.0980392, 1)
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
 
 WeaponDict="*res://Prefabs/Classes/weapon_dict.tscn"
-SaveHandler="*res://Prefabs/Classes/save_handler.tscn"
 Items="*res://Scrips/Game_Logic/items.gd"
 GameManager="*res://Prefabs/Classes/game_manager.tscn"
 MainInterface="*res://HUD/main_interface.tscn"
+SoundManager="*res://Prefabs/Classes/sound_manager.tscn"
+SaveHandler="*res://Prefabs/Classes/save_handler.tscn"
 
 [display]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://chrlx8s1xkwf5"]
+[gd_scene load_steps=10 format=3 uid="uid://chrlx8s1xkwf5"]
 
 [ext_resource type="PackedScene" uid="uid://exal7rul7a4v" path="res://Prefabs/Classes/weapon_melee.tscn" id="1_8tbnr"]
 [ext_resource type="Texture2D" uid="uid://b84f27g3ufmwg" path="res://Sprites/Weapons/Ancient_bit.png" id="2_mwn74"]
+[ext_resource type="PackedScene" uid="uid://cc5ku5egjng8o" path="res://Prefabs/Weapons/Throwable_weapons/baseball_stick_throw.tscn" id="2_r7ely"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c84kt"]
 animations = [{
@@ -63,7 +64,7 @@ _data = {
 ID = 1
 damage = 25
 cooldown = 1.0
-throwable_version_path = "res://Prefabs/Weapons/Throwable_weapons/baseball_stick_throw.tscn"
+throwable_weapon = ExtResource("2_r7ely")
 length_from_player = 200.0
 animation = "melee_attack"
 

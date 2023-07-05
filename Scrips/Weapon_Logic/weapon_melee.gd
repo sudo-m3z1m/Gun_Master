@@ -4,6 +4,8 @@ class_name WEAPON_MELEE
 
 var target_global_position: Vector2
 
+var ammo: int = 0 #КОСТЫЛЬ
+
 func attack(_target_global_position: Vector2) -> void:
 	if $Cooldown_Timer.is_stopped() == false:
 		return

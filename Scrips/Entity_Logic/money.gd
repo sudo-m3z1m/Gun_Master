@@ -13,6 +13,7 @@ func _process(delta):
 
 func give_money_to_player(body) -> void:
 	if body.is_in_group("Player"):
+		SoundManager.coins_player.play()
 		body.money += 1
 		queue_free()
 

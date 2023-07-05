@@ -3,7 +3,6 @@ extends Node2D
 class_name SAVE_HANDLER
 
 const SAVE_FILE_DIRECTORY = "res://Saves/saves.tscn"
-@onready var root = get_tree().get_root()
 
 func pack_and_save_scene(_root):
 	var scene = PackedScene.new()

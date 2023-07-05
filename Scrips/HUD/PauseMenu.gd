@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var save_handler = get_node("/root/SaveHandler")
-
 func _enable(enable = true):
 	if enable:
 		$Display.show()
@@ -16,16 +14,16 @@ func _enable(enable = true):
 		$Display/LoadButton.disabled = true
 		$Display/ExitButton.disabled = true
 
-
 func _on_ContinueButton_pressed():
 	get_tree().paused = false
 	_enable(false)
 
 func _on_SaveButton_pressed():
-	save_handler.pack_and_save_scene(get_tree().current_scene)
+	var _scene: Node2D = get_tree().current_scene
+	SaveHandler.pack_and_save_scene(_scene)
 
 func _on_LoadButton_pressed():
-	save_handler.load_saved_scene()
+	SaveHandler.load_saved_scene()
 	get_tree().paused = false
 	_enable(false)
 

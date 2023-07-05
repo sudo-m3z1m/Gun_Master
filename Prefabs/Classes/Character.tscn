@@ -132,7 +132,7 @@ script = ExtResource("3_wy0ui")
 position = Vector2(0, -5.50001)
 scale = Vector2(0.716797, 0.785156)
 sprite_frames = SubResource("20")
-animation = &"IDLE"
+animation = &"MOVE"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 modulate = Color(0.360784, 0.74902, 0.00392157, 1)

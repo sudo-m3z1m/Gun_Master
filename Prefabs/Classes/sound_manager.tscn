@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://8xub48rdcp6a"]
+
+[ext_resource type="Script" path="res://Scrips/Game_Logic/sound_manager.gd" id="1_0kcpd"]
+[ext_resource type="AudioStream" uid="uid://cl5cdrlkvstri" path="res://Audio/Steps/Step2.mp3" id="1_aoa7v"]
+[ext_resource type="AudioStream" uid="uid://cvc773kcbpvuf" path="res://Audio/Items/coin.wav" id="2_8a5cs"]
+[ext_resource type="AudioStream" uid="uid://b8rkggc6gt6ek" path="res://Audio/Music/Main.mp3" id="2_d2ucy"]
+[ext_resource type="AudioStream" uid="uid://dvab43j7vpofj" path="res://Audio/Music/Shop.mp3" id="3_fhngu"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_0kcpd")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Main" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("2_d2ucy")
+volume_db = -5.0
+max_distance = 4000.0
+attenuation = 0.0281641
+panning_strength = 0.0
+
+[node name="Shop" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("3_fhngu")
+volume_db = -5.0
+max_distance = 4000.0
+attenuation = 0.0145786
+panning_strength = 0.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("1_aoa7v")
+max_distance = 4000.0
+attenuation = 0.00837323
+
+[node name="Coins" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("2_8a5cs")
+pitch_scale = 3.0
+max_distance = 4000.0
+attenuation = 0.00317286

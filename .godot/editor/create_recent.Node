@@ -1,3 +1,6 @@
+AudioStreamPlayer2D
+Node
+AudioStreamPlayer
 Marker2D
 NavigationObstacle2D
 CollisionShape2D
@@ -14,8 +17,6 @@ Node2D
 RigidBody2D
 NavigationAgent2D
 NavigationRegion2D
-AudioStreamPlayer2D
-AudioStreamPlayer
 AnimationPlayer
 PointLight2D
 ColorRect
@@ -29,4 +30,3 @@ PanelContainer
 Panel
 Line2D
 HSeparator
-VBoxContainer

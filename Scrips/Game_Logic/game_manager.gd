@@ -40,12 +40,14 @@ func reset_game():
 func start_wave() -> void:
 	update_wave_count()
 	self.start(wave_time)
+	SoundManager.main_player.play(1.5)
 	$MobSpawnTimer.start(mob_time)
 
 func finish_wave() -> void:
 	$MobSpawnTimer.stop()
 	rm_mobs()
 	show_shop()
+	SoundManager.main_player.stop()
 	call_deferred("set_coin_mag_targ")
 
 func instantiate_player() -> PhysicsBody2D:
@@ -58,6 +60,8 @@ func spawn_player(_player: PhysicsBody2D) -> void:
 	get_node("/root/TestRoom").add_child(_player)
 
 func spawn_enemy() -> void:
+	if get_tree().get_nodes_in_group("Mob").size() >= MAX_MOB_COUNT:
+		return
 	var enemy: CharacterBody2D = load(enemy_path).instantiate()
 	var mob_spawn_location: PathFollow2D = get_node("/root/TestRoom/MobPath/MobSpawnLocation")
 	mob_spawn_location.progress_ratio = randf()
@@ -76,11 +80,13 @@ func set_coin_mag_targ() -> void:
 func show_shop() -> void:
 	var shop: Node2D = load(SHOP_PATH).instantiate()
 	get_node("/root/TestRoom").add_child(shop)
+	SoundManager.shop_player.play(1)
 	start(SHOP_TIME)
 	restock(shop)
 
 func hide_shop() -> void:
 	get_node("/root/TestRoom/Shop").queue_free()
+	SoundManager.shop_player.stop()
 	start_wave()
 
 func restock(_shop) -> void:

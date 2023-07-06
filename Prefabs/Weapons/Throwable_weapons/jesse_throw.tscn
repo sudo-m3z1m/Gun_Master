@@ -43,6 +43,7 @@ animations = [{
 size = Vector2(160, 56.6667)
 
 [node name="Jesse" instance=ExtResource("1_1is6u")]
+constant_torque = 15.0
 
 [node name="Sprite" parent="." index="0"]
 scale = Vector2(0.3, 0.3)

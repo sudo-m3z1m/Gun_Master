@@ -1,19 +1,21 @@
 extends Node
 
+const K = 100 / 75
+
 @export var disabled: bool = false:
 	set(_disabled):
 		disabled = _disabled
 		disable_sounds(_disabled)
 
-var sound_volume: float = 100:
-	set(_new_volume):
-		update_sound_volume(_new_volume - sound_volume)
-		sound_volume = _new_volume
+var sound_volume: float = 75:
+	set(_new_volume_in_percent):
+		update_sound_volume(_new_volume_in_percent / K - sound_volume)
+		sound_volume = _new_volume_in_percent / K
 
-var music_volume: float = 100:
-	set(_new_volume):
-		update_music_volume(_new_volume - music_volume)
-		music_volume = _new_volume
+var music_volume: float = 75:
+	set(_new_volume_in_percent):
+		update_music_volume(_new_volume_in_percent - music_volume)
+		music_volume = _new_volume_in_percent / K
 
 @onready var sounds: Node = $Sounds
 @onready var music: Node = $Music
@@ -21,6 +23,9 @@ var music_volume: float = 100:
 @onready var shop_player: AudioStreamPlayer2D = $Music/Shop
 @onready var steps_player: AudioStreamPlayer2D = $Sounds/Steps
 @onready var coins_player: AudioStreamPlayer2D = $Sounds/Coins
+
+#func change_main_music(same_enums): maybe enums will be in one class
+#	pass
 
 func disable_sounds(disable: bool) -> void:
 	if disable:

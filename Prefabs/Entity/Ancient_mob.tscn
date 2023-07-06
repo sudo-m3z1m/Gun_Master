@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c57wwvpgpwad4"]
 
-[ext_resource type="PackedScene" uid="uid://l5or6esv0iwl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
+[ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Ancient_mob.gd" id="2_a1h6i"]
 [ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_g4rv4"]
 
@@ -62,13 +62,11 @@ height = 214.0
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 1)
-collision_mask = 2
 script = ExtResource("2_a1h6i")
-cooldown_time = 5.0
+cooldown_time = 2.0
 idle_time = 1.0
 prepare_time = 1.0
-stunning_time = 0.1
-damage = 10.0
+damage = 0.0
 health_points = 100.0
 speed = 200.0
 
@@ -82,10 +80,14 @@ frame_progress = 0.969161
 modulate = Color(0, 0, 1, 1)
 position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_wjorx")
+disabled = false
 
 [node name="RayCast2D" parent="." index="2"]
 target_position = Vector2(0, 0)
 collision_mask = 2
+
+[node name="Agent" parent="." index="3"]
+max_neighbors = 4
 
 [node name="CooldownTimer" type="Timer" parent="." index="5"]
 
@@ -102,7 +104,6 @@ shape = SubResource("CircleShape2D_yy7ht")
 modulate = Color(1, 1, 0, 1)
 shape = SubResource("CapsuleShape2D_iw4xd")
 
-[connection signal="target_reached" from="Agent" to="." method="attack_target_reached"]
 [connection signal="velocity_computed" from="Agent" to="." method="_on_agent_velocity_computed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="cooldown_out"]
 [connection signal="timeout" from="IdleAndPrepareTimer" to="." method="idle_prepare_timer_out"]

@@ -19,4 +19,4 @@ func give_damage(body) -> void:
 	var damage_velocity: Vector2 = global_position.direction_to(target_global_position)
 	for group in ENEMY_GROUP:
 		if body.is_in_group(group):
-			DAMAGE_MANAGER._give_damage(self, body, damage_velocity)
+			DAMAGE_MANAGER._give_damage(self, body, damage_velocity, 1.2)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://beh2mwcpbamds"]
+[gd_scene load_steps=5 format=3 uid="uid://beh2mwcpbamds"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/Settings.gd" id="1_0dd4f"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="1_rtbg7"]
+[ext_resource type="VideoStream" path="res://Audio/Music/Rick Astley - Never Gonna Give You Up (Official Music Video).ogv" id="3_d48pp"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_rh7db"]
 color = Color(1, 1, 1, 1)
@@ -16,11 +17,20 @@ grow_vertical = 2
 size_flags_vertical = 4
 script = ExtResource("1_0dd4f")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 126.0
+offset_bottom = 525.0
 grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -56,21 +66,72 @@ theme_override_styles/panel = SubResource("StyleBoxLine_rh7db")
 layout_mode = 2
 alignment = 1
 
-[node name="Volume" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="MusicVolume" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rtbg7")
 theme_override_font_sizes/font_size = 100
-text = "Volume"
+text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="Container" type="Container" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 size_flags_vertical = 4
-value = 15.0
+value = 100.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SoundVolume" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rtbg7")
+theme_override_font_sizes/font_size = 100
+text = "Sound Volume"
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rtbg7")
+theme_override_font_sizes/font_size = 100
+text = "Disable Music"
+horizontal_alignment = 1
+
+[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Video" type="VideoStreamPlayer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_d48pp")
+expand = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/CheckButton" to="." method="_on_check_button_pressed"]

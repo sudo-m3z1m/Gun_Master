@@ -8,6 +8,7 @@
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_0kcpd")
+disabled = true
 
 [node name="Music" type="Node" parent="."]
 

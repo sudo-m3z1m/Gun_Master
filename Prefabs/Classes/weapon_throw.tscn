@@ -1,12 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7g1qcycc3lyi"]
+[gd_scene load_steps=3 format=3 uid="uid://c7g1qcycc3lyi"]
 
 [ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_throw.gd" id="1_co4vw"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yvfjy"]
+friction = 0.5
+bounce = 1.0
+
 [node name="weapon_throw" type="RigidBody2D" groups=["Weapon"]]
+collision_layer = 2
 collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_yvfjy")
 gravity_scale = 0.0
+max_contacts_reported = 20
+contact_monitor = true
 linear_damp = 3.0
 script = ExtResource("1_co4vw")
+damage = 20.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 autoplay = "default"

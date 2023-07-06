@@ -1,15 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://l5or6esv0iwl"]
+[gd_scene load_steps=2 format=3 uid="uid://bq7s6qn6ax1tl"]
 
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Mob_class.gd" id="2"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/mob_class.gd" id="1_1fuvd"]
 
 [node name="MobClass" type="CharacterBody2D" groups=["Mob"]]
-script = ExtResource("2")
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_1fuvd")
 money_path = "res://Prefabs/ShopProducts/money.tscn"
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
@@ -17,6 +20,7 @@ collision_mask = 3
 [node name="Agent" type="NavigationAgent2D" parent="."]
 path_max_distance = 1000.0
 avoidance_enabled = true
+max_neighbors = 2
 max_speed = 1000.0
 
 [node name="PathUpdateTimer" type="Timer" parent="."]

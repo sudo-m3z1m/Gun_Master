@@ -34,7 +34,7 @@ func reset_game():
 	$MobSpawnTimer.stop()
 	stop()
 	wave_count = 0
-	wave_time = 6
+	#wave_time = 6
 	rm_mobs()
 
 func start_wave() -> void:

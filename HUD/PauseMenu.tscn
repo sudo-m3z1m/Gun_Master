@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bot6b6m7cn8v0"]
+[gd_scene load_steps=7 format=3 uid="uid://bot6b6m7cn8v0"]
 
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="1"]
 [ext_resource type="Script" path="res://Scrips/HUD/PauseMenu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="3_1kixc"]
 
 [sub_resource type="FontFile" id="1"]
 subpixel_positioning = 0
@@ -83,7 +84,7 @@ theme_override_styles/hover = SubResource("3")
 disabled = true
 text = "Continue"
 
-[node name="SaveButton" type="Button" parent="Display"]
+[node name="SettingsButton" type="Button" parent="Display"]
 custom_minimum_size = Vector2(370, 70)
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,6 +98,22 @@ offset_bottom = 45.0
 theme_override_fonts/font = SubResource("2")
 theme_override_styles/hover = SubResource("3")
 disabled = true
+text = "Settings"
+
+[node name="SaveButton" type="Button" parent="Display"]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 140.0
+theme_override_fonts/font = SubResource("2")
+theme_override_styles/hover = SubResource("3")
+disabled = true
 text = "Save"
 
 [node name="LoadButton" type="Button" parent="Display"]
@@ -107,9 +124,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 55.0
+offset_top = 145.0
 offset_right = 200.0
-offset_bottom = 145.0
+offset_bottom = 235.0
 theme_override_fonts/font = SubResource("2")
 theme_override_styles/hover = SubResource("3")
 disabled = true
@@ -123,15 +140,19 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = 155.0
+offset_top = 240.0
 offset_right = 200.0
-offset_bottom = 245.0
+offset_bottom = 330.0
 theme_override_fonts/font = SubResource("2")
 theme_override_styles/hover = SubResource("3")
 disabled = true
 text = "Save and Exit"
 
+[node name="Settings" parent="Display" instance=ExtResource("3_1kixc")]
+visible = false
+
 [connection signal="pressed" from="Display/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="button_down" from="Display/SettingsButton" to="." method="_on_settings_button_button_down"]
 [connection signal="pressed" from="Display/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="pressed" from="Display/LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="Display/ExitButton" to="." method="_on_ExitButton_pressed"]

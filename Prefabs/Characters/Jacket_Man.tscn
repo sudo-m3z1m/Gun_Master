@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://brnhbfajhs0fk"]
 
-[ext_resource type="PackedScene" uid="uid://ujrrk8nci0lk" path="res://Prefabs/Classes/Character.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bo3spxwjeyuxd" path="res://Prefabs/Classes/Character.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="2_ai1gb"]
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3_mpl8u"]
 

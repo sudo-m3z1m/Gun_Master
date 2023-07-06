@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf2tm7ixltvdl"]
+[gd_scene load_steps=4 format=3 uid="uid://deruisak1tlpe"]
 
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Projectile.gd" id="1_5pk7s"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/projectile.gd" id="1_5pk7s"]
 [ext_resource type="Texture2D" uid="uid://cl1qmj5mf4ep0" path="res://Sprites/light.png" id="2_qrh7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jv4ln"]
@@ -19,6 +19,7 @@ shape = SubResource("RectangleShape2D_jv4ln")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.062, 0.062)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_jv4ln")

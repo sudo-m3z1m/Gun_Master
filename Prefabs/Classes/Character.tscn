@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ujrrk8nci0lk"]
+[gd_scene load_steps=26 format=3 uid="uid://bo3spxwjeyuxd"]
 
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player.gd" id="1_xlnxc"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/InputHandler.gd" id="2_ejbk7"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/character.gd" id="1_xlnxc"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/input_handler.gd" id="2_ejbk7"]
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/Player_state_machine.gd" id="3_wy0ui"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/player_state_machine.gd" id="3_wy0ui"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://bot6b6m7cn8v0" path="res://HUD/PauseMenu.tscn" id="6_cix6o"]
 [ext_resource type="Script" path="res://Scrips/Game_Logic/Camera.gd" id="6_gkdiq"]
@@ -119,7 +119,6 @@ height = 98.0
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 z_as_relative = false
-collision_mask = 2
 script = ExtResource("1_xlnxc")
 
 [node name="InputHandler" type="Node2D" parent="."]
@@ -141,6 +140,8 @@ scale = Vector2(0.999998, 0.999998)
 shape = SubResource("21")
 
 [node name="Area_for_Hurt_Box" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="HurtBox" type="CollisionShape2D" parent="Area_for_Hurt_Box"]
 position = Vector2(0, -2.49999)

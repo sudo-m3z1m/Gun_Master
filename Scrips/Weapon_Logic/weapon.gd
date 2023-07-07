@@ -25,9 +25,6 @@ var _is_active: bool = false:
 		_is_active = is_active
 		change_state()
 
-func _ready():
-	load_to_items()
-
 func change_state() -> void:
 	if _is_active == true:
 		pivot.position.x = length_from_player
@@ -47,9 +44,6 @@ func rotate_to_target(angle_to_target, global_scale: Vector2) -> void:
 		scale.y = -global_scale.y
 	else:
 		scale.y = global_scale.y
-
-func load_to_items():
-	$"/root/Items".items[ID] = load(scene_file_path)
 
 func throw_self(global_target_position: Vector2) -> void:
 	var throw_velocity = global_position.\

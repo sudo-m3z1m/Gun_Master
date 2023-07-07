@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bo3spxwjeyuxd"]
+[gd_scene load_steps=28 format=3 uid="uid://bo3spxwjeyuxd"]
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/character.gd" id="1_xlnxc"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/input_handler.gd" id="2_ejbk7"]
@@ -10,6 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://bx3eii6h1ii33" path="res://HUD/HPBar.tscn" id="7_j3u71"]
 [ext_resource type="PackedScene" uid="uid://b6e42q518bnel" path="res://HUD/MoneyHUD.tscn" id="9_svjuk"]
 [ext_resource type="PackedScene" uid="uid://dyl7hxpj3tgys" path="res://HUD/Ammo.tscn" id="10_jydhs"]
+
+[sub_resource type="Shader" id="Shader_ba7lu"]
+code = "shader_type canvas_item;
+
+//void fragment() {
+//	COLOR = texture(TEXTURE, UV);
+//	COLOR.r = 1.0;
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vos6f"]
+shader = SubResource("Shader_ba7lu")
 
 [sub_resource type="AtlasTexture" id="8"]
 atlas = ExtResource("4")
@@ -128,6 +140,7 @@ script = ExtResource("2_ejbk7")
 script = ExtResource("3_wy0ui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_vos6f")
 position = Vector2(0, -5.50001)
 scale = Vector2(0.716797, 0.785156)
 sprite_frames = SubResource("20")

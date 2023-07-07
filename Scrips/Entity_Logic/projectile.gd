@@ -17,7 +17,9 @@ func shot(_target_position) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player") or body.is_in_group("Mob"):
-		DAMAGE_MANAGER._give_damage(self, body, direction * 10, 0.5)
+		DAMAGE_MANAGER._give_damage(self, body, direction * 10, 0.1)
+		queue_free()
+	if body.is_class("TileMap"):
 		queue_free()
 
 func disapear():

@@ -17,6 +17,7 @@ func restock() -> void:
 	#TODO:
 	var ammo: PackedScene = load("res://Prefabs/ShopProducts/ammo.tscn")
 	var hp: PackedScene = load("res://Prefabs/ShopProducts/health_points.tscn")
+	var weapon: PackedScene = define_weapon()
 	place_product(ammo, PLACES.LEFT, randomise_product_quantity(), 8)
 	place_product(hp, PLACES.RIGHT, randomise_product_quantity(), 5)
 
@@ -24,3 +25,6 @@ func place_product(_product: PackedScene, place: int, product_quantity: int, _co
 	var product: Sprite2D = _product.instantiate()
 	places[place].add_product_to_cell(product, product_quantity, _cost)
 	
+func define_weapon() -> PackedScene:
+	
+	return

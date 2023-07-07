@@ -5,8 +5,8 @@
 [node name="GameManager" type="Timer"]
 one_shot = true
 script = ExtResource("1_4fh0d")
-wave_time = 23.0
-mob_time = 0.1
+wave_time = 6.0
+mob_time = 1.0
 enemy_path = "res://Prefabs/Entity/Ancient_mob.tscn"
 player_path = "res://Prefabs/Characters/Jacket_Man.tscn"
 

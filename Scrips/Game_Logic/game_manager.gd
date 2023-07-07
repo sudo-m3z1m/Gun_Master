@@ -7,6 +7,7 @@ extends Timer
 @export_dir var player_path
 
 var wave_count: int = 0
+var items = ITEMS.new()
 
 const SHOP_PATH: String = "res://Prefabs/Buildings/shop.tscn"
 const SHOP_TIME: float = 15
@@ -34,7 +35,7 @@ func reset_game():
 	$MobSpawnTimer.stop()
 	stop()
 	wave_count = 0
-	#wave_time = 6
+	wave_time = 6
 	rm_mobs()
 
 func start_wave() -> void:
@@ -60,6 +61,7 @@ func spawn_player(_player: PhysicsBody2D) -> void:
 	get_node("/root/TestRoom").add_child(_player)
 
 func spawn_enemy() -> void:
+	items.fill_weapons_dict()
 	if get_tree().get_nodes_in_group("Mob").size() >= MAX_MOB_COUNT:
 		return
 	var enemy: CharacterBody2D = load(enemy_path).instantiate()

@@ -65,8 +65,8 @@ position = Vector2(0, 1)
 script = ExtResource("2_a1h6i")
 cooldown_time = 2.0
 idle_time = 1.0
-prepare_time = 1.0
-damage = 0.0
+prepare_time = 0.4
+damage = 20.0
 health_points = 100.0
 speed = 200.0
 
@@ -84,7 +84,7 @@ disabled = false
 
 [node name="RayCast2D" parent="." index="2"]
 target_position = Vector2(0, 0)
-collision_mask = 2
+collision_mask = 1
 
 [node name="Agent" parent="." index="3"]
 max_neighbors = 4

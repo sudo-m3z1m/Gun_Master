@@ -35,9 +35,17 @@ func _physics_process(delta):
 	set_character_velocity()
 	move_and_slide()
 
-func set_direction(_direction, flip):
+func set_direction(_direction):
+	flip_handler(_direction, direction)
 	direction = _direction
-	$AnimatedSprite2D.flip_h = flip
+
+func flip_handler(_new_dir: Vector2, _old_dir: Vector2):
+	if signi(_new_dir.x) != signi(_old_dir.x):
+		match signi(_new_dir.x):
+			-1:
+				$AnimatedSprite2D.flip_h = true
+			1:
+				$AnimatedSprite2D.flip_h = false
 
 func set_character_velocity() -> void:
 	if direction.length() != 0:

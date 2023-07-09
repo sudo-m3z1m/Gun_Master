@@ -16,6 +16,7 @@ const K = 1.2
 
 var friction: float = 45
 var acceleration: float = 90
+var direction: Vector2
 var weapons: Array = []
 var current_weapon = null
 var weapon_scale
@@ -31,14 +32,18 @@ func _ready():
 
 func _physics_process(delta):
 	rotate_weapon()
+	set_character_velocity()
 	move_and_slide()
 
-func choose_velocity(_direction, flip):
-	if _direction.length() != 0:
-		velocity = velocity.move_toward(_direction.normalized() * max_speed, acceleration)
+func set_direction(_direction, flip):
+	direction = _direction
+	$AnimatedSprite2D.flip_h = flip
+
+func set_character_velocity() -> void:
+	if direction.length() != 0:
+		velocity = velocity.move_toward(direction.normalized() * max_speed, acceleration)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
-	$AnimatedSprite2D.flip_h = flip
 
 func actions_handler(action):
 	if action == "Escape":
@@ -125,7 +130,7 @@ func change_weapon_from_array(next_gun_index) -> void:
 		current_weapon = weapons[-1]
 		weapons[-1]._is_active = true
 		return
-	
+
 	next_gun_index %= weapons.size()
 	for buff_weapon in weapons:
 		buff_weapon._is_active = false

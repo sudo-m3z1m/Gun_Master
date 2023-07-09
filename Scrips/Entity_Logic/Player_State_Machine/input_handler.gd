@@ -20,7 +20,7 @@ func input_reciever() -> void:
 			_need_flip = flip_handler(mov_inp)
 	_dir = _dir.normalized()
 	state_machine.define_state(_dir)
-	player.choose_velocity(_dir, _need_flip)
+	player.set_direction(_dir, _need_flip)
 
 	for act_inp in actions_inputs:
 		if Input.is_action_pressed(act_inp):

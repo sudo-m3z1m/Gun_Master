@@ -1,21 +1,20 @@
 extends Node
 
-const K = 100 / 75
 
 @export var disabled: bool = false:
 	set(_disabled):
 		disabled = _disabled
 		disable_sounds(_disabled)
 
-var sound_volume: float = 75:
-	set(_new_volume_in_percent):
-		update_sound_volume(_new_volume_in_percent / K - sound_volume)
-		sound_volume = _new_volume_in_percent / K
+var sound_volume: float = 80:
+	set(_new_volume):
+		update_sound_volume(_new_volume - sound_volume)
+		sound_volume = _new_volume
 
-var music_volume: float = 75:
-	set(_new_volume_in_percent):
-		update_music_volume(_new_volume_in_percent - music_volume)
-		music_volume = _new_volume_in_percent / K
+var music_volume: float = 80:
+	set(_new_volume):
+		update_music_volume(_new_volume - music_volume)
+		music_volume = _new_volume
 
 @onready var sounds: Node = $Sounds
 @onready var music: Node = $Music

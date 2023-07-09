@@ -61,7 +61,7 @@ _data = {
 }
 
 [node name="baseball_stick" instance=ExtResource("1_8tbnr")]
-ID = 1
+ID = 2
 damage = 25
 cooldown = 1.0
 throwable_weapon = ExtResource("2_r7ely")

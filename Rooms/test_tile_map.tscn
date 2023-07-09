@@ -85,6 +85,8 @@ position = Vector2(923, 515)
 [node name="Jesse" parent="." instance=ExtResource("5_pq1e5")]
 position = Vector2(1078, 515)
 scale = Vector2(0.3, 0.3)
+id = 1
+identificator = 1
 damage = 50
 cooldown = 0.5
 

@@ -30,6 +30,7 @@ func start_game() -> void:
 func stop_game() -> void:
 	#HUD
 	reset_game()
+	SoundManager.main_player.stop()
 
 func reset_game():
 	$MobSpawnTimer.stop()
@@ -61,7 +62,6 @@ func spawn_player(_player: PhysicsBody2D) -> void:
 	get_node("/root/TestRoom").add_child(_player)
 
 func spawn_enemy() -> void:
-	items.fill_weapons_dict()
 	if get_tree().get_nodes_in_group("Mob").size() >= MAX_MOB_COUNT:
 		return
 	var enemy: CharacterBody2D = load(enemy_path).instantiate()

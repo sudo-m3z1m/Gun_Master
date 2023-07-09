@@ -21,7 +21,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-WeaponDict="*res://Prefabs/Classes/weapon_dict.tscn"
 Items="*res://Scrips/Game_Logic/items.gd"
 GameManager="*res://Prefabs/Classes/game_manager.tscn"
 MainInterface="*res://HUD/main_interface.tscn"

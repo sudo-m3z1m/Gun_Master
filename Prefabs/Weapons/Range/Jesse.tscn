@@ -117,6 +117,7 @@ size = Vector2(156, 84)
 bullet_path = "res://Prefabs/Weapons/Projectiles/poison_projectile.tscn"
 shake_strength = 15.0
 ammo = 12
+ID = 1
 damage = 25
 cooldown = 1.0
 throwable_weapon = ExtResource("2_jjcbm")

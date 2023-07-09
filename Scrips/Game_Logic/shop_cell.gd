@@ -3,7 +3,7 @@ extends Sprite2D
 class_name SHOP_CELL
 
 @export_category("Shop Things")
-@export var product: Sprite2D
+var product#: Sprite2D
 @export var product_quantity: int
 
 func _ready():

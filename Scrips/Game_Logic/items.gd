@@ -5,9 +5,30 @@ class_name ITEMS
 @export var items: Dictionary
 @export var weapons: Dictionary
 
-func fill_weapons_dict() -> void:
-	pass
+func _ready():
+	fill_weapons_dict()
+
+func fill_weapons_dict(_dir_path: String = "res://Prefabs/Weapons/Range/") -> void:
+	var dir: DirAccess = DirAccess.open(_dir_path)
+	if !dir:
+		printerr("Directory is not exist :(")
+
+	var files: PackedStringArray = dir.get_files()
+	for file_name in files:
+		var file_path: String = _dir_path + file_name
+		var file_id: int = get_file_id(file_path)
+		weapons[file_id] = load(file_path)
+
+func get_file_id(_file_path) -> int:
+	var item_prop = load(_file_path)._bundled
+	var item_id: int
+	var item_id_index: int
 	
-func fill_items_dict() -> void:
+	item_id_index = item_prop["names"].find("ID")
+	item_id = item_prop["variants"][item_id_index]
+	
+	return item_id
+
+func fill_items_dict(_dir_path: String) -> void:
 	pass
 #TODO:

@@ -4,7 +4,7 @@ extends Area2D
 class_name WEAPON
 
 @export_category("Weapon properties")
-@export var ID: int = 0
+@export var ID: int
 @export var damage: int
 @export var cooldown: float
 @export var throwable_weapon: PackedScene

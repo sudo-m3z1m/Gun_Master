@@ -13,14 +13,12 @@ script = ExtResource("1_0kcpd")
 
 [node name="Main" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("2_d2ucy")
-volume_db = -5.0
 max_distance = 4000.0
 attenuation = 0.0281641
 panning_strength = 0.0
 
 [node name="Shop" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("3_fhngu")
-volume_db = -5.0
 max_distance = 4000.0
 attenuation = 0.0145786
 panning_strength = 0.0
@@ -31,9 +29,11 @@ panning_strength = 0.0
 stream = ExtResource("1_aoa7v")
 max_distance = 4000.0
 attenuation = 0.00837323
+bus = &"SFX"
 
 [node name="Coins" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("2_8a5cs")
 pitch_scale = 3.0
 max_distance = 4000.0
 attenuation = 0.00317286
+bus = &"SFX"

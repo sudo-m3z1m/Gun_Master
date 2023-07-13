@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bo3spxwjeyuxd"]
+[gd_scene load_steps=29 format=3 uid="uid://bo3spxwjeyuxd"]
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/character.gd" id="1_xlnxc"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/input_handler.gd" id="2_ejbk7"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/weapon_handler.gd" id="2_smnyg"]
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/player_state_machine.gd" id="3_wy0ui"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="4"]
@@ -121,17 +122,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="21"]
-radius = 45.0001
-height = 173.0
+radius = 51.0
+height = 237.0
 
 [sub_resource type="CapsuleShape2D" id="22"]
 radius = 46.0
-height = 98.0
+height = 119.0
 
 [node name="Character" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_xlnxc")
+
+[node name="WeaponHandler" type="Node2D" parent="."]
+script = ExtResource("2_smnyg")
 
 [node name="InputHandler" type="Node2D" parent="."]
 script = ExtResource("2_ejbk7")
@@ -142,22 +146,24 @@ script = ExtResource("3_wy0ui")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_vos6f")
 position = Vector2(0, -5.50001)
-scale = Vector2(0.716797, 0.785156)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("20")
 animation = &"MOVE"
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 modulate = Color(0.360784, 0.74902, 0.00392157, 1)
 position = Vector2(-4.17232e-06, -2.5)
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("21")
 
 [node name="Area_for_Hurt_Box" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
 collision_layer = 3
 collision_mask = 3
 
 [node name="HurtBox" type="CollisionShape2D" parent="Area_for_Hurt_Box"]
 position = Vector2(0, -2.49999)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("22")
 
 [node name="Camera" type="Camera2D" parent="."]

@@ -52,7 +52,7 @@ animation = "Attack_recoil"
 autoplay = "default"
 
 [node name="ShotPosition" type="Marker2D" parent="Pivot" index="1"]
-position = Vector2(150, 0)
+position = Vector2(55, 0)
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

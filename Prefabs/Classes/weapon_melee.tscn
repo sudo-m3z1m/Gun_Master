@@ -9,5 +9,6 @@ script = ExtResource("2_3uf12")
 [node name="area_for_hurt" type="Area2D" parent="Pivot" index="1"]
 
 [node name="hurtbox" type="CollisionShape2D" parent="Pivot/area_for_hurt" index="0"]
+scale = Vector2(0.3, 0.3)
 
 [connection signal="body_entered" from="Pivot/area_for_hurt" to="." method="give_damage"]

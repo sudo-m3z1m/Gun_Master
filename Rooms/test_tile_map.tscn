@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjp4g8bjdrji2"]
+[gd_scene load_steps=11 format=3 uid="uid://bjp4g8bjdrji2"]
 
 [ext_resource type="Script" path="res://Scrips/test_tile_map.gd" id="1_jvyxb"]
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
+[ext_resource type="PackedScene" uid="uid://chrlx8s1xkwf5" path="res://Prefabs/Weapons/Range/baseball_stick.tscn" id="4_e7bwa"]
 [ext_resource type="PackedScene" uid="uid://hnnws34qyf12" path="res://Prefabs/Weapons/Range/Jesse.tscn" id="5_pq1e5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
@@ -84,11 +85,11 @@ position = Vector2(923, 515)
 
 [node name="Jesse" parent="." instance=ExtResource("5_pq1e5")]
 position = Vector2(1078, 515)
-scale = Vector2(0.3, 0.3)
-id = 1
-identificator = 1
 damage = 50
 cooldown = 0.5
+
+[node name="baseball_stick" parent="." instance=ExtResource("4_e7bwa")]
+position = Vector2(742, 509)
 
 [node name="MobPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_oxp3j")

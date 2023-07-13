@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8ph4b5hm0g6m"]
+
+[ext_resource type="PackedScene" uid="uid://k710pr1eknko" path="res://Prefabs/Classes/item.tscn" id="1_ufnef"]
+[ext_resource type="Texture2D" uid="uid://yqhxgovvt3ot" path="res://Sprites/Other/jesseAmmo.png" id="2_cvqok"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/ammo.gd" id="2_j0soq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljyso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cvqok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w44ss"]
+radius = 16.0
+height = 92.0
+
+[node name="Ammo" instance=ExtResource("1_ufnef")]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("2_j0soq")
+ammo_quant = 8
+ID = 3
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ljyso")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_w44ss")
+disabled = true

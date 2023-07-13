@@ -26,6 +26,7 @@ GameManager="*res://Prefabs/Classes/game_manager.tscn"
 MainInterface="*res://HUD/main_interface.tscn"
 SoundManager="*res://Prefabs/Classes/sound_manager.tscn"
 SaveHandler="*res://Prefabs/Classes/save_handler.tscn"
+PlayerInventory="*res://Scrips/Game_Logic/player_inventory.gd"
 
 [display]
 

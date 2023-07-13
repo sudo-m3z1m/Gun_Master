@@ -4,7 +4,7 @@ class_name inputHandler
 
 var moving_inputs:Array = ["Up", "Down", "Left", "Right"]
 var actions_inputs: Array = ["Attack", "Throw", "Escape"]
-var mouse_actions: Array = ["ScrollUp", "ScrollDown"]
+var mouse_circ_actions: Array = ["ScrollUp", "ScrollDown"]
 @onready var player = get_parent()
 @onready var state_machine = player.get_node("StateMachine")
 
@@ -12,17 +12,15 @@ func _physics_process(delta):
 	input_reciever()
 
 func _unhandled_input(event):
-	
-	if event is InputEventMouseButton or event is InputEventKey:
+	if event is InputEventMouseButton or InputEventKey:
 		for act_inp in actions_inputs:
 			if Input.is_action_pressed(act_inp):
 				actions_input_handler(act_inp)
 	
 	if event is InputEventMouseButton:
-		for mouse_inp in mouse_actions:
+		for mouse_inp in mouse_circ_actions:
 			if Input.is_action_just_released(mouse_inp):
 				actions_input_handler(mouse_inp)
-	pass
 
 func input_reciever() -> void:
 	var _dir := moving_input_handler()
@@ -37,12 +35,12 @@ func moving_input_handler() -> Vector2:
 func actions_input_handler(_act_inp):
 	match _act_inp:
 		"Attack":
-			player.actions_handler("Attack")
+			player.get_node("WeaponHandler").attack()
 		"Throw":
-			player.actions_handler("Throw")
+			player.get_node("WeaponHandler").throw()
 		"Escape":
-			player.actions_handler("Escape")
+			player.pause()
 		"ScrollUp":
-			player.actions_handler("ScrollUp")
+			player.get_node("WeaponHandler").scroll_weapon(1)
 		"ScrollDown":
-			player.actions_handler("ScrollDown")
+			player.get_node("WeaponHandler").scroll_weapon(-1)

@@ -121,7 +121,7 @@ ID = 1
 damage = 25
 cooldown = 1.0
 throwable_weapon = ExtResource("2_jjcbm")
-length_from_player = 200.0
+length_from_player = 75.0
 animation = "SCREAM"
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]

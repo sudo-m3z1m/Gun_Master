@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="1_baa0u"]
 [ext_resource type="Script" path="res://Scrips/Game_Logic/shop.gd" id="1_o4tge"]
-[ext_resource type="PackedScene" uid="uid://drrsju0o4e3m8" path="res://Prefabs/Classes/shop_cell.tscn" id="3_op3ch"]
+[ext_resource type="PackedScene" uid="uid://da4ut30xdh0rl" path="res://Prefabs/Classes/shop_cell.tscn" id="3_op3ch"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
 vertices = PackedVector2Array(-6, -32, 8, -32, 32, -6, 32, 9.5, 7.5, 32, -7, 32, -32, 11.5, -32, -7.5)
@@ -75,14 +75,17 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Right" type="Marker2D" parent="."]
 position = Vector2(1185, 540)
 
-[node name="ShopCell1" parent="Right" instance=ExtResource("3_op3ch")]
+[node name="ShopCellRight" parent="Right" instance=ExtResource("3_op3ch")]
+metadata/_edit_lock_ = true
 
 [node name="Center" type="Marker2D" parent="."]
 position = Vector2(960, 540)
 
-[node name="ShopCell2" parent="Center" instance=ExtResource("3_op3ch")]
+[node name="ShopCellCenter" parent="Center" instance=ExtResource("3_op3ch")]
+metadata/_edit_lock_ = true
 
 [node name="Left" type="Marker2D" parent="."]
 position = Vector2(735, 540)
 
-[node name="ShopCell3" parent="Left" instance=ExtResource("3_op3ch")]
+[node name="ShopCellLeft" parent="Left" instance=ExtResource("3_op3ch")]
+metadata/_edit_lock_ = true

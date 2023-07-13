@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c04131t1u1gi1"]
+
+[ext_resource type="Texture2D" uid="uid://c8wva8sgoehlj" path="res://icon.png" id="1_787ni"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_787ni")
+
+[node name="Vertexes" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Vertexes"]
+position = Vector2(-32, -32)
+
+[node name="Marker2D2" type="Marker2D" parent="Vertexes"]
+position = Vector2(32, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="Vertexes"]
+position = Vector2(-32, 32)
+
+[node name="Marker2D4" type="Marker2D" parent="Vertexes"]
+position = Vector2(32, -32)
+
+[node name="Faceds" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Faceds"]
+position = Vector2(0, 32)
+
+[node name="Marker2D2" type="Marker2D" parent="Faceds"]
+position = Vector2(0, -32)
+
+[node name="Marker2D3" type="Marker2D" parent="Faceds"]
+position = Vector2(32, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Faceds"]
+position = Vector2(-32, 0)

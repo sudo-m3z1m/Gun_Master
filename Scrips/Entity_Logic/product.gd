@@ -17,16 +17,5 @@ func _ready():
 	$cost.text = str(cost)
 	$quantity.text = str(quantity)
 
-func start_blink() -> void:
-	var blink_timer: Timer = Timer.new()
-	add_child(blink_timer)
-	self.visible = false
-	blink_timer.one_shot = true
-	blink_timer.timeout.connect(blink)
-	blink_timer.start(BLINK_TIME)
-
-func blink():
-	self.visible = true
-
 func _update_quant(_quant) -> void:
 	$quantity.text = str(_quant)

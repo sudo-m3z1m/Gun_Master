@@ -104,10 +104,11 @@ animations = [{
 [node name="Jacket_Man" instance=ExtResource("1")]
 max_speed = 400.0
 health_points = 100.0
+money = 300
 
-[node name="AnimatedSprite2D" parent="." index="2"]
+[node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("20")
 frame = 3
 
-[node name="HitBox" parent="." index="3"]
+[node name="HitBox" parent="." index="4"]
 position = Vector2(-1.90735e-06, -2.5)

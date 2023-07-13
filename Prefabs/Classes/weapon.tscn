@@ -8,8 +8,10 @@ script = ExtResource("1_n33ru")
 [node name="Pivot" type="Marker2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+scale = Vector2(0.3, 0.3)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 0.3)
 
 [node name="Cooldown_Timer" type="Timer" parent="."]
 one_shot = true

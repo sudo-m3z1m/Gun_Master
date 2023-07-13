@@ -56,7 +56,7 @@ func instantiate_player() -> PhysicsBody2D:
 	return load(player_path).instantiate()
 
 func spawn_player(_player: PhysicsBody2D) -> void:
-	_player.set_scale(PLAYER_SCALE)
+#	_player.set_scale(PLAYER_SCALE)
 	_player.global_position = get_node("/root/TestRoom/PlayerSpawnPos")\
 	.global_position
 	get_node("/root/TestRoom").add_child(_player)

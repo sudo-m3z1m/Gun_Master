@@ -17,6 +17,7 @@ class_name WEAPON
 const ENEMY_GROUP: Array = ["Mob", "Projectile"]
 const throw_strength: float = 600
 
+var _scale = get_scale()
 var _is_throwed: bool = false
 var _is_active: bool = false:
 	set(is_active):
@@ -24,6 +25,9 @@ var _is_active: bool = false:
 			return
 		_is_active = is_active
 		change_state()
+
+func attack(_global_target_pos: Vector2):
+	pass
 
 func change_state() -> void:
 	if _is_active == true:
@@ -36,16 +40,16 @@ func change_state() -> void:
 		self.visible = false
 		return
 
-func rotate_to_target(angle_to_target, global_scale: Vector2) -> void:
+func rotate_to_target(angle_to_target) -> void:
 	if _is_active == false:
 		return
 	rotation = angle_to_target
 	if abs(rotation_degrees) >= 90:
-		scale.y = -global_scale.y
+		scale.y = -_scale.y
 	else:
-		scale.y = global_scale.y
+		scale.y = _scale.y
 
-func throw_self(global_target_position: Vector2) -> void:
+func throw_self(global_target_position: Vector2) -> void:	# IDLT
 	var throw_velocity = global_position.\
 	direction_to(global_target_position) * 100000
 	if throw_velocity.length() < 1:

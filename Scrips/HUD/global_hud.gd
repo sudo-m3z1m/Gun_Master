@@ -19,6 +19,11 @@ var current_menu
 	HUDS.AMMO: ammo_hud,
 }
 
+func change_current_menu(next_menu):
+	current_menu.set_enable(false)
+	current_menu = next_menu
+	current_menu.set_enable(true)
+
 func set_enable_hud(hud: int, _is_enabled: bool) -> void:
 	hud_dict[hud].set_enable(_is_enabled)
 

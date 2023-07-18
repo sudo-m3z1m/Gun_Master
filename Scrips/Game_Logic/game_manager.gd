@@ -11,7 +11,6 @@ var items = ITEMS.new()
 
 const SHOP_PATH: String = "res://Prefabs/Buildings/shop.tscn"
 const SHOP_TIME: float = 15
-const PLAYER_SCALE: Vector2 = Vector2(0.6, 0.6)
 const MAX_MOB_COUNT: int = 15
 
 func _ready():
@@ -25,6 +24,10 @@ func start_game() -> void:
 	reset_game()
 	var _player = instantiate_player()
 	spawn_player(_player)
+	HUD.set_enable_hud(GlobalScope.GLOBAL_HUDS.MAIN, true)
+	HUD.set_enable_hud(GlobalScope.GLOBAL_HUDS.AMMO, true)
+	HUD.set_enable_hud(GlobalScope.GLOBAL_HUDS.COIN, true)
+	HUD.set_enable_hud(GlobalScope.GLOBAL_HUDS.HP, true)
 	start_wave()
 
 func stop_game() -> void:
@@ -56,7 +59,6 @@ func instantiate_player() -> PhysicsBody2D:
 	return load(player_path).instantiate()
 
 func spawn_player(_player: PhysicsBody2D) -> void:
-#	_player.set_scale(PLAYER_SCALE)
 	_player.global_position = get_node("/root/TestRoom/PlayerSpawnPos")\
 	.global_position
 	get_node("/root/TestRoom").add_child(_player)
@@ -96,9 +98,9 @@ func restock(_shop) -> void:
 
 func update_timer_hud() -> void:
 	if is_stopped():
-		return get_node("/root/MainInterface").update_main_score(0, wave_count)
+		return HUD.main_hud.update_count(0, wave_count)
 	var _time: int = time_left / 1
-	get_node("/root/MainInterface").update_main_score(_time, wave_count)
+	HUD.main_hud.update_count(_time, wave_count)
 
 func timer_timeout() -> void:
 	if wait_time == wave_time:

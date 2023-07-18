@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfl2y77nsustb"]
+
+[ext_resource type="PackedScene" uid="uid://of4a2pwpbw53" path="res://Prefabs/Classes/updatable_hud.tscn" id="1_v418g"]
+[ext_resource type="Texture2D" uid="uid://dqk31jlnt47d6" path="res://Sprites/dollar.png" id="3_8ax3y"]
+
+[node name="CoinCounter" instance=ExtResource("1_v418g")]
+offset_left = 320.0
+offset_top = 250.0
+offset_right = 474.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 65
+
+[node name="Dollar" type="Sprite2D" parent="." index="0"]
+position = Vector2(-85.0001, 50)
+scale = Vector2(0.308594, 0.320313)
+texture = ExtResource("3_8ax3y")

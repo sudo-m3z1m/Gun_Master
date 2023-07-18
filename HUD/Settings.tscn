@@ -8,6 +8,7 @@
 color = Color(1, 1, 1, 1)
 
 [node name="Settings" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +40,7 @@ layout_mode = 2
 [node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("1_rtbg7")
 theme_override_font_sizes/font_size = 60
 text = "Back"
@@ -132,6 +134,8 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("3_d48pp")
 expand = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer4/CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="finished" from="Video" to="." method="_on_video_finished"]

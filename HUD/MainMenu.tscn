@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4f37tnsy8tlo"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
-[ext_resource type="Texture2D" uid="uid://beqfmm8fuvkve" path="res://Sprites/Background_sprites/38fba017-b817-4305-977f-ccec657c9937.jpg" id="2_8yjjp"]
+[ext_resource type="Texture2D" uid="uid://b505llcnbxw46" path="res://Sprites/Background_sprites/Clown.jpg" id="2_xwurc"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
 [ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="4_bhu2g"]
 
@@ -16,35 +16,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_n5e3b")
 
-[node name="ShowHandler" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="ShowHandler"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1493.0
-offset_top = -1423.0
-offset_right = 457.0
-offset_bottom = 379.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.83399, 1.3668)
-texture = ExtResource("2_8yjjp")
+texture = ExtResource("2_xwurc")
 expand_mode = 4
 
-[node name="Label" type="Label" parent="ShowHandler"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 701.0
-offset_top = 50.0
-offset_right = 1179.0
-offset_bottom = 176.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 126.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -54,21 +40,26 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_5buuq")
 theme_override_font_sizes/font_size = 100
 text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="StartButton" type="Button" parent="ShowHandler"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 848.0
-offset_top = 470.0
-offset_right = 1032.0
-offset_bottom = 570.0
+offset_left = -141.5
+offset_top = -94.0
+offset_right = 141.5
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -78,21 +69,9 @@ action_mode = 0
 text = "Start"
 flat = true
 
-[node name="SettingsButton" type="Button" parent="ShowHandler"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 798.5
-offset_top = 611.0
-offset_right = 1081.5
-offset_bottom = 711.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_5buuq")
@@ -101,21 +80,9 @@ action_mode = 0
 text = "Settings"
 flat = true
 
-[node name="ExitButton" type="Button" parent="ShowHandler"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 798.5
-offset_top = 752.0
-offset_right = 1081.5
-offset_bottom = 852.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_5buuq")
@@ -125,9 +92,8 @@ text = "Exit"
 flat = true
 
 [node name="Settings" parent="." instance=ExtResource("4_bhu2g")]
-visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="ShowHandler/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="ShowHandler/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="ShowHandler/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

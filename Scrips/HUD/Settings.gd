@@ -2,35 +2,41 @@ extends Control
 
 @onready var music_slider: HSlider = $VBoxContainer/HBoxContainer2/MusicSlider
 @onready var sound_slider: HSlider = $VBoxContainer/HBoxContainer3/SoundSlider
+@onready var min_db_volume: float = -40
 
-enum  BUS_INDEXES{MASTER, SFX}
+enum  BUS_INDEXES{MASTER, SFX, MUSIC}
 
 func _ready():
 	music_slider.drag_ended.connect(update_music_volume)
 	sound_slider.drag_ended.connect(update_sounds_volume)
 
 func _on_back_pressed():
-	visible = false
+	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.PAUSE, true)
+	set_enable(false)
+
+func set_enable(_is_enabled: bool) -> void:
+	visible = _is_enabled
 
 func update_music_volume(_changed: bool) -> void:
 	if !_changed:
 		return
 	var new_volume: float = get_db_from_percent(music_slider.value)
-	SoundManager.music_volume = new_volume
-#	AudioServer.set_bus_volume_db(BUS_INDEXES.MASTER, new_volume)
-#	print(AudioServer.get_bus_volume_db(BUS_INDEXES.MASTER))
+	AudioServer.set_bus_volume_db(BUS_INDEXES.MUSIC, new_volume)
 
 func update_sounds_volume(_changed: bool) -> void:
 	if !_changed:
 		return
 	var new_volume: float = get_db_from_percent(sound_slider.value)
-	SoundManager.sound_volume = new_volume
-#	AudioServer.set_bus_volume_db(BUS_INDEXES.SFX, new_volume)
-#	print(AudioServer.get_bus_volume_db(BUS_INDEXES.SFX))
+	AudioServer.set_bus_volume_db(BUS_INDEXES.SFX, new_volume)
 
 func _on_check_button_pressed():
 	$Video.visible = true
 	$Video.play()
+	
+func _on_video_finished():
+	$Video.visible = false
 
-func get_db_from_percent(_percentage: float) -> float:
-	return (_percentage * 80) / 100
+func get_db_from_percent(percentage: float) -> float:
+	var delta_volume: float = (percentage * -min_db_volume) / 100
+	var new_volume: float = min_db_volume + delta_volume
+	return new_volume

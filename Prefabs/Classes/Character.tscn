@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bo3spxwjeyuxd"]
+[gd_scene load_steps=25 format=3 uid="uid://bo3spxwjeyuxd"]
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/character.gd" id="1_xlnxc"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/input_handler.gd" id="2_ejbk7"]
@@ -6,11 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/player_state_machine.gd" id="3_wy0ui"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="4"]
-[ext_resource type="PackedScene" uid="uid://bot6b6m7cn8v0" path="res://HUD/PauseMenu.tscn" id="6_cix6o"]
 [ext_resource type="Script" path="res://Scrips/Game_Logic/Camera.gd" id="6_gkdiq"]
-[ext_resource type="PackedScene" uid="uid://bx3eii6h1ii33" path="res://HUD/HPBar.tscn" id="7_j3u71"]
-[ext_resource type="PackedScene" uid="uid://b6e42q518bnel" path="res://HUD/MoneyHUD.tscn" id="9_svjuk"]
-[ext_resource type="PackedScene" uid="uid://dyl7hxpj3tgys" path="res://HUD/Ammo.tscn" id="10_jydhs"]
 
 [sub_resource type="Shader" id="Shader_ba7lu"]
 code = "shader_type canvas_item;
@@ -180,14 +176,6 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("6_gkdiq")
-
-[node name="HUD" parent="Camera" instance=ExtResource("6_cix6o")]
-
-[node name="HPBar" parent="Camera" instance=ExtResource("7_j3u71")]
-
-[node name="MoneyScore" parent="Camera" instance=ExtResource("9_svjuk")]
-
-[node name="AmmoScore" parent="Camera" instance=ExtResource("10_jydhs")]
 
 [node name="ScreenShakeTimer" type="Timer" parent="Camera"]
 one_shot = true

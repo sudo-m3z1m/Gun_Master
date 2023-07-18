@@ -6,10 +6,6 @@ class_name WEAPON_RANGE
 @export_category("Range properties")
 @export_dir var bullet_path
 @export var shake_strength: float
-@export var ammo: int:
-	set(_ammo):
-		ammo = _ammo
-#		update_ammo(_ammo)
 const shake_time: float = 0.1
 
 func attack(_target_global_position: Vector2):
@@ -30,14 +26,15 @@ func attack(_target_global_position: Vector2):
 		bullet_instantiate(_shoot_pos, _shoot_pos + _weapon_dir)
 	
 	make_some_stuff()
-#	shake_camera()
+	update_ammo_hud()
+	shake_camera()
 
 func get_weapon_direction() -> Vector2:
 	return Vector2.RIGHT.rotated(global_rotation)
 
-#func shake_camera() -> void:
-#	var camera: Camera2D = get_parent().get_node("Camera")
-#	camera.make_shake(shake_time, shake_strength)
+func shake_camera() -> void:
+	var camera: Camera2D = get_parent().get_node("Camera")
+	camera.make_shake(shake_time, shake_strength)
 
 func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) -> void:
 	var bullet = load(bullet_path).instantiate()
@@ -51,7 +48,5 @@ func make_some_stuff() -> void:
 	$AnimationPlayer.play("Attack_recoil")
 	$Pivot/AnimatedSprite2D.play(animation)
 
-#func update_ammo(new_ammo):
-#	if get_parent():
-#		get_parent().update_ammo(new_ammo)
-	
+func update_ammo_hud() -> void:
+	HUD.update_user_hud(ammo, GlobalScope.GLOBAL_HUDS.AMMO)

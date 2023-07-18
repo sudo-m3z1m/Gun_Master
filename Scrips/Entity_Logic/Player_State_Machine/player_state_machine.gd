@@ -1,13 +1,13 @@
 extends Node2D
 
-var idle_state = load("res://Scrips/Entity_Logic/Player_State_Machine/idle_state.gd")
-var move_state = load("res://Scrips/Entity_Logic/Player_State_Machine/move_state.gd")
+var idle_state = IDLE_STATE
+var move_state = MOVE_STATE
 var main_state = idle_state
 
 @onready var player = get_parent()
 
 func _ready():
-	main_state.start(player)
+	main_state = main_state.new(player)
 
 func define_state(velocity):
 	var _next_state
@@ -23,5 +23,6 @@ func change_state(next_state):
 	if main_state == next_state:
 		return
 	if main_state != next_state:
+		main_state.free()
 		main_state = next_state
-		main_state.start(player)
+		main_state = main_state.new(player)

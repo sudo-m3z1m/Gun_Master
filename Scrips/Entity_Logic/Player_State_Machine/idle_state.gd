@@ -1,4 +1,6 @@
 extends Node
 
-static func start(target):
-	target.get_node("AnimatedSprite2D").play("IDLE")
+class_name IDLE_STATE
+
+func _init(_target):
+	_target.get_node("AnimatedSprite2D").play("IDLE")

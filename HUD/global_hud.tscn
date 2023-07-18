@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnwbmaojrmusg"]
+
+[ext_resource type="Script" path="res://Scrips/HUD/global_hud.gd" id="1_41u33"]
+[ext_resource type="PackedScene" uid="uid://ml2dlxfphfcr" path="res://HUD/pause_hud.tscn" id="1_r74rt"]
+[ext_resource type="PackedScene" uid="uid://djg8vssxa8fxe" path="res://HUD/main_hud.tscn" id="2_dpm8x"]
+[ext_resource type="PackedScene" uid="uid://copp7ietmp60v" path="res://HUD/hp_progress_bar.tscn" id="3_u3ssk"]
+[ext_resource type="PackedScene" uid="uid://dfl2y77nsustb" path="res://HUD/coin_counter.tscn" id="4_em4ik"]
+[ext_resource type="PackedScene" uid="uid://dh2gwnssnwkin" path="res://HUD/ammo_counter.tscn" id="5_8bd06"]
+[ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="6_uja6o"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_41u33")
+
+[node name="PauseHUD" parent="." instance=ExtResource("1_r74rt")]
+
+[node name="MainHUD" parent="." instance=ExtResource("2_dpm8x")]
+visible = false
+
+[node name="HpProgressBar" parent="." instance=ExtResource("3_u3ssk")]
+visible = false
+
+[node name="AmmoCounter" parent="." instance=ExtResource("5_8bd06")]
+visible = false
+
+[node name="CoinCounter" parent="." instance=ExtResource("4_em4ik")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("6_uja6o")]

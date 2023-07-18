@@ -8,33 +8,30 @@
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_0kcpd")
-disabled = true
 
 [node name="Music" type="Node" parent="."]
 
-[node name="Main" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Main" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_d2ucy")
-max_distance = 4000.0
-attenuation = 0.0281641
-panning_strength = 0.0
+bus = &"Music"
 
-[node name="Shop" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Shop" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("3_fhngu")
-max_distance = 4000.0
-attenuation = 0.0145786
-panning_strength = 0.0
+bus = &"Music"
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="Music"]
 
 [node name="Sounds" type="Node" parent="."]
-
-[node name="Steps" type="AudioStreamPlayer2D" parent="Sounds"]
-stream = ExtResource("1_aoa7v")
-max_distance = 4000.0
-attenuation = 0.00837323
-bus = &"SFX"
 
 [node name="Coins" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("2_8a5cs")
 pitch_scale = 3.0
 max_distance = 4000.0
 attenuation = 0.00317286
+bus = &"SFX"
+
+[node name="Steps" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("1_aoa7v")
+max_distance = 4000.0
+attenuation = 0.00837323
 bus = &"SFX"

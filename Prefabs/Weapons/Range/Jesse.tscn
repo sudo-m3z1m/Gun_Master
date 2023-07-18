@@ -115,14 +115,14 @@ size = Vector2(156, 84)
 
 [node name="Jesse" instance=ExtResource("1_vltok")]
 bullet_path = "res://Prefabs/Weapons/Projectiles/poison_projectile.tscn"
-shake_strength = 15.0
-ammo = 12
+shake_strength = 30.0
 ID = 1
-damage = 25
-cooldown = 1.0
+damage = 50
+cooldown = 0.1
 throwable_weapon = ExtResource("2_jjcbm")
 length_from_player = 75.0
 animation = "SCREAM"
+ammo = 12
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_4rn02")

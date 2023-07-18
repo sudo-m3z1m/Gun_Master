@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://copp7ietmp60v"]
+
+[ext_resource type="Texture2D" uid="uid://cbrmhnfexeloj" path="res://Sprites/Over_HP_Bar.png" id="1_bqpw0"]
+[ext_resource type="Texture2D" uid="uid://kqm282ga75yl" path="res://Sprites/Blood_Progress_HP_Bar.png" id="2_24nel"]
+[ext_resource type="Script" path="res://Scrips/HUD/HPBar.gd" id="3_5372q"]
+
+[node name="HpProgressBar" type="TextureProgressBar"]
+offset_left = 151.0
+offset_top = 25.0
+offset_right = 407.0
+offset_bottom = 281.0
+scale = Vector2(1.083, 1.08)
+value = 100.0
+texture_over = ExtResource("1_bqpw0")
+texture_progress = ExtResource("2_24nel")
+script = ExtResource("3_5372q")

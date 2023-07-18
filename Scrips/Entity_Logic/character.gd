@@ -4,12 +4,13 @@ class_name character
 @export var max_speed: float
 @export var health_points: float:
 	set(hp):
-		$Camera/HPBar._check_value(hp)
+		HUD.update_user_hud(hp, GlobalScope.GLOBAL_HUDS.HP)
 		health_points = hp
+
 @export var money: int:
 	set(mon):
+		HUD.update_user_hud(mon, GlobalScope.GLOBAL_HUDS.COIN)
 		money = mon
-		$Camera/MoneyScore.update_score(mon)
 
 var friction: float = 45
 var acceleration: float = 90
@@ -18,9 +19,6 @@ var direction: Vector2
 @onready var scene = get_tree().current_scene
 #@onready var screen = $Camera.get_viewport_rect().size
 @onready var weapon_handler = $WeaponHandler
-
-#func _ready():
-#	$AnimatedSprite2D.frame_changed.connect(play_steps_audio)
 
 func _physics_process(delta):
 	set_character_velocity()
@@ -48,39 +46,13 @@ func set_character_velocity() -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
 
-func attack():
-	weapon_handler.attack()	# IDLT
-
-func throw_weapon(_target_global_pos: Vector2):	# IDLT
-	weapon_handler.throw(_target_global_pos)
-
 func _collision_checker(area):
 	if area.is_in_group("Weapon"):
-		PlayerInventory.add_item(area)
+		PlayerInventory.add_item(area);
 
 func bodies_collision_checker(body):
 	weapon_handler.take_throwed_weapon(body)
 
-func pause():
-	get_tree().paused = true
-	var pause_screen = $Camera/HUD
-	pause_screen._enable()
-
-func check_hp(_damage) -> void:	# IDLT
-	health_points -= _damage
-	if health_points <= 0:
-		kill()
-
 func kill():
 	GameManager.stop_game()
 	queue_free()
-
-#func update_ammo(ammo):
-#	$Camera/AmmoScore.update_ammo_score(ammo)	# IDLT
-
-#func play_steps_audio():
-#	if $AnimatedSprite2D.animation == "IDLE":	# IDLT
-#		return
-#	var pitch = randf_range(1, 1.5)
-#	if $AnimatedSprite2D.frame == 2 or $AnimatedSprite2D.frame == 5:
-#		SoundManager.steps_player.play()

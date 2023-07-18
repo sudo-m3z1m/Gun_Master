@@ -1,27 +1,25 @@
-extends Node2D
+extends CanvasLayer
 
-func _enable(enable = true):
+func set_enable(enable = true):
 	if enable:
-		$Display.show()
-		$Display/ContinueButton.disabled = false
-		$Display/SettingsButton.disabled = false
-		$Display/SaveButton.disabled = false
-		$Display/ExitButton.disabled = false
-		$Display/LoadButton.disabled = false
+		get_tree().paused = enable
+		show()
+		for node in get_children():
+			if node is Button:
+				node.disabled = false
 	else:
-		$Display.hide()
-		$Display/ContinueButton.disabled = true
-		$Display/SettingsButton.disabled = true
-		$Display/SaveButton.disabled = true
-		$Display/LoadButton.disabled = true
-		$Display/ExitButton.disabled = true
+		hide()
+		for node in get_children():
+			if node is Button:
+				node.disabled = true
 
 func _on_ContinueButton_pressed():
+	set_enable(false)
 	get_tree().paused = false
-	_enable(false)
 
 func _on_settings_button_button_down():
-	$Display/Settings.visible = true
+	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.PAUSE, false)
+	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.SETTINGS, true)
 
 func _on_SaveButton_pressed():
 	var _scene: Node2D = get_tree().current_scene
@@ -30,7 +28,7 @@ func _on_SaveButton_pressed():
 func _on_LoadButton_pressed():
 	SaveHandler.load_saved_scene()
 	get_tree().paused = false
-	_enable(false)
+	set_enable(false)
 
 func _on_ExitButton_pressed():
 	get_tree().quit()

@@ -39,7 +39,7 @@ func actions_input_handler(_act_inp):
 		"Throw":
 			player.get_node("WeaponHandler").throw()
 		"Escape":
-			player.pause()
+			HUD.set_enable_hud(GlobalScope.GLOBAL_HUDS.PAUSE, true)
 		"ScrollUp":
 			player.get_node("WeaponHandler").scroll_weapon(1)
 		"ScrollDown":

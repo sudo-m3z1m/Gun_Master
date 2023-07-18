@@ -38,8 +38,8 @@ func player_check(_body) -> void:
 func buy(player: CharacterBody2D, players_money: int) -> void:
 	if players_money - product_cost < 0 or product_quantity <= 0:
 		return
-	give_product(player)
 	start_blink()
+	give_product(player)
 	player.money -= product_cost
 	product_quantity -= 1
 
@@ -49,7 +49,6 @@ func give_product(player):
 func check_product_quantity(new_quantity: int) -> void:
 	if new_quantity == 0:
 		body_entered.disconnect(player_check)
-		product.queue_free()
 		product = null
 		product_cost = 0
 		$NothingSprite.visible = true

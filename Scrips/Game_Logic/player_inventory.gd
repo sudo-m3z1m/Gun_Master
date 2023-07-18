@@ -1,13 +1,10 @@
 extends Node
 class_name INVENTORY
 
-var weapons: Array
+var weapons: Array[WEAPON]
 var items: Array[Area2D]
 
 var player: PhysicsBody2D
-
-func _process(delta):
-	print(weapons)
 
 func add_item(item: Area2D) -> void:
 	player = get_tree().get_first_node_in_group("Player")

@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://ml2dlxfphfcr"]
+
+[ext_resource type="Script" path="res://Scrips/HUD/PauseMenu.gd" id="1_t5ps6"]
+[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="2_8wln5"]
+
+[sub_resource type="FontFile" id="FontFile_nr854"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([ExtResource("2_8wln5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_lqaba"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+fallbacks = Array[Font]([ExtResource("2_8wln5")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3r5a"]
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
+
+[node name="PauseHUD" type="CanvasLayer"]
+layer = 2
+visible = false
+script = ExtResource("1_t5ps6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.396078)
+
+[node name="Paused" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -240.0
+offset_right = 205.5
+offset_bottom = -154.0
+theme_override_fonts/font = SubResource("FontFile_nr854")
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="."]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = -50.0
+theme_override_fonts/font = SubResource("FontFile_lqaba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
+disabled = true
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -45.0
+offset_right = 200.0
+offset_bottom = 45.0
+theme_override_fonts/font = SubResource("FontFile_lqaba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
+disabled = true
+text = "Settings"
+
+[node name="SaveButton" type="Button" parent="."]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 50.0
+offset_right = 200.0
+offset_bottom = 140.0
+theme_override_fonts/font = SubResource("FontFile_lqaba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
+disabled = true
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="."]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 145.0
+offset_right = 200.0
+offset_bottom = 235.0
+theme_override_fonts/font = SubResource("FontFile_lqaba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
+disabled = true
+text = "Load"
+
+[node name="ExitButton" type="Button" parent="."]
+custom_minimum_size = Vector2(370, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 240.0
+offset_right = 200.0
+offset_bottom = 330.0
+theme_override_fonts/font = SubResource("FontFile_lqaba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
+disabled = true
+text = "Save and Exit"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_button_down"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

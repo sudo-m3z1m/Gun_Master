@@ -4,6 +4,11 @@ extends RigidBody2D
 class_name WEAPON_THROW
 
 @export var damage: float
+@export var rot_degrees: float:
+	set(new_degrees):
+		rot_degrees = new_degrees
+		rotation_degrees = new_degrees
+		flip(new_degrees)
 
 const ENEMY_GROUPS = ["Mob"]
 
@@ -21,3 +26,8 @@ func give_damage_to_body(_body: PhysicsBody2D) -> void:
 	REWARD_MANAGER.set_reward(_body, 1)
 	DAMAGE_MANAGER._give_damage(self, _body, Vector2.ZERO, 2)
 	collision_mask = 4
+
+func flip(_new_degrees: float) -> void:
+	if abs(_new_degrees) >= 90:
+		$Sprite.flip_v = true
+		return

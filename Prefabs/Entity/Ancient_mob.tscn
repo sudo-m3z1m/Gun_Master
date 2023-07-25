@@ -94,11 +94,13 @@ max_neighbors = 4
 [node name="IdleAndPrepareTimer" type="Timer" parent="." index="6"]
 
 [node name="AreaForDashes" type="Area2D" parent="." index="7"]
+scale = Vector2(0.45, 0.45)
 
 [node name="ZoneForDashes" type="CollisionShape2D" parent="AreaForDashes" index="0"]
 shape = SubResource("CircleShape2D_yy7ht")
 
 [node name="AttackArea" type="Area2D" parent="." index="8"]
+scale = Vector2(0.45, 0.45)
 
 [node name="AttackShape" type="CollisionShape2D" parent="AttackArea" index="0"]
 modulate = Color(1, 1, 0, 1)

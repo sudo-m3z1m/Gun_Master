@@ -11,8 +11,8 @@ func _ready():
 	sound_slider.drag_ended.connect(update_sounds_volume)
 
 func _on_back_pressed():
-	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.PAUSE, true)
 	set_enable(false)
+	get_parent().current_menu.set_enable(true)
 
 func set_enable(_is_enabled: bool) -> void:
 	visible = _is_enabled

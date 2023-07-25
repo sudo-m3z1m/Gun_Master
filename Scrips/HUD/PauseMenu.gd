@@ -18,7 +18,7 @@ func _on_ContinueButton_pressed():
 	get_tree().paused = false
 
 func _on_settings_button_button_down():
-	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.PAUSE, false)
+	set_enable(false)
 	get_parent().set_enable_hud(GlobalScope.GLOBAL_HUDS.SETTINGS, true)
 
 func _on_SaveButton_pressed():

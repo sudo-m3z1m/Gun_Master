@@ -3,26 +3,27 @@ extends Area2D
 var magnet_target_position: Vector2
 const MAGNET_SPEED: float = 600
 
-var player: PhysicsBody2D
+var target: PhysicsBody2D
+@onready var player: PhysicsBody2D = get_tree().get_first_node_in_group("Player")
 
 func _ready():
-	body_entered.connect(give_money_to_player)
+	body_entered.connect(give_money_to_target)
 
 func _process(delta):
 	apply_magnet_velocity(delta)
 
-func give_money_to_player(body) -> void:
+func give_money_to_target(body) -> void:
 	if body.is_in_group("Player"):
 		SoundManager.coins_player.play()
 		body.money += 1
 		queue_free()
 
-func set_player(_player):
-	player = _player
+func set_magnetize_target():
+	target = player
 
 func apply_magnet_velocity(delta) -> void:
-	if !player:
+	if !target:
 		return
-	magnet_target_position = player.global_position
+	magnet_target_position = target.global_position
 	global_position += global_position.direction_to(magnet_target_position)\
 	.normalized() * MAGNET_SPEED * delta

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4f37tnsy8tlo"]
+[gd_scene load_steps=6 format=3 uid="uid://b4f37tnsy8tlo"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
+[ext_resource type="VideoStream" path="res://Sprites/Background_sprites/BackGround.ogv" id="2_vvcvd"]
 [ext_resource type="Texture2D" uid="uid://b505llcnbxw46" path="res://Sprites/Background_sprites/Clown.jpg" id="2_xwurc"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
 [ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="4_bhu2g"]
@@ -16,7 +17,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_n5e3b")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_vvcvd")
+autoplay = true
+expand = true
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,6 +107,7 @@ flat = true
 [node name="Settings" parent="." instance=ExtResource("4_bhu2g")]
 layout_mode = 1
 
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

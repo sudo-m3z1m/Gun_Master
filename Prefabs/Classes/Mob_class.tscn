@@ -10,8 +10,10 @@ money_path = "res://Prefabs/ShopProducts/coin.tscn"
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+scale = Vector2(0.45, 0.45)
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

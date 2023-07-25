@@ -9,4 +9,4 @@ const SHOP_TIME: float = 15
 const GAME_SPEED: float = 1 # It's for future maybe
 const SAVE_FILE_DIRECTORY: String = "res://Saves/saves.tscn"
 
-enum GLOBAL_HUDS{MAIN, SETTINGS, PAUSE, HP, COIN, AMMO}
+enum GLOBAL_HUDS{MAIN, SETTINGS, PAUSE, HP, COIN, AMMO, OVER}

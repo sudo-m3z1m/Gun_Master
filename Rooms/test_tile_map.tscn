@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3pir7rgp42xb"]
+[gd_scene load_steps=8 format=3 uid="uid://b7i1cvgy4k1ms"]
 
-[ext_resource type="Script" path="res://Scrips/test_tile_map.gd" id="1_jvyxb"]
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
-[ext_resource type="PackedScene" uid="uid://bqfj1jdlfhdsr" path="res://Prefabs/ShopProducts/coin.tscn" id="3_alkdj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
 vertices = PackedVector2Array(-6, -32, 8, -32, 32, -6, 32, 9.5, 7.5, 32, -7, 32, -32, 11.5, -32, -7.5)
@@ -55,7 +53,6 @@ point_count = 5
 
 [node name="TestRoom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_jvyxb")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -88,6 +85,3 @@ curve = SubResource("Curve2D_oxp3j")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(152, 198)
 rotation = -0.00671541
-
-[node name="Money" parent="." instance=ExtResource("3_alkdj")]
-position = Vector2(242, 265)

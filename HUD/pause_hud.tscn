@@ -77,7 +77,6 @@ offset_right = 200.0
 offset_bottom = -50.0
 theme_override_fonts/font = SubResource("FontFile_lqaba")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
-disabled = true
 text = "Continue"
 
 [node name="SettingsButton" type="Button" parent="."]
@@ -93,7 +92,6 @@ offset_right = 200.0
 offset_bottom = 45.0
 theme_override_fonts/font = SubResource("FontFile_lqaba")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
-disabled = true
 text = "Settings"
 
 [node name="SaveButton" type="Button" parent="."]
@@ -109,7 +107,6 @@ offset_right = 200.0
 offset_bottom = 140.0
 theme_override_fonts/font = SubResource("FontFile_lqaba")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
-disabled = true
 text = "Save"
 
 [node name="LoadButton" type="Button" parent="."]
@@ -125,7 +122,6 @@ offset_right = 200.0
 offset_bottom = 235.0
 theme_override_fonts/font = SubResource("FontFile_lqaba")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
-disabled = true
 text = "Load"
 
 [node name="ExitButton" type="Button" parent="."]
@@ -141,7 +137,6 @@ offset_right = 200.0
 offset_bottom = 330.0
 theme_override_fonts/font = SubResource("FontFile_lqaba")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f3r5a")
-disabled = true
 text = "Save and Exit"
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_ContinueButton_pressed"]

@@ -20,6 +20,9 @@ var direction: Vector2
 #@onready var screen = $Camera.get_viewport_rect().size
 @onready var weapon_handler = $WeaponHandler
 
+func _ready():
+	EffectsManager.give_effect(GlobalScope.EFFECTS.POISON, self, 20, 3.0, 1)
+
 func _physics_process(delta):
 	set_character_velocity()
 	move_and_slide()
@@ -55,4 +58,4 @@ func bodies_collision_checker(body):
 
 func kill():
 	GameManager.stop_game()
-	queue_free()
+	call_deferred("queue_free")

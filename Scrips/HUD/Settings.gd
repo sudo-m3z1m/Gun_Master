@@ -32,7 +32,7 @@ func update_sounds_volume(_changed: bool) -> void:
 func _on_check_button_pressed():
 	$Video.visible = true
 	$Video.play()
-	
+
 func _on_video_finished():
 	$Video.visible = false
 

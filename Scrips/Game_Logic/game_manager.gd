@@ -30,6 +30,7 @@ var game_state: int:
 		game_state = change_state(new_state)
 
 func _ready():
+	get_tree().paused = true
 	timeout.connect(timer_timeout)
 	mob_timer.timeout.connect(spawn_enemy)
 
@@ -61,6 +62,8 @@ func stop_game() -> void:
 	HUD.set_enable_hud(HUDS.OVER, true)
 	change_music("Game_over")
 	mob_timer.stop()
+#	rm_entities_in_group("Mob")
+	kill_mobs()
 	stop()
 
 func start_shopping() -> void:
@@ -112,7 +115,7 @@ func spawn_player(_player: PhysicsBody2D) -> void:
 	_player.global_position = get_node("/root/TestRoom/PlayerSpawnPos")\
 	.global_position
 	scene.add_child(_player)
-	
+
 func spawn_enemy() -> void:
 	if get_tree().get_nodes_in_group("Mob").size() >= GlobalScope.MAX_ENEMYS_NUMBER:
 		return

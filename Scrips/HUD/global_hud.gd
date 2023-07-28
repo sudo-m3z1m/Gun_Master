@@ -3,16 +3,18 @@ extends CanvasLayer
 var HUDS = GlobalScope.GLOBAL_HUDS
 
 @onready var pause_hud = $PauseHUD
+@onready var main_menu = $MainMenu
 @onready var main_hud = $MainTimerHUD
 @onready var hp_hud = $HpProgressBar
 @onready var coin_hud = $CoinCounter
 @onready var ammo_hud = $AmmoCounter
 @onready var settings_hud = $Settings
 @onready var over_hud = $GameOverHUD
-@onready var current_menu = pause_hud
+@onready var current_menu = main_menu
 
 @onready var hud_dict: Dictionary = {
 	HUDS.MAIN: main_hud,
+	HUDS.MAIN_MENU: main_menu,
 	HUDS.SETTINGS: settings_hud,
 	HUDS.PAUSE: pause_hud,
 	HUDS.HP: hp_hud,

@@ -4,14 +4,8 @@ func set_enable(enable = true):
 	if enable:
 		get_tree().paused = enable
 		show()
-		for node in get_children():
-			if node is Button:
-				node.disabled = false
 	else:
 		hide()
-		for node in get_children():
-			if node is Button:
-				node.disabled = true
 
 func _on_ContinueButton_pressed():
 	set_enable(false)

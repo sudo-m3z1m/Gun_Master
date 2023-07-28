@@ -1,24 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4f37tnsy8tlo"]
+[gd_scene load_steps=4 format=3 uid="uid://b4f37tnsy8tlo"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
 [ext_resource type="VideoStream" path="res://Sprites/Background_sprites/BackGround.ogv" id="2_vvcvd"]
-[ext_resource type="Texture2D" uid="uid://b505llcnbxw46" path="res://Sprites/Background_sprites/Clown.jpg" id="2_xwurc"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
-[ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="4_bhu2g"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n5e3b")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,19 +17,7 @@ stream = ExtResource("2_vvcvd")
 autoplay = true
 expand = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_xwurc")
-expand_mode = 4
-
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 126.0
@@ -58,7 +35,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,9 +79,6 @@ theme_override_font_sizes/font_size = 75
 action_mode = 0
 text = "Exit"
 flat = true
-
-[node name="Settings" parent="." instance=ExtResource("4_bhu2g")]
-layout_mode = 1
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

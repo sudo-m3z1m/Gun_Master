@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnwbmaojrmusg"]
+[gd_scene load_steps=10 format=3 uid="uid://bnwbmaojrmusg"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/global_hud.gd" id="1_41u33"]
 [ext_resource type="PackedScene" uid="uid://ml2dlxfphfcr" path="res://HUD/pause_hud.tscn" id="1_r74rt"]
+[ext_resource type="PackedScene" uid="uid://b4f37tnsy8tlo" path="res://HUD/MainMenu.tscn" id="2_dpjsd"]
 [ext_resource type="PackedScene" uid="uid://copp7ietmp60v" path="res://HUD/hp_progress_bar.tscn" id="3_u3ssk"]
 [ext_resource type="PackedScene" uid="uid://c460oyos8ty06" path="res://HUD/game_over_hud.tscn" id="4_7khdn"]
 [ext_resource type="PackedScene" uid="uid://dfl2y77nsustb" path="res://HUD/coin_counter.tscn" id="4_em4ik"]
@@ -21,6 +22,8 @@ visible = false
 
 [node name="AmmoCounter" parent="." instance=ExtResource("5_8bd06")]
 visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource("2_dpjsd")]
 
 [node name="MainTimerHUD" parent="." instance=ExtResource("8_8feok")]
 visible = false

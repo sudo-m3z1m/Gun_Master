@@ -2,7 +2,7 @@ extends Node
 
 class_name DAMAGE_MANAGER
 
-static func _give_damage(damage_from, damage_to, recoil_velocity, _time = 1.0):
+static func _give_damage(damage_from, damage_to, recoil_velocity = Vector2.ZERO, _time = 1.0):
 	var damage = damage_from.damage
 	
 	if damage_to.has_method("stun_after_damage_take"):

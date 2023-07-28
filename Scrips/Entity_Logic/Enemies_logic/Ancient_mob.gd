@@ -4,7 +4,7 @@ enum STATES{IDLE, MOVING, PREPARE, ATTACK, STUN}
 
 @export var cooldown_time: float
 @export var idle_time: float
-@export var prepare_time: float
+@export var max_prepare_time: float
 @export var damage: float
 
 var stunning_time: float
@@ -52,17 +52,16 @@ func make_path() -> void:
 		$Agent.set_velocity(direction_to_target * speed)
 
 func prepare_to_attack() -> void:
+	var prepare_time: float = randomize_prepare_time()
 	$PathUpdateTimer.stop()
 	$IdleAndPrepareTimer.start(prepare_time)
 	$Agent.set_target_position(player.global_position)
 	velocity = Vector2.ZERO
-#	$Agent.set_velocity(Vector2.ZERO)
 
 func to_idle():
 	$IdleAndPrepareTimer.start(idle_time)
 	$AttackArea/AttackShape.disabled = true
 	$Agent.target_reached.disconnect(attack_target_reached)
-#	$Agent.set_velocity(Vector2.ZERO)
 	velocity = Vector2.ZERO
 
 func attack(target_position: Vector2) -> void:
@@ -113,3 +112,7 @@ func _on_agent_velocity_computed(safe_velocity):
 			velocity = Vector2.ZERO
 		STATES.MOVING:
 			velocity = safe_velocity
+
+func randomize_prepare_time() -> float:
+	var random_time: float = randf_range(0.1, max_prepare_time)
+	return random_time

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3ke7jk3nhlj7"]
 
-[ext_resource type="PackedScene" uid="uid://bf2tm7ixltvdl" path="res://Prefabs/Classes/Projectile.tscn" id="1_xr42f"]
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Prefabs/Classes/Projectile.tscn" id="1_xr42f"]
 [ext_resource type="Texture2D" uid="uid://cg86t0lyiipaq" path="res://Sprites/Weapons/Poison_projectile.png" id="2_mxvtn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5m3w"]
@@ -17,6 +17,9 @@ animations = [{
 [node name="poison_projectile" instance=ExtResource("1_xr42f")]
 projectile_speed = 500.0
 damage = 25.0
+poison_damage = 20.0
+effect_duration = 3.0
+T = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -0.5)

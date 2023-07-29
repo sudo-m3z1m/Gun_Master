@@ -68,7 +68,7 @@ idle_time = 1.0
 max_prepare_time = 1.5
 damage = 20.0
 health_points = 100.0
-speed = 200.0
+max_speed = 200.0
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_gyc72")

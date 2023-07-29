@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Mob_class
 
 @export var health_points: float
-@export var speed: float
+@export var max_speed: float
 @export_dir var weapon_path
 @export_dir var money_path
 

@@ -49,7 +49,7 @@ func make_path() -> void:
 	if $Agent.is_target_reachable() and real_state == STATES.MOVING:
 		next_navigate_point = $Agent.get_next_path_position()
 		direction_to_target = position.direction_to(next_navigate_point)
-		$Agent.set_velocity(direction_to_target * speed)
+		$Agent.set_velocity(direction_to_target * max_speed)
 
 func prepare_to_attack() -> void:
 	var prepare_time: float = randomize_prepare_time()

@@ -57,3 +57,6 @@ func check_hp(_damage) -> void:
 func kill():
 	instantiate_money()
 	queue_free()
+
+func change_modulate(_modulate: Color):
+	$Sprite.set_modulate(_modulate)

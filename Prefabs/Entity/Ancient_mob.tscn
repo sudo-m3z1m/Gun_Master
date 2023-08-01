@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c57wwvpgpwad4"]
+[gd_scene load_steps=21 format=3 uid="uid://c57wwvpgpwad4"]
 
 [ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Ancient_mob.gd" id="2_a1h6i"]
 [ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_g4rv4"]
+[ext_resource type="Texture2D" uid="uid://db3er458dw11c" path="res://Sprites/Mobs/Ancient_melee_MOVE (3).png" id="4_so0f3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71dfg"]
 atlas = ExtResource("2_g4rv4")
@@ -22,6 +23,34 @@ region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xb530"]
 atlas = ExtResource("2_g4rv4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tl5c"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35tlf"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1tma"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vfvp"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbq28"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d7lw"]
+atlas = ExtResource("4_so0f3")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjdvj"]
+atlas = ExtResource("4_so0f3")
 region = Rect2(0, 512, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gyc72"]
@@ -45,6 +74,32 @@ animations = [{
 "loop": true,
 "name": &"IDLE",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tl5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35tlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1tma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vfvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbq28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d7lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjdvj")
+}],
+"loop": true,
+"name": &"MOVING",
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjorx"]
@@ -72,9 +127,9 @@ max_speed = 200.0
 
 [node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_gyc72")
-animation = &"IDLE"
-autoplay = "IDLE"
-frame_progress = 0.969161
+animation = &"MOVING"
+autoplay = "MOVING"
+frame_progress = 0.994198
 
 [node name="HitBox" parent="." index="1"]
 modulate = Color(0, 0, 1, 1)
@@ -88,6 +143,9 @@ collision_mask = 1
 
 [node name="Agent" parent="." index="3"]
 max_neighbors = 4
+
+[node name="PathUpdateTimer" parent="." index="4"]
+wait_time = 0.1
 
 [node name="CooldownTimer" type="Timer" parent="." index="5"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b74v3at5gfrml"
-path="res://.godot/imported/Enemy_projectile.png-89da772c363607d16edbb4fe60c99714.ctex"
+uid="uid://1l85einc1in0"
+path="res://.godot/imported/Blowpipe.png-5fed4a3800d584dcb395797e0f0ec891.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Weapons/Enemy_projectile.png"
-dest_files=["res://.godot/imported/Enemy_projectile.png-89da772c363607d16edbb4fe60c99714.ctex"]
+source_file="res://Sprites/Weapons/Blowpipe.png"
+dest_files=["res://.godot/imported/Blowpipe.png-5fed4a3800d584dcb395797e0f0ec891.ctex"]
 
 [params]
 

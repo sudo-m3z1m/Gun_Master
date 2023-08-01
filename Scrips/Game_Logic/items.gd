@@ -5,10 +5,6 @@ class_name ITEMS
 @export var items: Dictionary
 @export var weapons: Dictionary
 
-func _ready():
-	fill_weapons_dict()
-	fill_items_dict()
-
 func fill_weapons_dict(_dir_path: String = "res://Prefabs/Weapons/Range/") -> void:
 	var dir: DirAccess = DirAccess.open(_dir_path)
 	if !dir:

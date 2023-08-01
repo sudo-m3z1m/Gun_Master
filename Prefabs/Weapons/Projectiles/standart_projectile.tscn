@@ -1,26 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bic68stm4216l"]
+[gd_scene load_steps=5 format=3 uid="uid://bic68stm4216l"]
 
-[ext_resource type="PackedScene" uid="uid://bf2tm7ixltvdl" path="res://Prefabs/Classes/Projectile.tscn" id="1_1ocyv"]
-[ext_resource type="Texture2D" uid="uid://dbslix4majhft" path="res://Sprites/Weapons/Standart_projectile.png" id="2_6dvi4"]
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Prefabs/Classes/Projectile.tscn" id="1_1ocyv"]
+[ext_resource type="Texture2D" uid="uid://bltkuqufvx2qm" path="res://Sprites/Weapons/Bullet_projectile.png" id="2_o72bh"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_t7cqv"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ec51u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6dvi4")
+"texture": ExtResource("2_o72bh")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bygj"]
+radius = 235.008
+
 [node name="standart_projectile" instance=ExtResource("1_1ocyv")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(0.403, 0.4)
-sprite_frames = SubResource("SpriteFrames_t7cqv")
+sprite_frames = SubResource("SpriteFrames_ec51u")
 
-[node name="PointLight2D" parent="." index="4"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_7bygj")
+
+[node name="PointLight2D" parent="." index="3"]
 enabled = true
 color = Color(0.976471, 0.909804, 0.0352941, 1)
 energy = 0.7

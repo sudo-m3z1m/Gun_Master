@@ -9,14 +9,13 @@ class_name WEAPON
 @export var cooldown: float
 @export var throwable_weapon: PackedScene
 @export var length_from_player: float
-@export var animation: String
-@export var ammo: int:
-	set(_ammo):
-		ammo = _ammo
-		update_ammo_hud()
+@export var main_animation: StringName
+@export var attack_animation: StringName
+@export var player_animation: StringName
 
 @onready var pivot: Node = $Pivot
 @onready var hitbox: Node = $HitBox
+@onready var cooldown_timer: Timer = $Cooldown_Timer
 
 const ENEMY_GROUP: Array = ["Mob", "Projectile"]
 const throw_strength: float = 600
@@ -55,7 +54,7 @@ func throw_self(global_target_position: Vector2) -> void:
 		return
 		
 	var throw_velocity := _get_vector_to_target(global_target_position)
-	var throw_weap = inst_and_set_thr()
+	var throw_weap: RigidBody2D = inst_and_set_thr()
 	get_tree().current_scene.add_child(throw_weap)
 	throw(throw_weap, throw_velocity)
 	
@@ -74,9 +73,11 @@ func inst_and_set_thr() -> RigidBody2D:
 	rigid_weapon.rot_degrees = rotation_degrees
 	return rigid_weapon
 
-func update_ammo_hud() -> void:
-	pass
-
 func throw(_weapon: RigidBody2D, throw_vel: Vector2) -> void:
 	_weapon.set_owner(get_tree().current_scene)
 	_weapon.apply_impulse(throw_vel)
+
+func _check_cooldown() -> bool:
+	if cooldown_timer.is_stopped():
+		return false
+	return true

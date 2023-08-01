@@ -13,7 +13,5 @@ func exit_pressed():
 	get_tree().quit()
 
 func set_enable(_is_enable: bool) -> void:
-	for button in get_children():
-		if button is Button:
-			button.disabled = _is_enable
+	get_tree().paused = _is_enable
 	visible = _is_enable

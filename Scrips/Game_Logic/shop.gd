@@ -3,7 +3,7 @@ extends Node2D
 class_name SHOP
 
 enum PLACES{LEFT, CENTER, RIGHT}
-enum PRODUCT_IDS{AMMO = 3, HP}
+enum PRODUCT_IDS{AMMO = 4, HP}
 
 @onready var places = {
 	PLACES.LEFT: $Left/ShopCellLeft,
@@ -29,5 +29,8 @@ func place_product(_product: PackedScene, place: int, product_quantity: int, _co
 	places[place].append_product_to_cell(_product, product_quantity, _cost)
 	
 func define_weapon() -> PackedScene:
-	var weapon_id: int = randi_range(1, Items.weapons.size())
+	var weapons_ids: Array = Items.weapons.keys()
+	var weapon_id_index: int = randi() % weapons_ids.size()
+	var weapon_id = weapons_ids[weapon_id_index]
+	
 	return Items.weapons[weapon_id]

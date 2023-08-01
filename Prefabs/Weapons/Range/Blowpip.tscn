@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmm6apv00gjjk"]
+
+[ext_resource type="PackedScene" uid="uid://df46xgrjjh0r" path="res://Prefabs/Classes/weapon_range.tscn" id="1_fih1r"]
+[ext_resource type="Texture2D" uid="uid://1l85einc1in0" path="res://Sprites/Weapons/Blowpipe.png" id="2_nspuc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ociwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nspuc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylepd"]
+size = Vector2(166.667, 56.6667)
+
+[node name="Blowpipe" instance=ExtResource("1_fih1r")]
+bullet_scene = null
+ammo = 12
+ID = 3
+damage = 25
+cooldown = 1.0
+length_from_player = 75.0
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+texture_filter = 1
+scale = Vector2(4.125, 3.125)
+sprite_frames = SubResource("SpriteFrames_ociwb")
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ylepd")

@@ -17,8 +17,11 @@ var acceleration: float = 90
 var direction: Vector2
 
 @onready var scene = get_tree().current_scene
-#@onready var screen = $Camera.get_viewport_rect().size
+#@onready var screen = $Camera.get_viewport_rect().sizea
 @onready var weapon_handler = $WeaponHandler
+
+func _ready():
+	EffectsManager.give_effect(GlobalScope.EFFECTS.POISON, self, 50, 2, 1)
 
 func _physics_process(delta):
 	set_character_velocity()
@@ -30,15 +33,15 @@ func set_direction(_direction):
 
 func flip_handler(_new_dir: Vector2):#, _old_dir: Vector2):
 	if _new_dir.x < 0:
-		$AnimatedSprite2D.flip_h = true #Суть в том, что вектор направления движ. выступает
+		$Sprite.flip_h = true #Суть в том, что вектор направления движ. выступает
 	else:                               #чем-то вроде состояния, где > 0 это напр. вправо,
-		$AnimatedSprite2D.flip_h = false#а < 0 - влево. Как по мне эта формулировка попроще.
+		$Sprite.flip_h = false#а < 0 - влево. Как по мне эта формулировка попроще.
 #	if signi(_new_dir.x) != signi(_old_dir.x):
 #		match signi(_new_dir.x):
 #			-1:
-#				$AnimatedSprite2D.flip_h = true
+#				$Sprite.flip_h = true
 #			1:
-#				$AnimatedSprite2D.flip_h = false
+#				$Sprite.flip_h = false
 
 func set_character_velocity() -> void:
 	if direction.length() != 0:
@@ -56,3 +59,6 @@ func bodies_collision_checker(body):
 func kill():
 	GameManager.stop_game()
 	call_deferred("queue_free")
+
+func change_modulate(_modulate: Color):
+	$Sprite.set_modulate(_modulate)

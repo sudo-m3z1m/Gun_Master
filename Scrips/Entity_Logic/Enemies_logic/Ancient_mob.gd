@@ -13,6 +13,7 @@ var _can_attack: bool = true
 var real_state: int = STATES.MOVING
 
 func _ready():
+	prints("Name:", name, "Pos:", global_position, "Borned")
 	$PathUpdateTimer.timeout.connect(make_path)
 	$AttackArea.body_entered.connect(on_attack_body_entered)
 	$RayCast2D.add_exception(get_tree().get_first_node_in_group("Player"))
@@ -28,20 +29,29 @@ func change_state(next_state: int) -> void:
 	match next_state:
 		STATES.IDLE:
 			to_idle()
+			change_animation("IDLE")
 		STATES.MOVING:
 			$PathUpdateTimer.start()
 			$CooldownTimer.start(cooldown_time)
+			change_animation("MOVING")
 		STATES.PREPARE:
 			prepare_to_attack()
+			change_animation("IDLE")
 		STATES.ATTACK:
 			attack($Agent.get_target_position())
+			change_animation("IDLE")
 		STATES.STUN:
 			$Agent.set_velocity(Vector2.ZERO)
 			$IdleAndPrepareTimer.start(stunning_time)
+			change_animation("IDLE")
 
 func make_path() -> void:
 	var direction_to_target: Vector2
 	var next_navigate_point: Vector2
+	if !player:
+		prints("Name:", name, "Mobs groups:", self.get_groups())
+		return
+	change_watching_direction(player.global_position)
 	
 	$Agent.set_target_position(player.global_position)
 	$RayCast2D.target_position = to_local(player.position)
@@ -116,3 +126,14 @@ func _on_agent_velocity_computed(safe_velocity):
 func randomize_prepare_time() -> float:
 	var random_time: float = randf_range(0.1, max_prepare_time)
 	return random_time
+
+func change_animation(_animation) -> void: #IDLT
+	$Sprite.set_animation(_animation)
+
+func change_watching_direction(_global_player_pos: Vector2): #IDLT
+	var angle_to_target = global_position.angle_to_point(_global_player_pos) * 180 / PI
+	var _is_flipped: bool = abs(angle_to_target) > 90
+	$Sprite.set_flip_h(_is_flipped)
+
+func _exit_tree():
+	prints("Name:", name, "Pos:", global_position, "Killed")

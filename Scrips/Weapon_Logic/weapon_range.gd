@@ -4,29 +4,31 @@ extends WEAPON
 class_name WEAPON_RANGE
 
 @export_category("Range properties")
-@export_dir var bullet_path
+@export var bullet_scene: PackedScene
 @export var shake_strength: float
+@export var ammo: int:
+	set(_ammo):
+		ammo = _ammo
+		update_ammo_hud()
+
+@onready var _shot_pos: Marker2D = $Pivot/ShotPosition
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var anim_sprite: AnimatedSprite2D = $Pivot/AnimatedSprite2D
+@onready var audio: AudioStreamPlayer = $AudioPlayer
+
 const shake_time: float = 0.1
 
 func attack(_target_global_position: Vector2):
-	if $Cooldown_Timer.is_stopped() == false or ammo <= 0:
+	if ammo <= 0 or _check_cooldown():
 		return
-	
 	ammo -= 1
-	$Cooldown_Timer.start(cooldown)
-	
+	cooldown_timer.start(cooldown)
+
 	var _weapon_dir = get_weapon_direction()
-	var _shoot_pos: Vector2 = $Pivot/ShotPosition.global_position
-	var _target_dir = _shoot_pos.direction_to(_target_global_position)
-	
-	if _weapon_dir == _target_dir:
-		bullet_instantiate(_shoot_pos, _target_global_position)
-	else:
-		#Shoot to weapon direction
-		bullet_instantiate(_shoot_pos, _shoot_pos + _weapon_dir)
-	
+#	Shoot to weapon direction
+	bullet_instantiate(_shot_pos.global_position, _shot_pos.global_position + _weapon_dir)
+
 	make_some_stuff()
-	update_ammo_hud()
 	shake_camera()
 
 func get_weapon_direction() -> Vector2:
@@ -37,16 +39,22 @@ func shake_camera() -> void:
 	camera.make_shake(shake_time, shake_strength)
 
 func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) -> void:
-	var bullet = load(bullet_path).instantiate()
+	var bullet: PROJECTILE = bullet_scene.instantiate()
+	
+	add_child(bullet)
 	bullet.global_position = instantiate_pos
-	get_tree().current_scene.add_child(bullet)
-	bullet.shot(target_global_pos)
-	bullet.damage = damage
+	bullet.shot(damage, target_global_pos)
 
 func make_some_stuff() -> void:
-	$AudioPlayer.play()
-	$AnimationPlayer.play("Attack_recoil")
-	$Pivot/AnimatedSprite2D.play(animation)
+	anim_player.animation_finished.connect(update_animation)
+	anim_player.play(player_animation)
+	anim_sprite.play(attack_animation)
+	audio.play()
 
 func update_ammo_hud() -> void:
 	HUD.update_user_hud(ammo, GlobalScope.GLOBAL_HUDS.AMMO)
+
+func update_animation(_anim_name: StringName):
+	if _anim_name == player_animation:
+		anim_sprite.play(main_animation)
+	anim_player.animation_finished.disconnect(update_animation)

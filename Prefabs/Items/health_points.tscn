@@ -22,7 +22,7 @@ height = 74.0
 [node name="health_points" instance=ExtResource("1_xi1oh")]
 script = ExtResource("2_lfv1s")
 hp_quant = 25
-ID = 4
+ID = 5
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_3x141")

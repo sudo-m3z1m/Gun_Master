@@ -5,9 +5,9 @@ class_name MOVE_STATE
 var animated_sprite: AnimatedSprite2D
 
 func _init(_target):
-	animated_sprite = _target.get_node("AnimatedSprite2D")
+	animated_sprite = _target.get_node("Sprite")
 	animated_sprite.frame_changed.connect(_update_frame)
-	_target.get_node("AnimatedSprite2D").play("MOVE")
+	_target.get_node("Sprite").play("MOVE")
 
 func _update_frame():
 	var _frame = animated_sprite.frame

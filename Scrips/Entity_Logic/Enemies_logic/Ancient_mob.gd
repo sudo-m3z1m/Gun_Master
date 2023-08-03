@@ -13,7 +13,8 @@ var _can_attack: bool = true
 var real_state: int = STATES.MOVING
 
 func _ready():
-	prints("Name:", name, "Pos:", global_position, "Borned")
+#	prints("Name:", name, "Pos:", global_position, "Borned")
+	GameManager.kill_mob.connect(kill)
 	$PathUpdateTimer.timeout.connect(make_path)
 	$AttackArea.body_entered.connect(on_attack_body_entered)
 	$RayCast2D.add_exception(get_tree().get_first_node_in_group("Player"))
@@ -48,9 +49,6 @@ func change_state(next_state: int) -> void:
 func make_path() -> void:
 	var direction_to_target: Vector2
 	var next_navigate_point: Vector2
-	if !player:
-		prints("Name:", name, "Mobs groups:", self.get_groups())
-		return
 	change_watching_direction(player.global_position)
 	
 	$Agent.set_target_position(player.global_position)
@@ -136,4 +134,4 @@ func change_watching_direction(_global_player_pos: Vector2): #IDLT
 	$Sprite.set_flip_h(_is_flipped)
 
 func _exit_tree():
-	prints("Name:", name, "Pos:", global_position, "Killed")
+	pass

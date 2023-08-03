@@ -37,8 +37,6 @@
 #func _process(delta):
 #	update_timer_hud()
 #
-#func change_music(_music: String, _time: float = 0.0):
-#	SoundManager.change_main_music(_music, _time)
 #
 #func change_state(_state: int):
 #	pass
@@ -147,7 +145,3 @@
 #func magnetize_coins() -> void:
 #	get_tree().call_group("Coin", "set_magnetize_target") #Need to make signal too
 #
-#func fill_items_base() -> void:
-#	Items.fill_items_dict()
-#	Items.fill_weapons_dict()
-#	Items.fill_weapons_dict(melee_path)

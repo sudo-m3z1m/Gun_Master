@@ -15,13 +15,13 @@ var current_music: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var steps_player: AudioStreamPlayer2D = $Sounds/Steps
 
 @onready var musics: Dictionary = {
-	"Main": main_player,
-	"Shop": shop_player,
-	"Main_menu": main_menu_player,
-	"Game_over": game_over_player
+	GlobalScope.MUSICS.WAVES_MUSIC: main_player,
+	GlobalScope.MUSICS.SHOP_MUSIC: shop_player,
+	GlobalScope.MUSICS.MAIN_MENU_MUSIC: main_menu_player,
+	GlobalScope.MUSICS.GAME_OVER_MUSIC: game_over_player
 }
 
-func change_main_music(_music: String, _time: float = 0.0) -> void:
+func change_main_music(_music: int, _time: float = 0.0) -> void:
 	current_music.stop()
 	current_music = musics[_music]
 	current_music.play(_time)

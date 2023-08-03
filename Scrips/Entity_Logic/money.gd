@@ -7,6 +7,7 @@ var target: PhysicsBody2D
 @onready var player: PhysicsBody2D = get_tree().get_first_node_in_group("Player")
 
 func _ready():
+	GameManager.magnetize.connect(set_magnetize_target)
 	body_entered.connect(give_money_to_target)
 
 func _process(delta):

@@ -2,7 +2,6 @@ extends Node
 
 static func identifiers_for_weapon(_id, _weapon)-> Dictionary:
 	var id: Dictionary
-	print(_weapon)
 	_weapon = "res://Prefabs/Weapons/" + _weapon + ".tscn"
 	_weapon = load(_weapon).instantiate()
 	id[_id] = _weapon

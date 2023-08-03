@@ -5,7 +5,6 @@ func _ready():
 	$VBoxContainer/ExitButton.pressed.connect(exit_pressed)
 
 func play_pressed():
-	GameManager.reset_game()
 	GameManager.start_game()
 	set_enable(false)
 

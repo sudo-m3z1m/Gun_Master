@@ -31,13 +31,17 @@ func start_game() -> void:
 	reset_game()
 	instantiate_player()
 	spawn_player()
+	GameManager.rm_entities_in_group("Mob")
 
 func reset_game() -> void:
 	current_wave_time = start_wave_time
 	current_wave_count = start_wave_count
 	state_machine.change_state(WAVES_STATE)
+
 func stop_game() -> void:
 	state_machine.change_state(GAME_OVER_STATE)
+	GameManager.rm_entities_in_group("Mob")
+	GameManager.rm_entities_in_group("Coin")
 
 func spawn_mob():
 #	print("Mob timer timeout")

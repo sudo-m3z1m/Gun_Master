@@ -15,7 +15,7 @@ static func _give_damage(damage_from, damage_to, recoil_velocity = Vector2.ZERO,
 static func _check_hp(_damage_to: PhysicsBody2D, _damage: int) -> bool:
 	_damage_to.health_points -= _damage
 	if _damage_to.health_points <= 0:
-		_damage_to.kill()
+		_damage_to.call_deferred("kill")
 		return true
 	
 	return false

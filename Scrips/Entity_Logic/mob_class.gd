@@ -36,7 +36,8 @@ func rotate_weapon():
 
 func spawn(position: Vector2, scene):
 	global_position = position
-	scene.call_deferred("add_child", self)
+#	scene.call_deferred("add_child", self)
+	scene.add_child(self)
 	weapon_ready()
 	#Animations
 

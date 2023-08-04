@@ -134,4 +134,5 @@ func change_watching_direction(_global_player_pos: Vector2): #IDLT
 	$Sprite.set_flip_h(_is_flipped)
 
 func _exit_tree():
+#	prints("Name:", name, "Pos:", global_position, "Destroyed")
 	pass

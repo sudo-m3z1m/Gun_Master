@@ -44,7 +44,6 @@ func stop_game() -> void:
 	GameManager.rm_entities_in_group("Coin")
 
 func spawn_mob():
-#	print("Mob timer timeout")
 	if get_tree().get_nodes_in_group("Mob").size() >= GlobalScope.MAX_ENEMYS_NUMBER:
 		return
 	var mob_path: String = randomize_mobs()

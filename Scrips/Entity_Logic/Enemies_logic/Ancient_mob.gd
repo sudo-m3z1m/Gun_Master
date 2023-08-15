@@ -1,11 +1,16 @@
 extends Mob_class
 
+class_name AncientMeleeMob
+
 enum STATES{IDLE, MOVING, PREPARE, ATTACK, STUN}
 
 @export var cooldown_time: float
 @export var idle_time: float
 @export var max_prepare_time: float
 @export var damage: float
+
+@onready var area_for_dashes: Area2D = $AreaForDashes
+@onready var stun_and_prepare_timer: Timer = $GeneralTimer
 
 var stunning_time: float
 var dash_strength: float = 1000

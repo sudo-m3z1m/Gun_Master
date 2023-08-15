@@ -6,3 +6,7 @@
 max_speed = 400.0
 health_points = 100.0
 money = 300
+
+[node name="Sprite" parent="." index="3"]
+animation = &"IDLE"
+autoplay = "IDLE"

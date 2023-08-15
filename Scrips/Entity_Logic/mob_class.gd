@@ -3,13 +3,17 @@ extends CharacterBody2D
 class_name Mob_class
 
 @export var health_points: float
+@export var states: Dictionary
 @export var max_speed: float
 @export_dir var weapon_path
 @export_dir var money_path
 
 @onready var agent: NavigationAgent2D = $Agent
 @onready var path_timer: Timer = $PathUpdateTimer
-@onready var player: Object = get_tree().get_nodes_in_group("Player")[0]
+@onready var cooldown_timer: Timer = $CooldownTimer
+@onready var player: Object = get_tree().get_first_node_in_group("Player")
+@onready var raycast: RayCast2D = $RayCast2D
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 var weapon: Node2D
 var _weapon_is_picked: bool = false

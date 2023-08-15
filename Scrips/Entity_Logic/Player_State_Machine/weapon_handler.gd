@@ -2,7 +2,7 @@ extends Node2D
 
 class_name WEAPON_HANDLER
 
-var current_weapon: WEAPON = WEAPON.new()
+var current_weapon: WEAPON = null# WEAPON.new()
 
 @onready var invent: INVENTORY = PlayerInventory
 @onready var player: PhysicsBody2D = get_parent()

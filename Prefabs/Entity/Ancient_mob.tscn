@@ -114,9 +114,6 @@ radius = 70.0
 height = 214.0
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(0, 1)
 script = ExtResource("2_a1h6i")
 cooldown_time = 2.0
 idle_time = 1.0
@@ -126,14 +123,15 @@ health_points = 100.0
 max_speed = 200.0
 
 [node name="Sprite" parent="." index="0"]
+y_sort_enabled = false
 sprite_frames = SubResource("SpriteFrames_gyc72")
 animation = &"MOVING"
 autoplay = "MOVING"
-frame_progress = 0.994198
+frame = 5
+frame_progress = 0.403524
 
 [node name="HitBox" parent="." index="1"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_wjorx")
 disabled = false
 

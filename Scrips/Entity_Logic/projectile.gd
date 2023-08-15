@@ -13,10 +13,13 @@ class_name PROJECTILE
 
 var direction: Vector2
 
-func shot(_damage: float, _target_pos: Vector2, speed: float = 500.0):
+func shot(_damage: float, _target_pos: Vector2, speed: float = 500.0, effect_dur: float = 0.0, t: float = 0.0):
 	projectile_speed = speed
 	damage = _damage
+	effect_duration = effect_dur
+	T = t
 	direction = global_position.direction_to(_target_pos)
+	rotation = direction.angle()
 	
 	linear_velocity = direction * projectile_speed
 	disapear_timer.start(disapear_time)
@@ -30,4 +33,4 @@ func _give_damage(_body) -> void:
 	DAMAGE_MANAGER._give_damage(self, _body, direction * 10, 0.1)
 
 func despawn():
-	call_deferred("queue_free")
+	queue_free()

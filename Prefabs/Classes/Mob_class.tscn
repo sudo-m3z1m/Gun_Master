@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq7s6qn6ax1tl"]
+[gd_scene load_steps=3 format=3 uid="uid://bq7s6qn6ax1tl"]
 
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/mob_class.gd" id="1_1fuvd"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/enemies_state_machine.gd" id="2_lnfqc"]
 
 [node name="MobClass" type="CharacterBody2D" groups=["Mob"]]
 collision_layer = 2
@@ -9,7 +10,12 @@ script = ExtResource("1_1fuvd")
 money_path = "res://Prefabs/ShopProducts/coin.tscn"
 metadata/_edit_group_ = true
 
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_lnfqc")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 scale = Vector2(0.45, 0.45)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]

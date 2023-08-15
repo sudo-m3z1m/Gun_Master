@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://qx05augq1gwq"]
+
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Prefabs/Classes/Projectile.tscn" id="1_a13vn"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Projectiles/poison_projectile.gd" id="2_lb21l"]
+[ext_resource type="Texture2D" uid="uid://cwobxidpceiym" path="res://Sprites/Weapons/arrow_poison_projectile.png" id="2_r0e7x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v43vj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r0e7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3tns"]
+size = Vector2(893.617, 212.766)
+
+[node name="PoisonArrow" instance=ExtResource("1_a13vn")]
+light_mask = 7
+visibility_layer = 7
+max_contacts_reported = 10
+script = ExtResource("2_lb21l")
+_poison_damage = 20.0
+projectile_speed = 900.0
+damage = 20.0
+disapear_time = 5.0
+effect_duration = 5.0
+T = 0.5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(3.25, 3.25)
+sprite_frames = SubResource("SpriteFrames_v43vj")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1.42109e-14, 1)
+shape = SubResource("RectangleShape2D_r3tns")
+
+[node name="PointLight2D" parent="." index="3"]
+color = Color(0, 0.827935, 3.08037e-06, 1)

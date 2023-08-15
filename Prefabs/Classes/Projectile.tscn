@@ -27,4 +27,4 @@ enabled = false
 texture = ExtResource("2_qrh7w")
 
 [connection signal="body_entered" from="." to="." method="check_bodies"]
-[connection signal="timeout" from="DisapearTimer" to="." method="disapear"]
+[connection signal="timeout" from="DisapearTimer" to="." method="despawn"]

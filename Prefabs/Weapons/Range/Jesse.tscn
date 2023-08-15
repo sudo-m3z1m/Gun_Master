@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://hnnws34qyf12"]
 
-[ext_resource type="PackedScene" uid="uid://df46xgrjjh0r" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
-[ext_resource type="PackedScene" uid="uid://3ke7jk3nhlj7" path="res://Prefabs/Weapons/Projectiles/poison_projectile.tscn" id="2_gklrm"]
+[ext_resource type="PackedScene" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
+[ext_resource type="PackedScene" uid="uid://bqxecr0nxjvov" path="res://Prefabs/Weapons/Projectiles/poison_projectile.tscn" id="2_gklrm"]
 [ext_resource type="PackedScene" uid="uid://nvwgv8l3rtvp" path="res://Prefabs/Weapons/Throwable_weapons/jesse_throw.tscn" id="2_jjcbm"]
 [ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_jfqjk"]
 [ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="3_x2v5b"]
@@ -116,8 +116,12 @@ size = Vector2(156, 84)
 
 [node name="Jesse" instance=ExtResource("1_vltok")]
 bullet_scene = ExtResource("2_gklrm")
+bullet_speed = 200.0
 shake_strength = 30.0
-ammo = 12
+bullet_effect_duration = 4.0
+bullet_effect_t = 1.0
+maximum_ammo_amount = 32
+ammo = 6
 ID = 1
 damage = 50
 cooldown = 1.0
@@ -131,6 +135,9 @@ player_animation = &"Attack_recoil"
 sprite_frames = SubResource("SpriteFrames_4rn02")
 animation = &"STANDART"
 autoplay = "STANDART"
+
+[node name="ShotPosition" parent="Pivot" index="1"]
+position = Vector2(31, -3)
 
 [node name="HitBox" parent="." index="1"]
 shape = SubResource("RectangleShape2D_fh3vx")

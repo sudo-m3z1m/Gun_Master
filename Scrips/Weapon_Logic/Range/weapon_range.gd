@@ -5,11 +5,12 @@ class_name WEAPON_RANGE
 
 @export_category("Range properties")
 @export var bullet_scene: PackedScene
+@export var bullet_speed: float
 @export var shake_strength: float
-@export var ammo: int:
-	set(_ammo):
-		ammo = _ammo
-		update_ammo_hud()
+@export var bullet_effect_duration: float
+@export var bullet_effect_t: float
+@export var maximum_ammo_amount: int
+@export var ammo: int
 
 @onready var _shot_pos: Marker2D = $Pivot/ShotPosition
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -21,6 +22,7 @@ const shake_time: float = 0.1
 func attack(_target_global_position: Vector2):
 	if ammo <= 0 or _check_cooldown():
 		return
+
 	ammo -= 1
 	cooldown_timer.start(cooldown)
 
@@ -30,6 +32,7 @@ func attack(_target_global_position: Vector2):
 
 	make_some_stuff()
 	shake_camera()
+	update_ammo_hud()
 
 func get_weapon_direction() -> Vector2:
 	return Vector2.RIGHT.rotated(global_rotation)
@@ -43,7 +46,7 @@ func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) ->
 	
 	add_child(bullet)
 	bullet.global_position = instantiate_pos
-	bullet.shot(damage, target_global_pos)
+	bullet.shot(damage, target_global_pos, bullet_speed, bullet_effect_duration, bullet_effect_t)
 
 func make_some_stuff() -> void:
 	anim_player.animation_finished.connect(update_animation)

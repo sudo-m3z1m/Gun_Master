@@ -16,16 +16,3 @@ func add_item(item: Area2D) -> void:
 func take_item(_prod: Area2D) -> Area2D:
 	_prod.give_effect(player)
 	return _prod
-
-func get_player_cur_weapon() -> Area2D:
-	if player:
-		return player.current_weapon
-
-	printerr("player's node is not found")
-	return null
-
-func set_player_cur_weapon(_weapon: Area2D) -> void:
-	if player:
-		player.current_weapon = _weapon
-		return
-	printerr("player's node is not found")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://df46xgrjjh0r"]
+[gd_scene load_steps=6 format=3 uid="uid://ctf00djidd51b"]
 
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Prefabs/Classes/weapon.tscn" id="1_xlwlt"]
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_range.gd" id="2_3bchy"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Range/weapon_range.gd" id="2_3bchy"]
 
 [sub_resource type="Animation" id="Animation_btoos"]
 resource_name = "Attack_recoil"
@@ -44,7 +44,11 @@ _data = {
 [node name="weapon_range" instance=ExtResource("1_xlwlt")]
 script = ExtResource("2_3bchy")
 bullet_scene = null
+bullet_speed = 0.0
 shake_strength = 0.0
+bullet_effect_duration = 0.0
+bullet_effect_t = 0.0
+maximum_ammo_amount = 0
 ammo = 0
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b42sy12gc57cq"
-path="res://.godot/imported/Ancient_melee_MOVE (2).png-b15ba39c91eb39645be23c438f9251d2.ctex"
+uid="uid://dypmjtp7wq1s3"
+path="res://.godot/imported/arrow_enemy_projectile.png-3fd14ee7781be2b97a3d26378b1e8136.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Mobs/Ancient_melee_MOVE (2).png"
-dest_files=["res://.godot/imported/Ancient_melee_MOVE (2).png-b15ba39c91eb39645be23c438f9251d2.ctex"]
+source_file="res://Sprites/Weapons/arrow_enemy_projectile.png"
+dest_files=["res://.godot/imported/arrow_enemy_projectile.png-3fd14ee7781be2b97a3d26378b1e8136.ctex"]
 
 [params]
 

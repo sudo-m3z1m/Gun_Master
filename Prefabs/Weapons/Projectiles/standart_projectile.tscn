@@ -18,6 +18,9 @@ animations = [{
 radius = 235.008
 
 [node name="standart_projectile" instance=ExtResource("1_1ocyv")]
+projectile_speed = 200.0
+damage = 25.0
+disapear_time = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_ec51u")

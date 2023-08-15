@@ -2,6 +2,7 @@ extends Node
 
 class_name EFFECT
 
+var particle_path: String
 var damage: float = 40.0 #damage/period
 #var shader_effect: StringName
 var effect_color: Color

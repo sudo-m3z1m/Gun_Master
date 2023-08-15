@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://joy66n6fgpab"]
+
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Prefabs/Classes/Projectile.tscn" id="1_pen4f"]
+[ext_resource type="Texture2D" uid="uid://dypmjtp7wq1s3" path="res://Sprites/Weapons/arrow_enemy_projectile.png" id="2_dic03"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ydlu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dic03")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3tns"]
+size = Vector2(468.085, 85.1064)
+
+[node name="PoisonArrow" instance=ExtResource("1_pen4f")]
+projectile_speed = 200.0
+damage = 25.0
+disapear_time = 5.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_0ydlu")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1.42109e-14, 1)
+shape = SubResource("RectangleShape2D_r3tns")
+
+[node name="PointLight2D" parent="." index="3"]
+color = Color(0.72549, 0.0823529, 0.164706, 1)

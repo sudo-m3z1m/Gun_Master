@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfkubim83cy3k"]
+
+[ext_resource type="Texture2D" uid="uid://b0ukc8w5ae1wu" path="res://Sprites/Other/Bubble.png" id="1_r44xy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iac77"]
+emission_shape = 2
+emission_sphere_radius = 30.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.0
+color = Color(0.27451, 0.890196, 0.364706, 1)
+
+[node name="PoisonParticle" type="GPUParticles2D"]
+texture_filter = 1
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_iac77")
+texture = ExtResource("1_r44xy")
+lifetime = 2.0
+randomness = 1.0

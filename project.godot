@@ -27,7 +27,7 @@ SaveHandler="*res://Prefabs/Classes/save_handler.tscn"
 PlayerInventory="*res://Scrips/Game_Logic/player_inventory.gd"
 HUD="*res://HUD/global_hud.tscn"
 GlobalScope="*res://Scrips/Game_Logic/global_scope.gd"
-EffectsManager="*res://Scrips/Game_Logic/effects_manager.gd"
+EffectsManager="*res://Scrips/Game_Logic/Effects_manage/effects_manager.gd"
 GameManager="*res://Prefabs/Classes/game_manager.tscn"
 
 [display]

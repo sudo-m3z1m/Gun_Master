@@ -7,6 +7,8 @@ class_name Mob_class
 @export_dir var weapon_path
 @export_dir var money_path
 
+@onready var agent: NavigationAgent2D = $Agent
+@onready var path_timer: Timer = $PathUpdateTimer
 @onready var player: Object = get_tree().get_nodes_in_group("Player")[0]
 
 var weapon: Node2D
@@ -24,19 +26,16 @@ func move():
 func weapon_ready():
 	if weapon_path:
 		weapon = load(weapon_path).instantiate()
-		weapon.set_scale(Vector2(0.5, 0.5))
-		weapon._make_ready(350)
 		add_child(weapon)
-		weapon._is_picked = true
+		weapon._is_active = true
 
 func rotate_weapon():
 	$RayCast2D.set_target_position(player.global_position)
 	var angle_to_target = get_angle_to(player.global_position)
-	weapon.set_rotation(angle_to_target)
+	weapon.rotate_to_target(angle_to_target)
 
 func spawn(position: Vector2, scene):
 	global_position = position
-#	scene.call_deferred("add_child", self)
 	scene.add_child(self)
 	weapon_ready()
 	#Animations
@@ -50,14 +49,6 @@ func instantiate_money() -> void:
 func attack(target):
 	weapon._attack(target.global_position)
 
-func check_hp(_damage) -> void:
-	health_points -= _damage
-	if health_points <= 0:
-		kill()
-
 func kill():
 	instantiate_money()
 	queue_free()
-
-func change_modulate(_modulate: Color):
-	$Sprite.set_modulate(_modulate)

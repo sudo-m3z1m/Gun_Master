@@ -3,7 +3,7 @@ extends Node2D
 class_name SHOP
 
 enum PLACES{LEFT, CENTER, RIGHT}
-enum PRODUCT_IDS{AMMO = 4, HP}
+enum PRODUCT_IDS{AMMO = 4, HP = 6}
 
 @onready var places = {
 	PLACES.LEFT: $Left/ShopCellLeft,
@@ -16,10 +16,10 @@ func randomise_product_quantity() -> int:
 	return quantity
 
 func restock() -> void:
-	var ammo: PackedScene = Items.items[PRODUCT_IDS.AMMO]
+	var ammo: PackedScene = Items.items[randi_range(4, 5)]
 	var hp: PackedScene = Items.items[PRODUCT_IDS.HP]
 	var weapon: PackedScene = define_weapon()
-	place_product(ammo, PLACES.LEFT, randomise_product_quantity(), 8)
+	place_product(ammo, PLACES.LEFT, 1, 8)
 	place_product(weapon, PLACES.CENTER, 1, 25)
 	place_product(hp, PLACES.RIGHT, randomise_product_quantity(), 5)
 

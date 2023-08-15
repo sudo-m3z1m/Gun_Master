@@ -1,7 +1,7 @@
 extends EnemyState
 
-func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine, _variables: Dictionary):
-	super(_enemy, _state_machine, _variables)
+func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine):
+	super(_enemy, _state_machine)
 
 func enter_state() -> void:
 	pass

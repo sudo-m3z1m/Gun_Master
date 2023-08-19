@@ -5,10 +5,15 @@ class_name Mob_class
 @export var health_points: float
 @export var states: Dictionary
 @export var max_speed: float
+@export var damage: float
+@export var cooldawn_time: float
+@export var weapon_scene: PackedScene
+@export var money_scene: PackedScene
 @export_dir var weapon_path
 @export_dir var money_path
 
 @onready var agent: NavigationAgent2D = $Agent
+@onready var state_machine: EnemyStateMachine = $StateMachine
 @onready var path_timer: Timer = $PathUpdateTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var player: Object = get_tree().get_first_node_in_group("Player")
@@ -51,7 +56,7 @@ func instantiate_money() -> void:
 		get_tree().current_scene.call_deferred("add_child", coin)
 
 func attack(target):
-	weapon._attack(target.global_position)
+	weapon.attack(target.global_position)
 
 func kill():
 	instantiate_money()

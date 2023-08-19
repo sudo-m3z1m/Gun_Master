@@ -17,8 +17,9 @@ func update(delta) -> void:
 	pass
 
 func change_state_to(next_state: String) -> void:
-	state_machine.change_state(next_state)
+#	var self_name = self.get_class()
 	exit_state()
+	state_machine.change_state(next_state)
 
 func exit_state() -> void:
 	pass

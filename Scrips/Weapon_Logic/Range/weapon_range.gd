@@ -31,7 +31,7 @@ func attack(_target_global_position: Vector2):
 	bullet_instantiate(_shot_pos.global_position, _shot_pos.global_position + _weapon_dir)
 
 	make_some_stuff()
-	shake_camera()
+#	shake_camera()
 	update_ammo_hud()
 
 func get_weapon_direction() -> Vector2:

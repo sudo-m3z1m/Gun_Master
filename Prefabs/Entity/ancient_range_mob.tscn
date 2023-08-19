@@ -109,19 +109,23 @@ height = 124.444
 [node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
 script = ExtResource("2_dc7w0")
 bullet_scene = null
-cooldows_time = 0.0
-damage = 0.0
 poison_damage = 0.0
 health_points = 100.0
+states = {
+"Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
+"Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
+}
 max_speed = 100.0
 weapon_path = "res://Prefabs/Weapons/Range/Blowpip.tscn"
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_dwuft")
 animation = &"MOVING"
 autoplay = "IDLE"
 frame_progress = 0.236602
 
-[node name="HitBox" parent="." index="1"]
+[node name="HitBox" parent="." index="2"]
 shape = SubResource("CapsuleShape2D_4b00y")
 disabled = false
+
+[node name="ShotTimer" type="Timer" parent="." index="7"]

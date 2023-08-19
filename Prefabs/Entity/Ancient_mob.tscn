@@ -118,16 +118,16 @@ script = ExtResource("2_a1h6i")
 cooldown_time = 2.0
 idle_time = 1.0
 max_prepare_time = 1.5
-damage = 20.0
+dash_time = 0.1
 health_points = 100.0
 states = {
-"Dash": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/dash_state.gd",
-"Idle": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/idle_state.gd",
-"Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/moving_state.gd",
-"Prepare": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/prepare_state.gd",
-"Stun": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/stun.gd"
+"Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_attack_state.gd",
+"Idle": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_idle_state.gd",
+"Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_moving_state.gd",
+"Prepare": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_prepare_state.gd"
 }
 max_speed = 200.0
+damage = 33.0
 
 [node name="Sprite" parent="." index="1"]
 y_sort_enabled = false
@@ -150,6 +150,7 @@ collision_mask = 1
 max_neighbors = 4
 
 [node name="GeneralTimer" type="Timer" parent="." index="5"]
+one_shot = true
 
 [node name="AreaForDashes" type="Area2D" parent="." index="6"]
 scale = Vector2(0.45, 0.45)
@@ -166,7 +167,3 @@ shape = SubResource("CapsuleShape2D_iw4xd")
 
 [node name="PathUpdateTimer" parent="." index="8"]
 wait_time = 0.1
-
-[connection signal="velocity_computed" from="Agent" to="." method="_on_agent_velocity_computed"]
-[connection signal="timeout" from="GeneralTimer" to="." method="idle_prepare_timer_out"]
-[connection signal="body_entered" from="AreaForDashes" to="." method="_on_area_for_dashes_body_entered"]

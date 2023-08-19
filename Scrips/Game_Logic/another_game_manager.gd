@@ -21,9 +21,8 @@ signal magnetize
 
 var player: character
 var mob_paths: Array[String] = [
-#	"res://Prefabs/Entity/Ancient_mob.tscn",
+	"res://Prefabs/Entity/Ancient_mob.tscn",
 	"res://Prefabs/Entity/ancient_range_mob.tscn"
-	
 ]
 
 func _process(delta):
@@ -80,7 +79,7 @@ func rm_entities_in_group(_group: StringName) -> void:
 func kill_mobs() -> void:
 	for mob in get_tree().get_nodes_in_group("Mob"):
 		REWARD_MANAGER.set_reward(mob, 1)
-	emit_signal("kill_mob")
+	get_tree().call_group("Mob", "kill")
 
 func magnetize_coins() -> void:
 	emit_signal("magnetize")

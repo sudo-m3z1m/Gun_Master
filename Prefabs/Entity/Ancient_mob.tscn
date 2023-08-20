@@ -115,10 +115,10 @@ height = 214.0
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 script = ExtResource("2_a1h6i")
-cooldown_time = 2.0
 idle_time = 1.0
 max_prepare_time = 1.5
 dash_time = 0.1
+damage = 33.0
 health_points = 100.0
 states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_attack_state.gd",
@@ -127,7 +127,7 @@ states = {
 "Prepare": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_prepare_state.gd"
 }
 max_speed = 200.0
-damage = 33.0
+cooldown_time = 2.0
 
 [node name="Sprite" parent="." index="1"]
 y_sort_enabled = false

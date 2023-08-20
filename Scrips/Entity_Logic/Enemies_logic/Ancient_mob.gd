@@ -2,10 +2,10 @@ extends Mob_class
 
 class_name AncientMeleeMob
 
-@export var cooldown_time: float
 @export var idle_time: float
 @export var max_prepare_time: float
 @export var dash_time: float
+@export var damage: float
 
 @onready var area_for_dashes: Area2D = $AreaForDashes
 @onready var area_for_attack: Area2D = $AttackArea

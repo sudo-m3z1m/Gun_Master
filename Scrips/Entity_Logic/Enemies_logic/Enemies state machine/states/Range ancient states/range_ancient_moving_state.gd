@@ -21,7 +21,6 @@ func exit_state() -> void:
 func update_target_position() -> void:
 	var player_pos: Vector2 = enemy.player.global_position
 	agent.set_target_position(player_pos)
-	raycast.set_target_position(player_pos)
 	
 	var direction: Vector2
 	var next_path_pos: Vector2 = agent.get_next_path_position()
@@ -34,12 +33,11 @@ func update_target_position() -> void:
 func get_length_between_player(player_pos: Vector2) -> float:
 	var player_enemy_length: float
 	player_enemy_length = (enemy.global_position - player_pos).length() - player_range_radius
-	print((enemy.global_position - player_pos).length())
 	player_enemy_length = clamp(player_enemy_length, 0, 1)
 
 	return player_enemy_length
 
 func shot():
-#	if raycast.get_collider() is TileMap:
-#		return
+	if raycast.get_collider() is TileMap or !cooldown_timer.is_stopped():
+		return
 	change_state_to("Attack")

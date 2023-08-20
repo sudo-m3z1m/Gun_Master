@@ -6,7 +6,6 @@ var first_state: EnemyState
 var current_state: EnemyState = first_state
 
 @onready var self_owner: Mob_class = get_parent()
-@onready var variables_dict: Dictionary
 
 func _physics_process(delta):
 	current_state.update(delta)

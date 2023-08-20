@@ -1,13 +1,13 @@
 extends EnemyAttackState
 
 var player: character
-#var cooldown_timer: Timer
-#var cooldown_time: float
+var cooldown_timer: Timer
+var cooldown_time: float = 5
 
 func enter_state() -> void:
 	player = enemy.player
-#	cooldown_timer = enemy.cooldown_timer
-#	cooldown_timer.start(cooldown_time)
+	cooldown_timer = enemy.cooldown_timer
+	cooldown_timer.start(cooldown_time)
 	
 	shot()
 

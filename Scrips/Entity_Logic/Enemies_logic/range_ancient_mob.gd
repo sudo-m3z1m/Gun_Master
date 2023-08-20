@@ -1,7 +1,6 @@
 extends Mob_class
 
 @export var bullet_scene: PackedScene
-@export var poison_damage: float
 
 @onready var shot_timer: Timer = $ShotTimer
 
@@ -10,3 +9,7 @@ func _ready():
 
 func attack(target):
 	weapon.attack(target.global_position)
+
+func spawn(position: Vector2, scene):
+	super(position, scene)
+	weapon_ready()

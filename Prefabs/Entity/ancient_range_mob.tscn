@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4fjnfulweqqc"]
+[gd_scene load_steps=21 format=3 uid="uid://c4fjnfulweqqc"]
 
 [ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_d6wt7"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/range_ancient_mob.gd" id="2_dc7w0"]
 [ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_x2xpa"]
+[ext_resource type="PackedScene" uid="uid://dmm6apv00gjjk" path="res://Prefabs/Weapons/Range/Blowpip.tscn" id="3_ouxw3"]
 [ext_resource type="Texture2D" uid="uid://db3er458dw11c" path="res://Sprites/Mobs/Ancient_melee_MOVE (3).png" id="4_ojcw4"]
+[ext_resource type="PackedScene" uid="uid://bqfj1jdlfhdsr" path="res://Prefabs/ShopProducts/coin.tscn" id="4_ujbtc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2uv1"]
 atlas = ExtResource("2_x2xpa")
@@ -109,14 +111,14 @@ height = 124.444
 [node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
 script = ExtResource("2_dc7w0")
 bullet_scene = null
-poison_damage = 0.0
 health_points = 100.0
 states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
 "Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
 }
 max_speed = 100.0
-weapon_path = "res://Prefabs/Weapons/Range/Blowpip.tscn"
+weapon_scene = ExtResource("3_ouxw3")
+money_scene = ExtResource("4_ujbtc")
 
 [node name="Sprite" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_dwuft")

@@ -5,7 +5,7 @@ class_name EnemyMovingState
 var max_speed: float
 var agent: NavigationAgent2D
 var path_timer: Timer
-#var cooldown_timer: Timer
+var cooldown_timer: Timer
 var raycast: RayCast2D
 var sprite: AnimatedSprite2D
 
@@ -26,7 +26,7 @@ func enter_state() -> void:
 	path_timer = enemy.path_timer
 	raycast = enemy.raycast
 	sprite = enemy.sprite
-#	cooldown_timer = enemy.cooldown_timer
+	cooldown_timer = enemy.cooldown_timer
 
 	path_timer.timeout.connect(update_target_position)
 	path_timer.start()

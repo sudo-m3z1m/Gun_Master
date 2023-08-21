@@ -1,7 +1,7 @@
-@icon("res://Sprites/Weapons/Bullet.png")
+#@icon("res://Sprites/Weapons/Bullet.png")
 extends RigidBody2D
 
-class_name PROJECTILE
+class_name Projectile
 
 @export var projectile_speed: float
 @export var damage: float

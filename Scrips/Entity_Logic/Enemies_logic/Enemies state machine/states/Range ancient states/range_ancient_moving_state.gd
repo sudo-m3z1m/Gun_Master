@@ -1,14 +1,14 @@
 extends EnemyMovingState
 
-var shot_timer: Timer
-var shot_time: float = 2
+#var shot_timer: Timer
+#var shot_time: float = 2
 var player_range_radius: float = 400
 
 func enter_state() -> void:
 	super()
-	shot_timer = enemy.shot_timer
-	shot_timer.timeout.connect(shot)
-	shot_timer.start(shot_time)
+	cooldown_time = enemy.weapon.cooldown
+	cooldown_timer.timeout.connect(shot)
+	cooldown_timer.start(cooldown_time)
 
 func update(delta) -> void:
 	enemy.move()
@@ -38,6 +38,6 @@ func get_length_between_player(player_pos: Vector2) -> float:
 	return player_enemy_length
 
 func shot():
-	if raycast.get_collider() is TileMap or !cooldown_timer.is_stopped():
+	if raycast.get_collider() is TileMap:
 		return
 	change_state_to("Attack")

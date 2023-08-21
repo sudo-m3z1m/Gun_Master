@@ -13,3 +13,9 @@ func update(delta) -> void:
 
 func exit_state() -> void:
 	pass
+
+func randomise_property(prop_from: float, prop_to: float) -> float:
+	var random_property: float
+	random_property = randf_range(prop_from, prop_to)
+
+	return random_property

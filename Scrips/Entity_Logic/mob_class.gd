@@ -13,11 +13,11 @@ class_name Mob_class
 @onready var agent: NavigationAgent2D = $Agent
 @onready var path_timer: Timer = $PathUpdateTimer
 @onready var cooldown_timer: Timer = $CooldownTimer
-@onready var player: Object = get_tree().get_first_node_in_group("Player") # It will be in states
+@onready var player: Object = get_tree().get_first_node_in_group("Player")
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var sprite: AnimatedSprite2D = $Sprite
 
-var weapon: Node2D
+var weapon: WEAPON
 var reward: int = 0 #It will be in kill manager
 
 func set_reward(_reward):
@@ -32,7 +32,7 @@ func weapon_ready():
 	weapon._is_active = true
 
 func rotate_weapon():
-	raycast.set_target_position(player.global_position)
+	raycast.set_target_position(to_local(player.global_position))
 	var angle_to_target = get_angle_to(player.global_position)
 	weapon.rotate_to_target(angle_to_target)
 

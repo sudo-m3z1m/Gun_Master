@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c57wwvpgpwad4"]
+[gd_scene load_steps=22 format=3 uid="uid://c57wwvpgpwad4"]
 
 [ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_otsup"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/Ancient_mob.gd" id="2_a1h6i"]
 [ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_g4rv4"]
+[ext_resource type="PackedScene" uid="uid://bqfj1jdlfhdsr" path="res://Prefabs/ShopProducts/coin.tscn" id="3_hoxuf"]
 [ext_resource type="Texture2D" uid="uid://db3er458dw11c" path="res://Sprites/Mobs/Ancient_melee_MOVE (3).png" id="4_so0f3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71dfg"]
@@ -115,10 +116,11 @@ height = 214.0
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 script = ExtResource("2_a1h6i")
-idle_time = 1.0
-max_prepare_time = 1.5
-dash_time = 0.1
 damage = 33.0
+dash_speed_min = 900.0
+dash_speed_max = 1500.0
+dash_time_min = 0.2
+dash_time_max = 0.33
 health_points = 100.0
 states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/melee_ancient_states/melee_attack_state.gd",
@@ -128,6 +130,7 @@ states = {
 }
 max_speed = 200.0
 cooldown_time = 2.0
+money_scene = ExtResource("3_hoxuf")
 
 [node name="Sprite" parent="." index="1"]
 y_sort_enabled = false
@@ -143,7 +146,6 @@ shape = SubResource("CapsuleShape2D_wjorx")
 disabled = false
 
 [node name="RayCast2D" parent="." index="3"]
-target_position = Vector2(0, 0)
 collision_mask = 1
 
 [node name="Agent" parent="." index="4"]

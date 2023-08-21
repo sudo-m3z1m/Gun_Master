@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://brl11ndi38457"]
+
+[ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Prefabs/Classes/weapon_range.tscn" id="1_l0a0a"]
+[ext_resource type="PackedScene" uid="uid://joy66n6fgpab" path="res://Prefabs/Weapons/Projectiles/enemy_arrow.tscn" id="2_w04y1"]
+[ext_resource type="Texture2D" uid="uid://1l85einc1in0" path="res://Sprites/Weapons/Blowpipe.png" id="4_2pn3q"]
+[ext_resource type="AudioStream" uid="uid://b2ctqmtfvhu7d" path="res://Audio/GunShots/Guns/blowpipe.mp3" id="5_x7rmp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ociwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2pn3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylepd"]
+size = Vector2(166.667, 56.6667)
+
+[node name="EnemyBlowpipe" instance=ExtResource("1_l0a0a")]
+bullet_scene = ExtResource("2_w04y1")
+bullet_speed = 1000.0
+bullet_effect_duration = 3.0
+bullet_effect_t = 1.0
+maximum_ammo_amount = 10000000
+ammo = 10000000
+ID = 3
+damage = 25
+cooldown = 3.0
+length_from_player = 75.0
+player_animation = &"Attack_recoil"
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+texture_filter = 1
+scale = Vector2(4.125, 3.125)
+sprite_frames = SubResource("SpriteFrames_ociwb")
+
+[node name="ShotPosition" parent="Pivot" index="1"]
+position = Vector2(25, 0)
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ylepd")
+
+[node name="AudioPlayer" parent="." index="4"]
+stream = ExtResource("5_x7rmp")
+volume_db = 24.0

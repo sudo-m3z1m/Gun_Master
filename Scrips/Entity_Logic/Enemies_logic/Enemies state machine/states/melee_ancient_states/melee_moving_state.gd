@@ -17,8 +17,9 @@ func exit_state() -> void:
 
 func update_target_position() -> void:
 	var player_pos: Vector2 = enemy.player.global_position
+	var player_local_pos: Vector2 = to_local(enemy.position, enemy.player.position)
 	agent.set_target_position(player_pos)
-#	raycast
+	raycast.set_target_position(player_local_pos)
 	
 	var direction: Vector2
 	var next_path_pos: Vector2 = agent.get_next_path_position()
@@ -27,6 +28,8 @@ func update_target_position() -> void:
 	enemy.velocity = direction * max_speed
 
 func check_player(_player) -> void:
-	if !(_player is character) or raycast.get_collider() is TileMap:
+	if !(_player is character) or raycast.get_collider() is TileMap or \
+	!cooldown_timer.is_stopped():
 		return
+	cooldown_timer.start(cooldown_time)
 	change_state_to("Prepare")

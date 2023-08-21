@@ -1,7 +1,6 @@
 extends EnemyIdleState
 
 var idle_timer: Timer
-var sprite: AnimatedSprite2D
 const ANIMATION = "IDLE"
 
 func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine):

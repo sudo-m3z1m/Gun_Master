@@ -1,4 +1,4 @@
-extends PROJECTILE
+extends Projectile
 
 @export var _poison_damage: float
 

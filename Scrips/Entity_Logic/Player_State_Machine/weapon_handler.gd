@@ -2,7 +2,7 @@ extends Node2D
 
 class_name WEAPON_HANDLER
 
-var current_weapon: WEAPON = null# WEAPON.new()
+var current_weapon: WEAPON = WEAPON.new()
 
 @onready var invent: INVENTORY = PlayerInventory
 @onready var player: PhysicsBody2D = get_parent()
@@ -53,11 +53,12 @@ func scroll_weapon(delta_index: int) -> void:
 	change_weapon_from_array(invent.weapons.find(current_weapon) + delta_index)
 
 func change_weapon_from_array(next_gun_index: int) -> void: # IDLT
-	next_gun_index %= invent.weapons.size()
+	if invent.weapons.is_empty():
+		return
+
 	for buff_weapon in invent.weapons:
-		if buff_weapon == null:
-			return
 		buff_weapon._is_active = false
 	
+	next_gun_index %= invent.weapons.size()
 	current_weapon = invent.weapons[next_gun_index]
 	invent.weapons[next_gun_index]._is_active = true

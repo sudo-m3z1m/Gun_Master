@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_d6wt7"]
 [ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/range_ancient_mob.gd" id="2_dc7w0"]
 [ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_x2xpa"]
-[ext_resource type="PackedScene" uid="uid://dmm6apv00gjjk" path="res://Prefabs/Weapons/Range/Blowpip.tscn" id="3_ouxw3"]
+[ext_resource type="PackedScene" uid="uid://brl11ndi38457" path="res://Prefabs/Weapons/Range/enemy_blowpipe.tscn" id="3_8vqv3"]
 [ext_resource type="Texture2D" uid="uid://db3er458dw11c" path="res://Sprites/Mobs/Ancient_melee_MOVE (3).png" id="4_ojcw4"]
 [ext_resource type="PackedScene" uid="uid://bqfj1jdlfhdsr" path="res://Prefabs/ShopProducts/coin.tscn" id="4_ujbtc"]
 
@@ -110,14 +110,13 @@ height = 124.444
 
 [node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
 script = ExtResource("2_dc7w0")
-bullet_scene = null
 health_points = 100.0
 states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
 "Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
 }
 max_speed = 100.0
-weapon_scene = ExtResource("3_ouxw3")
+weapon_scene = ExtResource("3_8vqv3")
 money_scene = ExtResource("4_ujbtc")
 
 [node name="Sprite" parent="." index="1"]

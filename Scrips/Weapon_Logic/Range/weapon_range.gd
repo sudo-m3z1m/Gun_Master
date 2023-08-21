@@ -42,7 +42,7 @@ func shake_camera() -> void:
 	camera.make_shake(shake_time, shake_strength)
 
 func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) -> void:
-	var bullet: PROJECTILE = bullet_scene.instantiate()
+	var bullet: Projectile = bullet_scene.instantiate()
 	
 	add_child(bullet)
 	bullet.global_position = instantiate_pos

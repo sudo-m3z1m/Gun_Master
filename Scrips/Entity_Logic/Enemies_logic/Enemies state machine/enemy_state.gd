@@ -4,6 +4,7 @@ class_name EnemyState
 
 var enemy: Mob_class
 var state_machine: EnemyStateMachine
+var sprite: AnimatedSprite2D
 var next_state: String
 
 func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine):

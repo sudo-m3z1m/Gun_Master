@@ -21,7 +21,7 @@ size = Vector2(166.667, 56.6667)
 
 [node name="EnemyBlowpipe" instance=ExtResource("1_l0a0a")]
 bullet_scene = ExtResource("2_w04y1")
-bullet_speed = 1000.0
+bullet_speed = 750.0
 bullet_effect_duration = 3.0
 bullet_effect_t = 1.0
 maximum_ammo_amount = 10000000

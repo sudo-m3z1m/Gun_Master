@@ -22,7 +22,11 @@ signal magnetize
 var player: character
 var mob_paths: Array[String] = [
 	"res://Prefabs/Entity/Ancient_mob.tscn",
-	"res://Prefabs/Entity/ancient_range_mob.tscn"
+	"res://Prefabs/Entity/Ancient_mob.tscn",
+	"res://Prefabs/Entity/ancient_range_mob.tscn",
+	"res://Prefabs/Entity/Ancient_mob.tscn",
+	"res://Prefabs/Entity/Ancient_mob.tscn",
+	"res://Prefabs/Entity/Ancient_mob.tscn"
 ]
 
 func _process(delta):

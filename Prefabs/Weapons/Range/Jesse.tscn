@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://hnnws34qyf12"]
 
-[ext_resource type="PackedScene" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
+[ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Prefabs/Classes/weapon_range.tscn" id="1_vltok"]
 [ext_resource type="PackedScene" uid="uid://bqxecr0nxjvov" path="res://Prefabs/Weapons/Projectiles/poison_projectile.tscn" id="2_gklrm"]
 [ext_resource type="PackedScene" uid="uid://nvwgv8l3rtvp" path="res://Prefabs/Weapons/Throwable_weapons/jesse_throw.tscn" id="2_jjcbm"]
 [ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_jfqjk"]
@@ -116,15 +116,15 @@ size = Vector2(156, 84)
 
 [node name="Jesse" instance=ExtResource("1_vltok")]
 bullet_scene = ExtResource("2_gklrm")
-bullet_speed = 200.0
+bullet_speed = 500.0
 shake_strength = 30.0
 bullet_effect_duration = 4.0
 bullet_effect_t = 1.0
-maximum_ammo_amount = 32
+maximum_ammo_amount = 100
 ammo = 6
 ID = 1
 damage = 50
-cooldown = 1.0
+cooldown = 0.6
 throwable_weapon = ExtResource("2_jjcbm")
 length_from_player = 75.0
 main_animation = &"STANDART"

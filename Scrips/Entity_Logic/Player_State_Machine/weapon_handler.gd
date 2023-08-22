@@ -48,6 +48,8 @@ func throw() -> void:
 func attack() -> void:
 	var target_global_pos: Vector2 = get_global_mouse_position()
 	current_weapon.attack(target_global_pos)
+	update_ammo_hud(current_weapon)
+	shake_camera()
 
 func scroll_weapon(delta_index: int) -> void:
 	change_weapon_from_array(invent.weapons.find(current_weapon) + delta_index)
@@ -62,3 +64,16 @@ func change_weapon_from_array(next_gun_index: int) -> void: # IDLT
 	next_gun_index %= invent.weapons.size()
 	current_weapon = invent.weapons[next_gun_index]
 	invent.weapons[next_gun_index]._is_active = true
+
+func update_ammo_hud(weapon: WEAPON) -> void:
+	HUD.update_user_hud(weapon.ammo, GlobalScope.GLOBAL_HUDS.AMMO)
+
+func shake_camera() -> void:
+	var shake_time: float
+	var shake_strength: float
+	
+	shake_time = current_weapon.shake_time
+	shake_strength = current_weapon.shake_strength
+	
+	var camera: Camera2D = get_parent().get_node("Camera")
+	camera.make_shake(shake_time, shake_strength)

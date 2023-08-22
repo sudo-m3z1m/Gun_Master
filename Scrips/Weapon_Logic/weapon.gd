@@ -7,8 +7,12 @@ class_name WEAPON
 @export var ID: int
 @export var damage: int
 @export var cooldown: float
-@export var throwable_weapon: PackedScene
+@export var maximum_ammo_amount: int
+@export var ammo: int
 @export var length_from_player: float
+@export var shake_strength: float
+@export var shake_time: float
+@export var throwable_weapon: PackedScene
 @export var main_animation: StringName
 @export var attack_animation: StringName
 @export var player_animation: StringName

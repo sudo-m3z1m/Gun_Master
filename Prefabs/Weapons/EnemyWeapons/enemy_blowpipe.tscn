@@ -24,11 +24,11 @@ bullet_scene = ExtResource("2_w04y1")
 bullet_speed = 750.0
 bullet_effect_duration = 3.0
 bullet_effect_t = 1.0
-maximum_ammo_amount = 10000000
-ammo = 10000000
 ID = 3
 damage = 25
 cooldown = 3.0
+maximum_ammo_amount = 10000000
+ammo = 10000000
 length_from_player = 75.0
 player_animation = &"Attack_recoil"
 

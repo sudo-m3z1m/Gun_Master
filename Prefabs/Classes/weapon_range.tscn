@@ -44,12 +44,19 @@ _data = {
 [node name="weapon_range" instance=ExtResource("1_xlwlt")]
 script = ExtResource("2_3bchy")
 bullet_scene = null
-bullet_speed = 0.0
-shake_strength = 0.0
-bullet_effect_duration = 0.0
-bullet_effect_t = 0.0
-maximum_ammo_amount = 0
-ammo = 0
+bullet_speed = null
+shake_strength = null
+bullet_effect_duration = null
+bullet_effect_t = null
+maximum_ammo_amount = null
+ammo = null
+ID = null
+damage = null
+cooldown = null
+length_from_player = null
+main_animation = null
+attack_animation = null
+player_animation = null
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]
 autoplay = "default"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dnb5qxkp35xsh"]
 
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Prefabs/Classes/weapon.tscn" id="1_m33bp"]
 [ext_resource type="Script" path="res://Scrips/Weapon_Logic/Melee/weapon_melee.gd" id="2_3uf12"]

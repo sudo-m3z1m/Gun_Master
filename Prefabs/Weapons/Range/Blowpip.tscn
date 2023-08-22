@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmm6apv00gjjk"]
 
-[ext_resource type="PackedScene" path="res://Prefabs/Classes/weapon_range.tscn" id="1_fih1r"]
+[ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Prefabs/Classes/weapon_range.tscn" id="1_fih1r"]
 [ext_resource type="PackedScene" uid="uid://qx05augq1gwq" path="res://Prefabs/Weapons/Projectiles/poison_arrow.tscn" id="2_3b2u8"]
 [ext_resource type="PackedScene" uid="uid://2wyosil2madr" path="res://Prefabs/Weapons/Throwable_weapons/blowpipe_throw.tscn" id="2_5o5mr"]
 [ext_resource type="Texture2D" uid="uid://1l85einc1in0" path="res://Sprites/Weapons/Blowpipe.png" id="2_nspuc"]
@@ -25,13 +25,17 @@ bullet_scene = ExtResource("2_3b2u8")
 bullet_speed = 1000.0
 bullet_effect_duration = 4.0
 bullet_effect_t = 0.5
-maximum_ammo_amount = 8
-ammo = 4
 ID = 3
 damage = 25
 cooldown = 1.0
-throwable_weapon = ExtResource("2_5o5mr")
+maximum_ammo_amount = 8
+ammo = 4
 length_from_player = 75.0
+shake_strength = 100.0
+shake_time = 0.1
+throwable_weapon = ExtResource("2_5o5mr")
+main_animation = &""
+attack_animation = &""
 player_animation = &"Attack_recoil"
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]

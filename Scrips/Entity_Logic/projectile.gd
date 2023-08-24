@@ -1,4 +1,4 @@
-#@icon("res://Sprites/Weapons/Bullet.png")
+@icon("res://Sprites/Weapons/Bullet.png")
 extends RigidBody2D
 
 class_name Projectile

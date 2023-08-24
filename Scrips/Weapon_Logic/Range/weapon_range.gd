@@ -17,7 +17,6 @@ class_name WEAPON_RANGE
 func attack(_target_global_position: Vector2):
 	if ammo <= 0 or _check_cooldown():
 		return
-
 	ammo -= 1
 	cooldown_timer.start(cooldown)
 

@@ -3,6 +3,8 @@ extends Area2D
 
 class_name WEAPON
 
+signal shot
+
 @export_category("Weapon properties")
 @export var ID: int
 @export var damage: int

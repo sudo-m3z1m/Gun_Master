@@ -111,8 +111,8 @@ height = 150.0
 radius = 450.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iw4xd"]
-radius = 70.0
-height = 214.0
+radius = 60.0
+height = 155.556
 
 [node name="AncientMob" instance=ExtResource("1_otsup")]
 script = ExtResource("2_a1h6i")

@@ -36,4 +36,6 @@ position = Vector2(-1.42109e-14, 1)
 shape = SubResource("RectangleShape2D_r3tns")
 
 [node name="PointLight2D" parent="." index="3"]
+enabled = true
 color = Color(0.72549, 0.0823529, 0.164706, 1)
+texture_scale = 0.25

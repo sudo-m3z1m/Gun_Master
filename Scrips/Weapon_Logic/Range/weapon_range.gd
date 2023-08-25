@@ -30,7 +30,7 @@ func get_weapon_direction() -> Vector2:
 	return Vector2.RIGHT.rotated(global_rotation)
 
 func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) -> void:
-	var bullet: Projectile = bullet_scene.instantiate()
+	var bullet = bullet_scene.instantiate()
 	
 	add_child(bullet)
 	bullet.global_position = instantiate_pos

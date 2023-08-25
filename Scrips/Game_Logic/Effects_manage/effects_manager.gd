@@ -2,13 +2,24 @@ extends Node
 
 class_name EFFECTS_MANAGER
 
-var EFFECTS = GlobalScope.EFFECTS
+var active_effects: Dictionary
+var EFFECTS_ENUM = GlobalScope.EFFECTS
 
-func give_effect(_effect: int, apply_to: PhysicsBody2D, _damage: float = 1, _dur: float = 1, t: float = 1) -> void:
-	match _effect:
-		EFFECTS.POISON:
-			POISON.new(apply_to, _damage, _dur, t)
+var effects: Dictionary = {
+	EFFECTS_ENUM.POISON: POISON
+}
 
-func _deactivate_effect(_effect: Node) -> void:
+func try_apply_effect(_effect: GlobalScope.EFFECTS, apply_to: PhysicsBody2D, _damage: float = 1, _dur: float = 1, t: float = 1) -> void:
+	if !active_effects.get(apply_to.name):
+		active_effects[apply_to.name] = []
+
+	if active_effects[apply_to.name].has(_effect):
+		return
+
+	active_effects[apply_to.name].append(_effect)
+	effects[_effect].new(apply_to, _damage, _dur, t)
+
+func _deactivate_effect(apply_to: PhysicsBody2D, _effect: EFFECT, effect_enum: GlobalScope.EFFECTS) -> void:
 	_effect._deactivate_some_effects()
+	active_effects[apply_to.name].erase(effect_enum)
 	_effect.queue_free()

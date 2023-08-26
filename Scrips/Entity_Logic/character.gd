@@ -20,8 +20,8 @@ var direction: Vector2
 #@onready var screen = $Camera.get_viewport_rect().sizea
 @onready var weapon_handler = $WeaponHandler
 
-func _ready():
-	EffectsManager.try_apply_effect(GlobalScope.EFFECTS.POISON, self, 1, 1, 0.1)
+#func _ready():
+#	EffectsManager.try_apply_effect(GlobalScope.EFFECTS.POISON, self, 1, 1, 0.1)
 
 func _physics_process(delta):
 	set_character_velocity()

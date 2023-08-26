@@ -87,3 +87,6 @@ func _check_cooldown() -> bool:
 	if cooldown_timer.is_stopped():
 		return false
 	return true
+
+func add_self_to_inventory(_player: character) -> void:
+	_player.weapon_handler.take_weapon(self)

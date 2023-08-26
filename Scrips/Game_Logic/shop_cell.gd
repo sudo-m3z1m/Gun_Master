@@ -39,7 +39,7 @@ func buy(player: CharacterBody2D, players_money: int) -> void:
 	if players_money - product_cost < 0 or product_quantity <= 0:
 		return
 	start_blink()
-	give_product(player)
+	product.add_self_to_inventory(player)
 	player.money -= product_cost
 	product_quantity -= 1
 

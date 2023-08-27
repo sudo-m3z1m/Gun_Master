@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://qx05augq1gwq"]
 
 [ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Prefabs/Classes/Projectile.tscn" id="1_a13vn"]
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Projectiles/poison_projectile.gd" id="2_lb21l"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/projectile_with_effect.gd" id="2_b0l7f"]
 [ext_resource type="Texture2D" uid="uid://cwobxidpceiym" path="res://Sprites/Weapons/arrow_poison_projectile.png" id="2_r0e7x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v43vj"]
@@ -22,13 +22,9 @@ size = Vector2(893.617, 212.766)
 light_mask = 7
 visibility_layer = 7
 max_contacts_reported = 10
-script = ExtResource("2_lb21l")
-_poison_damage = 20.0
-projectile_speed = 900.0
-damage = 20.0
+script = ExtResource("2_b0l7f")
+effect = 0
 disapear_time = 5.0
-effect_duration = 5.0
-T = 0.5
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(3.25, 3.25)

@@ -21,7 +21,7 @@ radius = 235.008
 [node name="poison_projectile" instance=ExtResource("1_xr42f")]
 script = ExtResource("2_0c8f0")
 effect = 0
-disapear_time = 4.0
+disapear_time = 5.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_k01i3")

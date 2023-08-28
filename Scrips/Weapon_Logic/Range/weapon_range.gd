@@ -8,6 +8,7 @@ class_name WEAPON_RANGE
 @export var bullet_speed: float
 @export var bullet_effect_duration: float
 @export var bullet_effect_t: float
+@export var bullet_effect_damage: float
 
 @onready var _shot_pos: Marker2D = $Pivot/ShotPosition
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -34,7 +35,8 @@ func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) ->
 	
 	add_child(bullet)
 	bullet.global_position = instantiate_pos
-	bullet.shot(damage, target_global_pos, bullet_speed, bullet_effect_duration, bullet_effect_t)
+	bullet.shot(damage, target_global_pos, bullet_speed, bullet_effect_duration,\
+	 bullet_effect_t, bullet_effect_damage)
 
 func make_some_stuff() -> void:
 	anim_player.animation_finished.connect(update_animation)

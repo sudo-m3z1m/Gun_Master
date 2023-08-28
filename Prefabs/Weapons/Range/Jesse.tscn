@@ -119,6 +119,7 @@ bullet_scene = ExtResource("2_gklrm")
 bullet_speed = 500.0
 bullet_effect_duration = 4.0
 bullet_effect_t = 1.0
+bullet_effect_damage = 15.0
 ID = 1
 damage = 50
 cooldown = 0.3

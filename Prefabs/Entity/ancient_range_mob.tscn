@@ -115,7 +115,7 @@ states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
 "Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
 }
-max_speed = 100.0
+max_speed = 200.0
 weapon_scene = ExtResource("3_j8sjj")
 money_scene = ExtResource("4_ujbtc")
 

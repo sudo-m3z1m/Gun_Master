@@ -12,8 +12,8 @@ func _physics_process(delta):
 
 func take_weapon(_weapon: Area2D):
 	var weapon_parent = _weapon.get_parent()
-	if weapon_parent == player:
-		return
+#	if weapon_parent == player:
+#		return
 	invent.weapons.append(_weapon)
 	_weapon.position = Vector2()
 	weapon_parent.remove_child(_weapon)

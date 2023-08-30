@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7i1cvgy4k1ms"]
+[gd_scene load_steps=9 format=3 uid="uid://b7i1cvgy4k1ms"]
 
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
+[ext_resource type="PackedScene" uid="uid://hnnws34qyf12" path="res://Prefabs/Weapons/Range/Jesse.tscn" id="2_y16dy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
 vertices = PackedVector2Array(-6, -32, 8, -32, 32, -6, 32, 9.5, 7.5, 32, -7, 32, -32, 11.5, -32, -7.5)
@@ -85,3 +86,6 @@ curve = SubResource("Curve2D_oxp3j")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(152, 198)
 rotation = -0.00671541
+
+[node name="Jesse" parent="." instance=ExtResource("2_y16dy")]
+position = Vector2(958, 912)

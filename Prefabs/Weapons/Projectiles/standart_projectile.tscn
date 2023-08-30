@@ -18,8 +18,6 @@ animations = [{
 radius = 235.008
 
 [node name="standart_projectile" instance=ExtResource("1_1ocyv")]
-projectile_speed = 200.0
-damage = 25.0
 disapear_time = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -30,6 +28,5 @@ shape = SubResource("CircleShape2D_7bygj")
 
 [node name="PointLight2D" parent="." index="3"]
 enabled = true
-color = Color(0.976471, 0.909804, 0.0352941, 1)
-energy = 0.7
-texture_scale = 0.1
+color = Color(0.611765, 0.694118, 0, 1)
+texture_scale = 0.25

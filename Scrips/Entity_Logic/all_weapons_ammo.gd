@@ -1,6 +1,6 @@
 extends DisposableItem
 
-func give_effect(_player: PhysicsBody2D) -> void:
+func activate(_player: PhysicsBody2D) -> void:
 	var inventory: INVENTORY = PlayerInventory
 	var weapon_handler: WEAPON_HANDLER = _player.get_node_or_null("WeaponHandler")
 	for weapon in inventory.weapons:

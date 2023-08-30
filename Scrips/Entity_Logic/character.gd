@@ -31,17 +31,11 @@ func set_direction(_direction):
 	flip_handler(_direction)
 	direction = _direction
 
-func flip_handler(_new_dir: Vector2):#, _old_dir: Vector2):
+func flip_handler(_new_dir: Vector2):
 	if _new_dir.x < 0:
-		$Sprite.flip_h = true #Суть в том, что вектор направления движ. выступает
-	else:                               #чем-то вроде состояния, где > 0 это напр. вправо,
-		$Sprite.flip_h = false#а < 0 - влево. Как по мне эта формулировка попроще.
-#	if signi(_new_dir.x) != signi(_old_dir.x):
-#		match signi(_new_dir.x):
-#			-1:
-#				$Sprite.flip_h = true
-#			1:
-#				$Sprite.flip_h = false
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
 
 func set_character_velocity() -> void:
 	if direction.length() != 0:

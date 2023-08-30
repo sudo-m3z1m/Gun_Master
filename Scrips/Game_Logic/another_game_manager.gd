@@ -20,13 +20,9 @@ signal magnetize
 @onready var current_mob_time: float = start_mob_time
 
 var player: character
-var mob_paths: Array[String] = [
-	"res://Prefabs/Entity/Ancient_mob.tscn",
-	"res://Prefabs/Entity/Ancient_mob.tscn",
-	"res://Prefabs/Entity/ancient_range_mob.tscn",
-	"res://Prefabs/Entity/Ancient_mob.tscn",
-	"res://Prefabs/Entity/Ancient_mob.tscn",
-	"res://Prefabs/Entity/Ancient_mob.tscn"
+var mob_paths: Array[PackedScene] = [
+	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
+	preload("res://Prefabs/Entity/ancient_range_mob.tscn")
 ]
 
 func _process(delta):
@@ -51,14 +47,14 @@ func stop_game() -> void:
 func spawn_mob():
 	if get_tree().get_nodes_in_group("Mob").size() >= GlobalScope.MAX_ENEMYS_NUMBER:
 		return
-	var mob_path: String = randomize_mobs()
-	var mob = load(mob_path).instantiate()
+	var mob = randomize_mobs().instantiate()
 	mob_spawn_location.progress_ratio = randf()
 
 	mob.spawn(mob_spawn_location.position, scene)
 
 func instantiate_player() -> character:
 	player = player_scene.instantiate()
+	PlayerInventory.player = player
 	return player
 
 func spawn_player() -> void:
@@ -72,7 +68,7 @@ func instantiate_shop() -> void:
 	scene.add_child(shop)
 	shop.restock()
 
-func randomize_mobs() -> String:
+func randomize_mobs() -> PackedScene:
 	var mob_path_index: int
 	mob_path_index = randi() % mob_paths.size()
 	return mob_paths[mob_path_index]

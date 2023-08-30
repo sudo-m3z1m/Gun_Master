@@ -1,9 +1,6 @@
-extends ITEM
+extends Area2D
 
 class_name DisposableItem
 
-func add_self_to_inventory(_player: character) -> void:
-	give_effect(_player)
-
-func give_effect(_player) -> void:
+func activate(_player: PhysicsBody2D) -> void:
 	pass

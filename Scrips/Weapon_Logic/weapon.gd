@@ -88,5 +88,5 @@ func _check_cooldown() -> bool:
 		return false
 	return true
 
-func add_self_to_inventory(_player: character) -> void:
-	_player.weapon_handler.take_weapon(self)
+#func add_self_to_inventory(_player: character) -> void:
+#	_player.weapon_handler.take_weapon(self)

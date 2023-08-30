@@ -44,8 +44,7 @@ func set_character_velocity() -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
 
 func _collision_checker(area):
-	if area.is_in_group("Weapon"):
-		PlayerInventory.add_item(area);
+	PlayerInventory.add_item(area)
 
 func bodies_collision_checker(body):
 	weapon_handler.take_throwed_weapon(body)

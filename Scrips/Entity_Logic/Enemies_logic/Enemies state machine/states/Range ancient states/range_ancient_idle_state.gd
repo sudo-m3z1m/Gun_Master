@@ -1,13 +1,37 @@
 extends EnemyIdleState
 
+var cooldown_timer: Timer
+var player_length: float
+var cooldown_time: float
+var raycast: RayCast2D
+
 func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine):
 	super(_enemy, _state_machine)
 
 func enter_state() -> void:
-	pass
-
+	enemy.velocity = Vector2.ZERO
+	cooldown_time = enemy.weapon.cooldown
+	player_length = enemy.player_radius
+	cooldown_timer = enemy.cooldown_timer
+	raycast = enemy.raycast
+	
+	cooldown_timer.timeout.connect(shot)
+	enemy.sprite.set_animation(ANIMATION)
+	
 func update(delta) -> void:
-	pass
+	enemy.rotate_weapon()
+	check_length_between_player()
 
-func exit_state() -> void:
-	pass
+func shot() -> void:
+	if raycast.get_collider() is TileMap:
+		return
+	change_state_to("Attack")
+
+func check_length_between_player() -> void:
+	var target_pos: Vector2
+	target_pos = enemy.player.global_position
+	
+	var length_to_target: float = (target_pos - enemy.global_position).length()
+	if length_to_target < player_length:
+		return
+	change_state_to("Moving")

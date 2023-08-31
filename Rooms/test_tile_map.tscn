@@ -87,5 +87,5 @@ curve = SubResource("Curve2D_oxp3j")
 position = Vector2(152, 198)
 rotation = -0.00671541
 
-[node name="Jesse" parent="." instance=ExtResource("2_y16dy")]
+[node name="Jesse" parent="." groups=["Persist", "Weapon"] instance=ExtResource("2_y16dy")]
 position = Vector2(958, 912)

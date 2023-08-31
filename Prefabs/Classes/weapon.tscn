@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon.gd" id="1_n33ru"]
 
-[node name="weapon" type="Area2D" groups=["Persist", "Weapon"]]
+[node name="weapon" type="Area2D" groups=["PickableItem"]]
 script = ExtResource("1_n33ru")
 
 [node name="Pivot" type="Marker2D" parent="."]

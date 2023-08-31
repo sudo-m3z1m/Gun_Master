@@ -5,6 +5,7 @@ class_name character
 @export var health_points: float:
 	set(hp):
 		HUD.update_user_hud(hp, GlobalScope.GLOBAL_HUDS.HP)
+#		blink_after_damage_take(hp)
 		health_points = hp
 
 @export var money: int:
@@ -17,7 +18,6 @@ var acceleration: float = 90
 var direction: Vector2
 
 @onready var scene = get_tree().current_scene
-#@onready var screen = $Camera.get_viewport_rect().sizea
 @onready var weapon_handler = $WeaponHandler
 
 #func _ready():
@@ -44,6 +44,8 @@ func set_character_velocity() -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
 
 func _collision_checker(area):
+	if !area.is_in_group("PickableItem"):
+		return
 	PlayerInventory.add_item(area)
 
 func bodies_collision_checker(body):
@@ -53,5 +55,16 @@ func kill():
 	GameManager.stop_game()
 	call_deferred("queue_free")
 
+#func blink_after_damage_take(new_hp: float) -> void:
+#	if new_hp >= health_points:
+#		return
+#	var disposable_timer: SceneTreeTimer
+#	disposable_timer = get_tree().create_timer(0.1)
+#	disposable_timer.timeout.connect(finish_blink)
+#	$Sprite.visible = false
+#
+#func finish_blink() -> void:
+#	$Sprite.visible = true
+
 func change_modulate(_modulate: Color):
-	$Sprite.set_modulate(_modulate)
+	self.set_modulate(_modulate)

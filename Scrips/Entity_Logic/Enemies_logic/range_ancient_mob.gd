@@ -1,6 +1,6 @@
 extends Mob_class
 
-@onready var shot_timer: Timer = $ShotTimer
+@export var player_radius: float
 
 func _ready():
 	weapon_ready()

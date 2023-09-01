@@ -118,6 +118,7 @@ states = {
 "Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
 }
 max_speed = 200.0
+cooldown_time = 2.0
 weapon_scene = ExtResource("3_j8sjj")
 money_scene = ExtResource("4_ujbtc")
 
@@ -130,5 +131,8 @@ frame_progress = 0.236602
 [node name="HitBox" parent="." index="2"]
 shape = SubResource("CapsuleShape2D_4b00y")
 disabled = false
+
+[node name="CooldownTimer" parent="." index="6"]
+autostart = true
 
 [node name="ShotTimer" type="Timer" parent="." index="7"]

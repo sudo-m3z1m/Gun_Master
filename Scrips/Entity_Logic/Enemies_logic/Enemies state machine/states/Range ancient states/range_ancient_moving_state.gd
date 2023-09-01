@@ -1,14 +1,10 @@
 extends EnemyMovingState
 
-#var shot_timer: Timer
-#var shot_time: float = 2
 var player_range_radius: float
 
 func enter_state() -> void:
 	super()
-	cooldown_time = enemy.weapon.cooldown
 	cooldown_timer.timeout.connect(shot)
-	cooldown_timer.start(cooldown_time)
 	player_range_radius = enemy.player_radius
 
 func update(delta) -> void:

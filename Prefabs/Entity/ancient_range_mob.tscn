@@ -110,7 +110,7 @@ height = 124.444
 
 [node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
 script = ExtResource("2_dc7w0")
-player_radius = 400.0
+player_radius = 300.0
 health_points = 100.0
 states = {
 "Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",

@@ -21,7 +21,7 @@ signal magnetize
 
 var player: character
 var mob_paths: Array[PackedScene] = [
-#	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
+	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
 	preload("res://Prefabs/Entity/ancient_range_mob.tscn")
 ]
 

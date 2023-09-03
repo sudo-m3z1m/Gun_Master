@@ -89,5 +89,7 @@ func _check_cooldown() -> bool:
 	return true
 
 func shake_camera() -> void:
-	var camera: Camera2D = get_parent().get_node("Camera")
+	var camera: Camera2D = get_parent().get_node_or_null("Camera")
+	if camera == null:
+		return
 	camera.make_shake(shake_time, shake_strength)

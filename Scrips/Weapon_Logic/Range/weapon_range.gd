@@ -26,6 +26,7 @@ func attack(_target_global_position: Vector2):
 	bullet_instantiate(_shot_pos.global_position, _shot_pos.global_position + _weapon_dir)
 
 	make_some_stuff()
+	shake_camera()
 
 func get_weapon_direction() -> Vector2:
 	return Vector2.RIGHT.rotated(global_rotation)

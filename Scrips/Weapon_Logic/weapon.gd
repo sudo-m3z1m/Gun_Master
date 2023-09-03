@@ -88,5 +88,6 @@ func _check_cooldown() -> bool:
 		return false
 	return true
 
-#func add_self_to_inventory(_player: character) -> void:
-#	_player.weapon_handler.take_weapon(self)
+func shake_camera() -> void:
+	var camera: Camera2D = get_parent().get_node("Camera")
+	camera.make_shake(shake_time, shake_strength)

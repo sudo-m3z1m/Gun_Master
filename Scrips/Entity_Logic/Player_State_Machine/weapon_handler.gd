@@ -47,7 +47,7 @@ func attack() -> void:
 	var target_global_pos: Vector2 = get_global_mouse_position()
 	current_weapon.attack(target_global_pos)
 	update_ammo_hud(current_weapon)
-#	shake_camera()
+	shake_camera()
 
 func scroll_weapon(delta_index: int) -> void:
 	change_weapon_from_array(invent.weapons.find(current_weapon) + delta_index)

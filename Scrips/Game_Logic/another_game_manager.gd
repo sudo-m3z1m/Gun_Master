@@ -21,8 +21,10 @@ signal magnetize
 
 var player: character
 var mob_paths: Array[PackedScene] = [
-#	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
-	preload("res://Prefabs/Entity/ancient_range_mob.tscn")
+	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
+	preload("res://Prefabs/Entity/ancient_range_mob.tscn"),
+	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
+	preload("res://Prefabs/Entity/Ancient_mob.tscn")
 ]
 
 func _process(delta):
@@ -45,7 +47,7 @@ func stop_game() -> void:
 	GameManager.rm_entities_in_group("Coin")
 
 func spawn_mob():
-	if get_tree().get_nodes_in_group("Mob").size() >= 1: #GlobalScope.MAX_ENEMYS_NUMBER:
+	if get_tree().get_nodes_in_group("Mob").size() >= GlobalScope.MAX_ENEMYS_NUMBER:
 		return
 	var mob = randomize_mobs().instantiate()
 	mob_spawn_location.progress_ratio = randf()

@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2q58w64i4c04"]
+
+[ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Prefabs/Classes/weapon_range.tscn" id="1_ulxe8"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="2_tuufb"]
+[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Range/LaserGun.gd" id="2_yw1j4"]
+[ext_resource type="PackedScene" uid="uid://y42i8ogwcw5k" path="res://Prefabs/Classes/laser_projectile.tscn" id="3_gnrk6"]
+[ext_resource type="Texture2D" uid="uid://bvh5o8rqcwl35" path="res://Sprites/Weapons/beta_laser.png" id="4_8ndj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfbkn"]
+atlas = ExtResource("2_tuufb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tuol"]
+atlas = ExtResource("2_tuufb")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga7hm"]
+atlas = ExtResource("2_tuufb")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7njp"]
+atlas = ExtResource("2_tuufb")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmf2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfbkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tuol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga7hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7njp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdpcj"]
+size = Vector2(200, 113.333)
+
+[node name="weapon_range" instance=ExtResource("1_ulxe8")]
+script = ExtResource("2_yw1j4")
+bullet_scene = ExtResource("3_gnrk6")
+bullet_speed = 1000.0
+bullet_effect_duration = 1000.0
+bullet_effect_t = 1000.0
+bullet_effect_damage = 1000.0
+ID = 15
+damage = 100
+cooldown = 1.0
+maximum_ammo_amount = 10000
+ammo = 10000
+length_from_player = 75.0
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_vmf2d")
+
+[node name="ShotPosition" parent="Pivot" index="1"]
+position = Vector2(36, -1)
+
+[node name="Line2D" type="Line2D" parent="Pivot/ShotPosition" index="0"]
+texture_filter = 1
+width = 50.0
+texture = ExtResource("4_8ndj6")
+texture_mode = 2
+
+[node name="HitBox" parent="." index="1"]
+position = Vector2(6, 0)
+shape = SubResource("RectangleShape2D_gdpcj")
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="5"]
+target_position = Vector2(1000, 0)
+collision_mask = 2

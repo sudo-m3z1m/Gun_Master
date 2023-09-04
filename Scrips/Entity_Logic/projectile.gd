@@ -5,6 +5,7 @@ class_name Projectile
 
 @export var disapear_time: float
 
+@onready var hitbox: CollisionShape2D = $CollisionShape2D
 @onready var disapear_timer = $DisapearTimer
 
 var projectile_speed: float

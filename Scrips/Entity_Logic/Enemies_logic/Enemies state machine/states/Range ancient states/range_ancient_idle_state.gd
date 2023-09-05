@@ -1,8 +1,8 @@
 extends EnemyIdleState
 
 var cooldown_timer: Timer
-var player_length: float
 var raycast: RayCast2D
+var player_length: float
 
 func _init(_enemy: Mob_class, _state_machine: EnemyStateMachine):
 	super(_enemy, _state_machine)
@@ -24,8 +24,6 @@ func exit_state() -> void:
 	cooldown_timer.timeout.disconnect(shot)
 
 func shot() -> void:
-	if raycast.get_collider() is TileMap:
-		return
 	change_state_to("Attack")
 
 func check_length_between_player() -> void:

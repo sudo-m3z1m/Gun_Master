@@ -36,6 +36,4 @@ func check_length_between_target(target_pos: Vector2) -> void:
 	change_state_to("Idle")
 
 func shot():
-	if raycast.get_collider() is TileMap:
-		return
 	change_state_to("Attack")

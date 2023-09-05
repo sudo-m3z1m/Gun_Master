@@ -3,8 +3,8 @@ extends Node
 class_name GLOBAL_SCOPE
 
 const MAX_ENEMYS_NUMBER: int = 10
-const START_MONEY: int = 0
-const START_WAVE_TIME: int = 6
+const START_MONEY: int = 300
+const START_WAVE_TIME: int = 60
 const SHOP_TIME: float = 15
 #const GAME_SPEED: float = 1 # It's for future maybe
 const SAVE_FILE_DIRECTORY: String = "res://Saves/saves.tscn"

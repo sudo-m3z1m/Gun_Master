@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bic68stm4216l"]
 
-[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/Projectile.tscn" id="1_1ocyv"]
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/projectile.tscn" id="1_1ocyv"]
 [ext_resource type="Texture2D" uid="uid://bltkuqufvx2qm" path="res://Sprites/Weapons/Bullet_projectile.png" id="2_o72bh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ec51u"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c460oyos8ty06"]
 
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://Fonts/Phudu-VariableFont_wght.ttf" id="1_ibqrt"]
-[ext_resource type="Script" path="res://Scrips/HUD/game_over_hud.gd" id="1_n85x4"]
+[ext_resource type="Script" path="res://HUD/game_over_hud.gd" id="1_n85x4"]
 
 
 [node name="GameOverHUD" type="CanvasLayer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c68mhoqihwhqu"]
 
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon.gd" id="1_n33ru"]
+[ext_resource type="Script" path="res://Weapons/weapon.gd" id="1_n33ru"]
 
 [node name="weapon" type="Area2D" groups=["PickableItem"]]
 script = ExtResource("1_n33ru")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://x1pav2wpsrsj"]
+
+[ext_resource type="PackedScene" uid="uid://k710pr1eknko" path="res://Items/item.tscn" id="1_ufnef"]
+[ext_resource type="Script" path="res://Items/disposable_items/active_weapon_ammo.gd" id="2_sufee"]
+[ext_resource type="Texture2D" uid="uid://cihuqvmtgbr8s" path="res://Sprites/Other/active_weapon_ammo.png" id="3_lgf0u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2da81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lgf0u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo6go"]
+size = Vector2(77.1429, 77.1429)
+
+[node name="ActiveGunAmmo" instance=ExtResource("1_ufnef")]
+script = ExtResource("2_sufee")
+ID = 4
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(5.53571, 5.35714)
+sprite_frames = SubResource("SpriteFrames_2da81")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_wo6go")
+disabled = true

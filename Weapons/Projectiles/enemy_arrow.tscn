@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://joy66n6fgpab"]
 
-[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/Projectile.tscn" id="1_pen4f"]
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/projectile.tscn" id="1_pen4f"]
 [ext_resource type="Texture2D" uid="uid://dypmjtp7wq1s3" path="res://Sprites/Weapons/arrow_enemy_projectile.png" id="2_dic03"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/projectile_with_effect.gd" id="2_jv2dn"]
+[ext_resource type="Script" path="res://Weapons/projectile_with_effect.gd" id="2_jv2dn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0ydlu"]
 animations = [{

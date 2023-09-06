@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://beh2mwcpbamds"]
 
-[ext_resource type="Script" path="res://Scrips/HUD/Settings.gd" id="1_0dd4f"]
+[ext_resource type="Script" path="res://HUD/settings.gd" id="1_0dd4f"]
 [ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://Fonts/Phudu-VariableFont_wght.ttf" id="1_rtbg7"]
 [ext_resource type="VideoStream" path="res://Audio/Music/Rick Astley - Never Gonna Give You Up (Official Music Video).ogv" id="3_d48pp"]
 

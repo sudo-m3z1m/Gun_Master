@@ -1,12 +1,12 @@
 [gd_scene load_steps=25 format=3 uid="uid://bo3spxwjeyuxd"]
 
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/character.gd" id="1_xlnxc"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/input_handler.gd" id="2_ejbk7"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/weapon_handler.gd" id="2_smnyg"]
+[ext_resource type="Script" path="res://Characters/character.gd" id="1_xlnxc"]
+[ext_resource type="Script" path="res://Characters/input_handler.gd" id="2_ejbk7"]
+[ext_resource type="Script" path="res://Characters/weapon_handler.gd" id="2_smnyg"]
 [ext_resource type="Texture2D" uid="uid://bx34iwq3wj8iq" path="res://Sprites/Characters/Character MOVE.png" id="3"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/Player_State_Machine/player_state_machine.gd" id="3_wy0ui"]
+[ext_resource type="Script" path="res://Characters/state_machine/player_state_machine.gd" id="3_wy0ui"]
 [ext_resource type="Texture2D" uid="uid://ck6fjhx1jlp1s" path="res://Sprites/Characters/Character IDLE.png" id="4"]
-[ext_resource type="Script" path="res://Scrips/Game_Logic/Camera.gd" id="6_gkdiq"]
+[ext_resource type="Script" path="res://Characters/camera.gd" id="6_gkdiq"]
 
 [sub_resource type="Shader" id="Shader_ba7lu"]
 code = "shader_type canvas_item;

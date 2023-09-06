@@ -1,14 +1,15 @@
 [gd_scene load_steps=10 format=3 uid="uid://bnwbmaojrmusg"]
 
-[ext_resource type="Script" path="res://Scrips/HUD/global_hud.gd" id="1_41u33"]
+[ext_resource type="Script" path="res://HUD/global_hud.gd" id="1_41u33"]
 [ext_resource type="PackedScene" uid="uid://ml2dlxfphfcr" path="res://HUD/pause_hud.tscn" id="1_r74rt"]
-[ext_resource type="PackedScene" uid="uid://b4f37tnsy8tlo" path="res://HUD/MainMenu.tscn" id="2_dpjsd"]
+[ext_resource type="PackedScene" uid="uid://b4f37tnsy8tlo" path="res://HUD/main_menu.tscn" id="2_dpjsd"]
 [ext_resource type="PackedScene" uid="uid://copp7ietmp60v" path="res://HUD/hp_progress_bar.tscn" id="3_u3ssk"]
 [ext_resource type="PackedScene" uid="uid://c460oyos8ty06" path="res://HUD/game_over_hud.tscn" id="4_7khdn"]
 [ext_resource type="PackedScene" uid="uid://dfl2y77nsustb" path="res://HUD/coin_counter.tscn" id="4_em4ik"]
 [ext_resource type="PackedScene" uid="uid://dh2gwnssnwkin" path="res://HUD/ammo_counter.tscn" id="5_8bd06"]
-[ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/Settings.tscn" id="6_uja6o"]
+[ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/settings.tscn" id="6_uja6o"]
 [ext_resource type="PackedScene" uid="uid://b2c02ndjr4a25" path="res://HUD/main_timer_hud.tscn" id="8_8feok"]
+
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3

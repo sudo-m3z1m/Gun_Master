@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://of4a2pwpbw53"]
+
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://Fonts/VCRosdNEUE.ttf" id="1_vu62r"]
+[ext_resource type="Script" path="res://HUD/updatable_hud.gd" id="2_1kf3c"]
+
+[node name="HUD" type="Label"]
+offset_right = 154.0
+offset_bottom = 118.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_vu62r")
+theme_override_font_sizes/font_size = 85
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_1kf3c")

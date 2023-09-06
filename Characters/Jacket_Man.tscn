@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brnhbfajhs0fk"]
 
-[ext_resource type="PackedScene" uid="uid://bo3spxwjeyuxd" path="res://Characters/Character.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bo3spxwjeyuxd" path="res://Characters/character.tscn" id="1"]
 
 
 [node name="Jacket_Man" instance=ExtResource("1")]

@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7g1qcycc3lyi"]
 
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/weapon_throw.gd" id="1_co4vw"]
+[ext_resource type="Script" path="res://Weapons/weapon_throw.gd" id="1_co4vw"]
+
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yvfjy"]
 friction = 0.5

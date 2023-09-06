@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2c02ndjr4a25"]
 
 [ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://Fonts/VCRosdNEUE.ttf" id="1_rwm2l"]
-[ext_resource type="Script" path="res://Scrips/HUD/main_timer.gd" id="2_3re0e"]
+[ext_resource type="Script" path="res://HUD/main_timer_hud.gd" id="2_3re0e"]
 
 
 [node name="MainTimerHUD" type="CanvasLayer"]

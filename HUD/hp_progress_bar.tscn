@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cbrmhnfexeloj" path="res://Sprites/Over_HP_Bar.png" id="1_bqpw0"]
 [ext_resource type="Texture2D" uid="uid://kqm282ga75yl" path="res://Sprites/Blood_Progress_HP_Bar.png" id="2_24nel"]
-[ext_resource type="Script" path="res://Scrips/HUD/HPBar.gd" id="3_5372q"]
+[ext_resource type="Script" path="res://HUD/hp_progress_bar.gd" id="3_5372q"]
+
 
 [node name="HpProgressBar" type="TextureProgressBar"]
 offset_left = 151.0

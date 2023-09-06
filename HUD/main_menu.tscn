@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4f37tnsy8tlo"]
+
+[ext_resource type="Script" path="res://HUD/main_menu.gd" id="1_n5e3b"]
+[ext_resource type="VideoStream" path="res://Sprites/Background_sprites/BackGround.ogv" id="2_vvcvd"]
+[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://Fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
+
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_n5e3b")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_vvcvd")
+autoplay = true
+expand = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 126.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -94.0
+offset_right = 141.5
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Start"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Settings"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_5buuq")
+theme_override_font_sizes/font_size = 75
+action_mode = 0
+text = "Exit"
+flat = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

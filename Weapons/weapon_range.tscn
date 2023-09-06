@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctf00djidd51b"]
 
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Weapons/weapon.tscn" id="1_xlwlt"]
-[ext_resource type="Script" path="res://Scrips/Weapon_Logic/Range/weapon_range.gd" id="2_3bchy"]
+[ext_resource type="Script" path="res://Weapons/weapon_range.gd" id="2_3bchy"]
 
 [sub_resource type="Animation" id="Animation_btoos"]
 resource_name = "Attack_recoil"

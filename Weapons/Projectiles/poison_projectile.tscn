@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqxecr0nxjvov"]
 
-[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/Projectile.tscn" id="1_xr42f"]
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/projectile_with_effect.gd" id="2_0c8f0"]
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/projectile.tscn" id="1_xr42f"]
+[ext_resource type="Script" path="res://Weapons/projectile_with_effect.gd" id="2_0c8f0"]
 [ext_resource type="Texture2D" uid="uid://b2bma73yw4dn6" path="res://Sprites/Weapons/Poison_projectile.png" id="2_mxvtn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k01i3"]

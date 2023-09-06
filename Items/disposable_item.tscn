@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsoggj6uxhpak"]
-
-[ext_resource type="PackedScene" uid="uid://k710pr1eknko" path="res://Items/item.tscn" id="1_lcgls"]
-[ext_resource type="Script" path="res://Scrips/Game_Logic/disposable_item.gd" id="2_u62dl"]
-
-[node name="DisposableItem" instance=ExtResource("1_lcgls")]
-script = ExtResource("2_u62dl")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://k710pr1eknko"]
 
-[ext_resource type="Script" path="res://Scrips/Entity_Logic/item.gd" id="1_oyvm4"]
+[ext_resource type="Script" path="res://Items/item.gd" id="1_oyvm4"]
 
 [node name="Item" type="Area2D" groups=["PickableItem"]]
 script = ExtResource("1_oyvm4")

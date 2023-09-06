@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://2wyosil2madr"]
+
+[ext_resource type="PackedScene" uid="uid://c7g1qcycc3lyi" path="res://Weapons/weapon_throw.tscn" id="1_d4r0r"]
+[ext_resource type="Texture2D" uid="uid://1l85einc1in0" path="res://Sprites/Weapons/Blowpipe.png" id="2_hdx2j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwfnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hdx2j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfg8y"]
+size = Vector2(12, 6)
+
+[node name="Blowpipe" instance=ExtResource("1_d4r0r")]
+
+[node name="Sprite" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_vwfnr")
+
+[node name="HitBox" parent="." index="1"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_qfg8y")

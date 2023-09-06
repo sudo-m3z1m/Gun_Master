@@ -1,0 +1,152 @@
+[gd_scene load_steps=22 format=3 uid="uid://hnnws34qyf12"]
+
+[ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Weapons/weapon_range.tscn" id="1_vltok"]
+[ext_resource type="PackedScene" uid="uid://bqxecr0nxjvov" path="res://Weapons/Projectiles/poison_projectile.tscn" id="2_gklrm"]
+[ext_resource type="PackedScene" uid="uid://nvwgv8l3rtvp" path="res://Weapons/Throwable_weapons/jesse_throw.tscn" id="2_jjcbm"]
+[ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="3_jfqjk"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="3_x2v5b"]
+[ext_resource type="AudioStream" uid="uid://cnqyu8yrvuust" path="res://Audio/GunShots/Guns/zapsplat_science_fiction_weapon_gun_shoot_003_32196.mp3" id="4_6kbpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnev2"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3bqw"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yo8u"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56tx8"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1452"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j6nx"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bas31"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrher"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u855l"]
+atlas = ExtResource("3_jfqjk")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmak0"]
+atlas = ExtResource("3_x2v5b")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pumpi"]
+atlas = ExtResource("3_x2v5b")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvrh4"]
+atlas = ExtResource("3_x2v5b")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o44ho"]
+atlas = ExtResource("3_x2v5b")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rn02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnev2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3bqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yo8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56tx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1452")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j6nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bas31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrher")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u855l")
+}],
+"loop": false,
+"name": &"SCREAM",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmak0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pumpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvrh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o44ho")
+}],
+"loop": true,
+"name": &"STANDART",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh3vx"]
+size = Vector2(156, 84)
+
+[node name="Jesse" instance=ExtResource("1_vltok")]
+bullet_scene = ExtResource("2_gklrm")
+bullet_speed = 500.0
+bullet_effect_duration = 4.0
+bullet_effect_t = 1.0
+bullet_effect_damage = 15.0
+ID = 1
+damage = 50
+cooldown = 0.3
+maximum_ammo_amount = 32
+ammo = 8
+length_from_player = 75.0
+shake_strength = 30.0
+shake_time = 0.1
+throwable_weapon = ExtResource("2_jjcbm")
+main_animation = &"STANDART"
+attack_animation = &"SCREAM"
+player_animation = &"Attack_recoil"
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_4rn02")
+animation = &"STANDART"
+autoplay = "STANDART"
+
+[node name="ShotPosition" parent="Pivot" index="1"]
+position = Vector2(31, -3)
+
+[node name="HitBox" parent="." index="1"]
+shape = SubResource("RectangleShape2D_fh3vx")
+
+[node name="Cooldown_Timer" parent="." index="2"]
+wait_time = 0.1
+
+[node name="AudioPlayer" parent="." index="4"]
+stream = ExtResource("4_6kbpr")
+volume_db = -10.0

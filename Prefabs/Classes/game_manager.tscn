@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhl2pj3qaice"]
 
 [ext_resource type="Script" path="res://Scrips/Game_Logic/another_game_manager.gd" id="1_brw0s"]
-[ext_resource type="PackedScene" uid="uid://brnhbfajhs0fk" path="res://Prefabs/Characters/Jacket_Man.tscn" id="2_ktdbb"]
+[ext_resource type="PackedScene" uid="uid://brnhbfajhs0fk" path="res://Characters/Jacket_Man.tscn" id="2_ktdbb"]
 [ext_resource type="Script" path="res://Scrips/GameStates/game_state_machine.gd" id="2_xxwiy"]
 [ext_resource type="PackedScene" uid="uid://bun2rmeoeq5dp" path="res://Prefabs/Buildings/shop.tscn" id="3_fnpmb"]
 

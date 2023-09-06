@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88t0an3dnket"]
+
+[ext_resource type="PackedScene" uid="uid://deruisak1tlpe" path="res://Weapons/Projectile.tscn" id="1_5uc5r"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/projectile_with_effect.gd" id="2_qo5m6"]
+
+
+[node name="ProjectileWithEffect" instance=ExtResource("1_5uc5r")]
+script = ExtResource("2_qo5m6")
+effect = 0

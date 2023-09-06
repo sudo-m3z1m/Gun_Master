@@ -1,0 +1,138 @@
+[gd_scene load_steps=21 format=3 uid="uid://ber2xrt6vlnuu"]
+
+[ext_resource type="PackedScene" uid="uid://bq7s6qn6ax1tl" path="res://Prefabs/Classes/Mob_class.tscn" id="1_d6wt7"]
+[ext_resource type="Script" path="res://Scrips/Entity_Logic/Enemies_logic/range_ancient_mob.gd" id="2_dc7w0"]
+[ext_resource type="Texture2D" uid="uid://dwxr3cfu48750" path="res://Sprites/Mobs/Ancient_Mob_idle.png" id="2_x2xpa"]
+[ext_resource type="PackedScene" uid="uid://brl11ndi38457" path="res://Weapons/EnemyWeapons/enemy_blowpipe.tscn" id="3_j8sjj"]
+[ext_resource type="Texture2D" uid="uid://db3er458dw11c" path="res://Sprites/Mobs/Ancient_melee_MOVE (3).png" id="4_ojcw4"]
+[ext_resource type="PackedScene" uid="uid://bqfj1jdlfhdsr" path="res://Items/coin.tscn" id="4_ujbtc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2uv1"]
+atlas = ExtResource("2_x2xpa")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6j8h"]
+atlas = ExtResource("2_x2xpa")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4lni"]
+atlas = ExtResource("2_x2xpa")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhksf"]
+atlas = ExtResource("2_x2xpa")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj4pt"]
+atlas = ExtResource("2_x2xpa")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqgyi"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7err"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maane"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj04m"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3xx7"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1hgn"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvjro"]
+atlas = ExtResource("4_ojcw4")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwuft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2uv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6j8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4lni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhksf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj4pt")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqgyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7err")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maane")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj04m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3xx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1hgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvjro")
+}],
+"loop": true,
+"name": &"MOVING",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4b00y"]
+radius = 28.8889
+height = 124.444
+
+[node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
+script = ExtResource("2_dc7w0")
+player_radius = 300.0
+health_points = 100.0
+states = {
+"Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
+"Idle": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_idle_state.gd",
+"Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
+}
+max_speed = 200.0
+cooldown_time = 2.0
+weapon_scene = ExtResource("3_j8sjj")
+money_scene = ExtResource("4_ujbtc")
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_dwuft")
+animation = &"MOVING"
+autoplay = "IDLE"
+frame_progress = 0.236602
+
+[node name="HitBox" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_4b00y")
+disabled = false
+
+[node name="CooldownTimer" parent="." index="6"]
+autostart = true
+
+[node name="ShotTimer" type="Timer" parent="." index="7"]

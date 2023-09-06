@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scrips/Game_Logic/shop_cell.gd" id="1_5gwn0"]
 [ext_resource type="Texture2D" uid="uid://daj6qilrwen5h" path="res://Sprites/Other/ShopCell.png" id="1_c8tth"]
-[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://fonts/VCRosdNEUE.ttf" id="3_wc0gk"]
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://Fonts/VCRosdNEUE.ttf" id="3_wc0gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgqg2"]
 size = Vector2(94, 94)

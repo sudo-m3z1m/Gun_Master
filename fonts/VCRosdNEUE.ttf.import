@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://3ek7rfgy32qy"
-path="res://.godot/imported/VCRosdNEUE.ttf-bc6881ed7726b75003687498c0f7f90f.fontdata"
+path="res://.godot/imported/VCRosdNEUE.ttf-8adb322e4866c9ce6cef974381cd415a.fontdata"
 
 [deps]
 
-source_file="res://fonts/VCRosdNEUE.ttf"
-dest_files=["res://.godot/imported/VCRosdNEUE.ttf-bc6881ed7726b75003687498c0f7f90f.fontdata"]
+source_file="res://Fonts/VCRosdNEUE.ttf"
+dest_files=["res://.godot/imported/VCRosdNEUE.ttf-8adb322e4866c9ce6cef974381cd415a.fontdata"]
 
 [params]
 

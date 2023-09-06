@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://brnhbfajhs0fk"]
+
+[ext_resource type="PackedScene" uid="uid://bo3spxwjeyuxd" path="res://Characters/Character.tscn" id="1"]
+
+
+[node name="Jacket_Man" instance=ExtResource("1")]
+max_speed = 400.0
+health_points = 100.0
+money = 300
+
+[node name="Sprite" parent="." index="3"]
+animation = &"IDLE"
+autoplay = "IDLE"

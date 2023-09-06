@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scrips/HUD/MainMenu.gd" id="1_n5e3b"]
 [ext_resource type="VideoStream" path="res://Sprites/Background_sprites/BackGround.ogv" id="2_vvcvd"]
-[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
+[ext_resource type="FontFile" uid="uid://dpaqu5o6wxjtu" path="res://Fonts/Phudu-VariableFont_wght.ttf" id="3_5buuq"]
+
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_n5e3b")

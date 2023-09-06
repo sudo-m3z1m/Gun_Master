@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dpaqu5o6wxjtu"
-path="res://.godot/imported/Phudu-VariableFont_wght.ttf-ca424cfdd73569256a9141d6ec59ef8b.fontdata"
+path="res://.godot/imported/Phudu-VariableFont_wght.ttf-156222685b3e619b2b6e09eb5e0af50a.fontdata"
 
 [deps]
 
-source_file="res://fonts/Phudu-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/Phudu-VariableFont_wght.ttf-ca424cfdd73569256a9141d6ec59ef8b.fontdata"]
+source_file="res://Fonts/Phudu-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/Phudu-VariableFont_wght.ttf-156222685b3e619b2b6e09eb5e0af50a.fontdata"]
 
 [params]
 

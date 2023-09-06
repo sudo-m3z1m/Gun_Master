@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://of4a2pwpbw53"]
 
 [ext_resource type="Script" path="res://Scrips/HUD/updatable_hud.gd" id="1_ebhmm"]
-[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://fonts/VCRosdNEUE.ttf" id="1_vu62r"]
+[ext_resource type="FontFile" uid="uid://3ek7rfgy32qy" path="res://Fonts/VCRosdNEUE.ttf" id="1_vu62r"]
+
 
 [node name="HUD" type="Label"]
 offset_right = 154.0

@@ -5,7 +5,7 @@ class_name ITEMS
 @export var items: Dictionary
 @export var weapons: Dictionary
 
-func fill_weapons_dict(_dir_path: String = "res://Prefabs/Weapons/Range/") -> void:
+func fill_weapons_dict(_dir_path: String = "res://Weapons/Range/") -> void:
 	var dir: DirAccess = DirAccess.open(_dir_path)
 	if !dir:
 		printerr("Weapon directory doesn't exist :(")
@@ -16,7 +16,7 @@ func fill_weapons_dict(_dir_path: String = "res://Prefabs/Weapons/Range/") -> vo
 		var file_id: int = get_file_id(file_path)
 		weapons[file_id] = load(file_path)
 
-func fill_items_dict(_dir_path: String = "res://Prefabs/Items/") -> void:
+func fill_items_dict(_dir_path: String = "res://Items/disposable_items/Scenes/") -> void:
 	var dir: DirAccess = DirAccess.open(_dir_path)
 	if !dir:
 		printerr("Item directory doesn't exist :(")

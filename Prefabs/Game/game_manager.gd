@@ -21,10 +21,10 @@ signal magnetize
 
 var player: character
 var mob_paths: Array[PackedScene] = [
-	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
-	preload("res://Prefabs/Entity/ancient_range_mob.tscn"),
-	preload("res://Prefabs/Entity/Ancient_mob.tscn"),
-	preload("res://Prefabs/Entity/Ancient_mob.tscn")
+	preload("res://Enemies/Ancient_melee_mob/ancient_melee_mob.tscn"),
+	preload("res://Enemies/Ancient_range_mob/ancient_range_mob.tscn"),
+	preload("res://Enemies/Ancient_melee_mob/ancient_melee_mob.tscn"),
+	preload("res://Enemies/Ancient_melee_mob/ancient_melee_mob.tscn")
 ]
 
 func _process(delta):

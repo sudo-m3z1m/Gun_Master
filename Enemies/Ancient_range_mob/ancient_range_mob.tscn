@@ -113,9 +113,9 @@ script = ExtResource("2_dc7w0")
 player_radius = 300.0
 health_points = 100.0
 states = {
-"Attack": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_attack_state.gd",
-"Idle": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_idle_state.gd",
-"Moving": "res://Scrips/Entity_Logic/Enemies_logic/Enemies state machine/states/Range ancient states/range_ancient_moving_state.gd"
+"Attack": "res://Enemies/Ancient_range_mob/range_ancient_attack_state.gd",
+"Idle": "res://Enemies/Ancient_range_mob/range_ancient_idle_state.gd",
+"Moving": "res://Enemies/Ancient_range_mob/range_ancient_moving_state.gd"
 }
 max_speed = 200.0
 cooldown_time = 2.0

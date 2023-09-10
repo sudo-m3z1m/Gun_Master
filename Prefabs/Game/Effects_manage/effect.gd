@@ -26,7 +26,7 @@ func _use_effect() -> void:
 		period_timer.timeout.disconnect(_use_effect)
 		period_timer.queue_free()
 		EffectsManager._deactivate_effect(target, self, GlobalScope.EFFECTS.POISON)
-	DAMAGE_MANAGER._give_damage(self, target)
+	target.health_points.take_damage(damage)
 
 func _give_some_effects() -> void:
 	pass

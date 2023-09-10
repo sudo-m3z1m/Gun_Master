@@ -59,4 +59,5 @@ func rand_props(time_min: float, time_max: float) -> void:
 func _give_damage(_body) -> void:
 	if !(_body is character):
 		return
-	DAMAGE_MANAGER._give_damage(enemy, _body)
+	_body.health_points.take_damage(enemy.damage)
+#	DAMAGE_MANAGER._give_damage(enemy, _body)

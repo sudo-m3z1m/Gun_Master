@@ -121,7 +121,7 @@ dash_speed_min = 900.0
 dash_speed_max = 1500.0
 dash_time_min = 0.2
 dash_time_max = 0.33
-health_points = 100.0
+start_hp = 100
 states = {
 "Attack": "res://Enemies/Ancient_melee_mob/melee_attack_state.gd",
 "Idle": "res://Enemies/Ancient_melee_mob/melee_idle_state.gd",

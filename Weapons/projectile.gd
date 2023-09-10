@@ -27,7 +27,7 @@ func check_bodies(_body) -> void:
 	despawn()
 
 func _give_damage(_body) -> void:
-	DAMAGE_MANAGER._give_damage(self, _body, direction * 10, 0.1)
+	_body.health_points.take_damage(damage)
 
 func despawn():
 	queue_free()

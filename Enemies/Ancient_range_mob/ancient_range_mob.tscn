@@ -111,7 +111,7 @@ height = 124.444
 [node name="Ancient_range_mob" instance=ExtResource("1_d6wt7")]
 script = ExtResource("2_dc7w0")
 player_radius = 300.0
-health_points = 100.0
+start_hp = 100
 states = {
 "Attack": "res://Enemies/Ancient_range_mob/range_ancient_attack_state.gd",
 "Idle": "res://Enemies/Ancient_range_mob/range_ancient_idle_state.gd",

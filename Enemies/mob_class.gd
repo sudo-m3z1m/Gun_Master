@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Mob_class
 
-@export var health_points: float
+@export var start_hp: int
 @export var states: Dictionary
 @export var max_speed: float
 @export var cooldown_time: float #Don't touch this! It need to be here, try to think again
@@ -16,6 +16,7 @@ class_name Mob_class
 @onready var player: Object = get_tree().get_first_node_in_group("Player")
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var health_points: HealthPoints = HealthPoints.new(self, start_hp)
 
 var weapon: WEAPON
 var reward: int = 0 #It will be in kill manager
@@ -49,6 +50,9 @@ func instantiate_money() -> void:
 
 func attack(target):
 	weapon.attack(target.global_position)
+
+func set_damage_effect() -> void:
+	pass
 
 func kill():
 	instantiate_money()

@@ -129,6 +129,7 @@ height = 119.0
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_xlnxc")
+start_hp = 100
 
 [node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource("2_smnyg")

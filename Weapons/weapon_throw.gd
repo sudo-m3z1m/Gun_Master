@@ -24,7 +24,7 @@ func give_damage_to_body(_body: PhysicsBody2D) -> void:
 	if linear_velocity.length() < 0.5:
 		return
 	REWARD_MANAGER.set_reward(_body, 1)
-	DAMAGE_MANAGER._give_damage(self, _body, Vector2.ZERO, 2)
+	_body.health_points.take_damage(damage)
 	collision_mask = 4
 
 func flip(_new_degrees: float) -> void:

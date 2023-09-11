@@ -54,6 +54,9 @@ func attack(target):
 func set_damage_effect() -> void:
 	pass
 
+func set_heal_effect() -> void:
+	pass
+
 func kill():
 	instantiate_money()
 	queue_free()

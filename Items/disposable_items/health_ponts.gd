@@ -4,4 +4,4 @@ extends DisposableItem
 
 func activate(_player) -> void:
 	if _player.health_points.health_points < 100:
-		_player.health_points.health_points += hp_quant
+		_player.health_points.heal(hp_quant)

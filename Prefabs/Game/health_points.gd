@@ -16,5 +16,5 @@ func take_damage(damage: int) -> void:
 		self_owner.kill()
 
 func heal(healt_points: int) -> void:
-#	self_owner.set_heal_effect()
+	self_owner.set_heal_effect()
 	healt_points += healt_points

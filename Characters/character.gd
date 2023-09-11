@@ -55,10 +55,13 @@ func set_damage_effect() -> void:
 	var new_hp_amount: int = health_points.health_points
 	HUD.update_user_hud(new_hp_amount, GlobalScope.GLOBAL_HUDS.HP)
 
+func set_heal_effect() -> void:
+	var new_hp_amount: int = health_points.health_points
+	HUD.update_user_hud(new_hp_amount, GlobalScope.GLOBAL_HUDS.HP)
+
 func kill():
 	GameManager.stop_game()
 	call_deferred("queue_free")
-
 
 #func blink_after_damage_take(new_hp: float) -> void:
 #	if new_hp >= health_points:

@@ -40,12 +40,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qbtn"]
-size = Vector2(176.667, 80)
+size = Vector2(160, 80)
 
 [node name="GenericLaserWeapon" instance=ExtResource("1_t4lbi")]
 ID = 15
 damage = 50
-cooldown = 1.0
+cooldown = 0.5
 maximum_ammo_amount = 1000
 ammo = 1000
 length_from_player = 75.0
@@ -56,16 +56,15 @@ shake_time = 10.0
 sprite_frames = SubResource("SpriteFrames_pdp2r")
 
 [node name="HitBox" parent="." index="1"]
-position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_3qbtn")
 
 [node name="ShotPosition" parent="." index="5"]
-position = Vector2(32, -3)
+position = Vector2(109, -3)
 
 [node name="RayCast" parent="." index="6"]
 position = Vector2(32, -3)
-target_position = Vector2(1000, 0)
+target_position = Vector2(2000, 0)
 collision_mask = 7
 
 [node name="Laser" parent="." index="7"]
-width = 40.0
+width = 70.0

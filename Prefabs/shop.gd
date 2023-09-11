@@ -20,6 +20,7 @@ func randomise_product_quantity() -> int:
 func restock() -> void:
 	update_weapons_pool()
 	var ammo: PackedScene = Items.items[randi_range(4, 5)]
+	print(Items.items)
 	var hp: PackedScene = Items.items[PRODUCT_IDS.HP]
 	var weapon: PackedScene = define_weapon()
 	place_product(ammo, PLACES.LEFT, 1, 8)

@@ -5,3 +5,4 @@
 
 [node name="DisposableItem" instance=ExtResource("1_lcgls")]
 script = ExtResource("2_u62dl")
+ID = 4

@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Items/disposable_items/health_ponts.gd" id="2_lfv1s"]
 [ext_resource type="Texture2D" uid="uid://cfnkoa1jrbrff" path="res://Sprites/Other/HealPoison.png" id="3_k4pwm"]
 
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_3x141"]
 animations = [{
 "frames": [{

@@ -11,9 +11,6 @@ class_name WEAPON_RANGE
 @export var bullet_effect_damage: float
 
 @onready var _shot_pos: Marker2D = $Pivot/ShotPosition
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var anim_sprite: AnimatedSprite2D = $Pivot/AnimatedSprite2D
-@onready var audio: AudioStreamPlayer = $AudioPlayer
 
 func attack(_target_global_position: Vector2):
 	if ammo <= 0 or _check_cooldown():

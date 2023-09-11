@@ -20,8 +20,8 @@ var friction: float = 45
 var acceleration: float = 90
 var direction: Vector2
 
-func _ready():
-	EffectsManager.try_apply_effect(GlobalScope.EFFECTS.POISON, self, 1, 1, 0.1)
+#func _ready():
+#	EffectsManager.try_apply_effect(GlobalScope.EFFECTS.POISON, self, 1, 1, 0.1)
 
 func _physics_process(delta):
 	set_character_velocity()

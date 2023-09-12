@@ -10,11 +10,11 @@ func _init(_owner, _hp: int = 100) -> void:
 	health_points = _hp
 
 func take_damage(damage: int) -> void:
-	self_owner.set_damage_effect()
 	health_points -= damage
+	self_owner.set_damage_effect()
 	if health_points <= 0:
 		self_owner.kill()
 
-func heal(healt_points: int) -> void:
+func heal(heal: int) -> void:
+	health_points += heal
 	self_owner.set_heal_effect()
-	healt_points += healt_points

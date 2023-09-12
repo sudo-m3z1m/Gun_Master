@@ -45,6 +45,13 @@ func finish_tween() -> void:
 	laser.clear_points()
 
 func set_animation() -> void:
-	anim_player.play(player_animation)
+#	anim_player.animation_finished.connect(update_animation)
+#	anim_player.play(player_animation)
 	anim_sprite.play(attack_animation)
+	anim_sprite.animation_finished.connect(update_animation)
 	audio.play()
+
+func update_animation():
+	if anim_sprite.animation == attack_animation:
+		anim_sprite.play(main_animation)
+	anim_sprite.animation_finished.disconnect(update_animation)

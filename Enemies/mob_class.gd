@@ -19,7 +19,7 @@ class_name Mob_class
 @onready var health_points: HealthPoints = HealthPoints.new(self, start_hp)
 
 var weapon: WEAPON
-var reward: int = 0 #It will be in kill manager
+var reward: int = 2 #It will be in kill manager
 
 func set_reward(_reward):
 	reward = _reward

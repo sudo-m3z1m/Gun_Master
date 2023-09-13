@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmk0hhh77ltn8"]
+
+[ext_resource type="PackedScene" uid="uid://c7g1qcycc3lyi" path="res://Weapons/weapon_throw.tscn" id="1_y2irw"]
+[ext_resource type="Texture2D" uid="uid://bdgg5y7krqg6x" path="res://Sprites/Weapons/laser_gun.png" id="2_1pnoj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_geee7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1pnoj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1ye"]
+size = Vector2(16, 6)
+
+[node name="LaserGun" instance=ExtResource("1_y2irw")]
+
+[node name="Sprite" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_geee7")
+
+[node name="HitBox" parent="." index="1"]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_ax1ye")

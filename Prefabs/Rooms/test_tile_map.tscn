@@ -87,5 +87,5 @@ curve = SubResource("Curve2D_oxp3j")
 position = Vector2(152, 198)
 rotation = -0.00671541
 
-[node name="GenericLaserWeapon" parent="." instance=ExtResource("2_lj8ou")]
-position = Vector2(961, 897)
+[node name="LaserGun" parent="." instance=ExtResource("2_lj8ou")]
+position = Vector2(963, 894)

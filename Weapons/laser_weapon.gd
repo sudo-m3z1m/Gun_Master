@@ -46,7 +46,7 @@ func finish_tween() -> void:
 
 func set_animation() -> void:
 #	anim_player.animation_finished.connect(update_animation)
-#	anim_player.play(player_animation)
+	anim_player.play(player_animation)
 	anim_sprite.play(attack_animation)
 	anim_sprite.animation_finished.connect(update_animation)
 	audio.play()

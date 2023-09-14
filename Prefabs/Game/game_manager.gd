@@ -34,7 +34,8 @@ func start_game() -> void:
 	reset_game()
 	instantiate_player()
 	spawn_player()
-	GameManager.rm_entities_in_group("Mob")
+	rm_entities_in_group("Mob")
+	rm_entities_in_group("Spawns")
 
 func reset_game() -> void:
 	current_wave_time = start_wave_time
@@ -43,15 +44,16 @@ func reset_game() -> void:
 
 func stop_game() -> void:
 	state_machine.change_state(GAME_OVER_STATE)
-	GameManager.rm_entities_in_group("Mob")
-	GameManager.rm_entities_in_group("Coin")
+	rm_entities_in_group("Mob")
+	rm_entities_in_group("Spawns") #Need to delete this
+	rm_entities_in_group("Coin")
 
-func spawn_mob():
+func locate_mob():
 	if get_tree().get_nodes_in_group("Mob").size() >= GlobalScope.MAX_ENEMYS_NUMBER:
 		return
-	var mob = randomize_mobs().instantiate()
 	mob_spawn_location.progress_ratio = randf()
-
+	
+	var mob = randomize_mobs().instantiate()
 	mob.spawn(mob_spawn_location.position, scene)
 
 func instantiate_player() -> character:

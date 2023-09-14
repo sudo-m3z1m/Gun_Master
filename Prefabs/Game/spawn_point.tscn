@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://8cab1vslmbc2"]
+
+[ext_resource type="Texture2D" uid="uid://bvwlq33nkya51" path="res://Sprites/Mobs/spawn_animation.png" id="1_f7x2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7c2x"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt80y"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pffj"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7qw"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25ngc"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2db6y"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_288av"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8eiv"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnafe"]
+atlas = ExtResource("1_f7x2n")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7igdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7c2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt80y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pffj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe7qw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25ngc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2db6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_288av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8eiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnafe")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="SpawnPoint" type="AnimatedSprite2D" groups=["Spawns"]]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_7igdw")
+frame = 8
+frame_progress = 1.0

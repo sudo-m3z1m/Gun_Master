@@ -20,6 +20,8 @@ class_name Mob_class
 
 var weapon: WEAPON
 var reward: int = 2 #It will be in kill manager
+var spawn_location: AnimatedSprite2D
+var global_scene
 
 func set_reward(_reward):
 	reward = _reward
@@ -38,9 +40,20 @@ func rotate_weapon():
 	weapon.rotate_to_target(angle_to_target)
 
 func spawn(position: Vector2, scene):
+	spawn_location = preload("res://Prefabs/Game/spawn_point.tscn").instantiate()
+	spawn_location.global_position = position
+	scene.add_child(spawn_location)
+	spawn_location.play()
+	
+	spawn_location.animation_finished.connect(spawn_mob)
+	global_scene = scene
+	
 	global_position = position
-	scene.add_child(self)
 	#Animations
+
+func spawn_mob() -> void:
+	global_scene.add_child(self)
+	spawn_location.queue_free()
 
 func instantiate_money() -> void:
 	for rew_count in reward:

@@ -36,11 +36,11 @@ func change_state_to_opposite() -> void:
 	GameManager.state_machine.change_state(SHOPPING_STATE)
 
 func connect_timers() -> void:
-	spawn_timer.timeout.connect(GameManager.spawn_mob)
+	spawn_timer.timeout.connect(GameManager.locate_mob)
 	cntdown_timer.timeout.connect(change_state_to_opposite)
 
 func disconnect_timers() -> void:
-	spawn_timer.timeout.disconnect(GameManager.spawn_mob)
+	spawn_timer.timeout.disconnect(GameManager.locate_mob)
 	cntdown_timer.timeout.disconnect(change_state_to_opposite)
 
 func start_timers() -> void:

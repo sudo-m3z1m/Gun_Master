@@ -88,4 +88,4 @@ position = Vector2(152, 198)
 rotation = -0.00671541
 
 [node name="LaserGun" parent="." instance=ExtResource("2_lj8ou")]
-position = Vector2(963, 894)
+position = Vector2(964, 895)

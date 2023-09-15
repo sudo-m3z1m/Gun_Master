@@ -26,6 +26,7 @@ func exit_state() -> void:
 	GameManager.current_wave_count += 1
 	GameManager.current_wave_time = GameManager.current_wave_count * DELTA_WAVE_TIME
 	GameManager.kill_mobs()	#Maybe delete mob must shop and delete shop must wave state
+	GameManager.rm_entities_in_group("SpawnPoint")
 	GameManager.call_deferred("magnetize_coins")
 
 func update() -> void:

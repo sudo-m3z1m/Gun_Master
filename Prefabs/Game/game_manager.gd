@@ -34,8 +34,8 @@ func start_game() -> void:
 	reset_game()
 	instantiate_player()
 	spawn_player()
+	rm_entities_in_group("SpawnPoint")
 	rm_entities_in_group("Mob")
-	rm_entities_in_group("Spawns")
 
 func reset_game() -> void:
 	current_wave_time = start_wave_time
@@ -44,8 +44,8 @@ func reset_game() -> void:
 
 func stop_game() -> void:
 	state_machine.change_state(GAME_OVER_STATE)
+	rm_entities_in_group("SpawnPoint") #Need to delete this
 	rm_entities_in_group("Mob")
-	rm_entities_in_group("Spawns") #Need to delete this
 	rm_entities_in_group("Coin")
 
 func locate_mob():

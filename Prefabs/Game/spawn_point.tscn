@@ -73,7 +73,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="SpawnPoint" type="AnimatedSprite2D" groups=["Spawns"]]
+[node name="SpawnPoint" type="AnimatedSprite2D" groups=["SpawnPoint"]]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_7igdw")

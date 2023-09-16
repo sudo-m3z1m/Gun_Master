@@ -11,8 +11,11 @@ class_name character
 	set(mon):
 		HUD.update_user_hud(mon, GlobalScope.GLOBAL_HUDS.COIN)
 		money = mon
+@export var invicible_state_duration: float	#Remade this into the hp states
+@export var blink_t: float	#Remade this into the hp states
 
 @onready var scene = get_tree().current_scene
+@onready var blink_timer: Timer = $BlinkTimer #Remade this into the hp states
 @onready var weapon_handler = $WeaponHandler
 @onready var health_points: HealthPoints = HealthPoints.new(self, start_hp)
 
@@ -51,8 +54,16 @@ func _collision_checker(area):
 func bodies_collision_checker(body):
 	weapon_handler.take_throwed_weapon(body)
 
-func set_damage_effect() -> void:
+func set_damage_effect() -> void:	#Remade this into the hp states
+	var invicible_timer: SceneTreeTimer
 	var new_hp_amount: int = health_points.health_points
+	invicible_timer = get_tree().create_timer(invicible_state_duration)
+	invicible_timer.timeout.connect(finish_blinking)
+	blink_timer.wait_time = blink_t
+	blink_timer.timeout.connect(blink_after_damage_take)
+	blink_timer.start()
+	
+	health_points.damage_k = 0
 	HUD.update_user_hud(new_hp_amount, GlobalScope.GLOBAL_HUDS.HP)
 
 func set_heal_effect() -> void:
@@ -63,16 +74,14 @@ func kill():
 	GameManager.stop_game()
 	call_deferred("queue_free")
 
-#func blink_after_damage_take(new_hp: float) -> void:
-#	if new_hp >= health_points:
-#		return
-#	var disposable_timer: SceneTreeTimer
-#	disposable_timer = get_tree().create_timer(0.1)
-#	disposable_timer.timeout.connect(finish_blink)
-#	$Sprite.visible = false
-#
-#func finish_blink() -> void:
-#	$Sprite.visible = true
+func blink_after_damage_take() -> void:	#Remade this into the hp states
+	$Sprite.visible = !$Sprite.visible
+
+func finish_blinking() -> void:	#Remade this into the hp states
+	blink_timer.stop()
+	blink_timer.timeout.disconnect(blink_after_damage_take)
+	$Sprite.visible = true
+	health_points.damage_k = 1
 
 func change_modulate(_modulate: Color):
 	self.set_modulate(_modulate)

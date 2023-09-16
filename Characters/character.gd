@@ -11,7 +11,7 @@ class_name character
 	set(mon):
 		HUD.update_user_hud(mon, GlobalScope.GLOBAL_HUDS.COIN)
 		money = mon
-@export var invicible_state_duration: float	#Remade this into the hp states
+@export var invincible_state_duration: float	#Remade this into the hp states
 @export var blink_t: float	#Remade this into the hp states
 
 @onready var scene = get_tree().current_scene
@@ -55,10 +55,10 @@ func bodies_collision_checker(body):
 	weapon_handler.take_throwed_weapon(body)
 
 func set_damage_effect() -> void:	#Remade this into the hp states
-	var invicible_timer: SceneTreeTimer
+	var invincible_timer: SceneTreeTimer
 	var new_hp_amount: int = health_points.health_points
-	invicible_timer = get_tree().create_timer(invicible_state_duration)
-	invicible_timer.timeout.connect(finish_blinking)
+	invincible_timer = get_tree().create_timer(invincible_state_duration)
+	invincible_timer.timeout.connect(finish_blinking)
 	blink_timer.wait_time = blink_t
 	blink_timer.timeout.connect(blink_after_damage_take)
 	blink_timer.start()

@@ -7,7 +7,8 @@ script = ExtResource("1_n33ru")
 
 [node name="Pivot" type="Marker2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Pivot"]
+texture_filter = 1
 scale = Vector2(0.3, 0.3)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]

@@ -17,6 +17,6 @@ func change_state(_next_state: String):
 
 func interrupt_state(_next_state: String):
 	current_state.exit_state()
-#	var previous_state: EnemyState = current_state
 	change_state(_next_state)
+#	var previous_state: EnemyState = current_state
 #	previous_state.exit_state()

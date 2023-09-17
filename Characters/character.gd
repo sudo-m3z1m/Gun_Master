@@ -3,10 +3,6 @@ class_name character
 
 @export var max_speed: float
 @export var start_hp: int
-#@export var health_points: float:
-#	set(hp):
-##		blink_after_damage_take(hp)
-#		health_points = hp
 @export var money: int:
 	set(mon):
 		HUD.update_user_hud(mon, GlobalScope.GLOBAL_HUDS.COIN)

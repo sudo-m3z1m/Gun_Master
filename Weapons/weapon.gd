@@ -22,7 +22,7 @@ signal shot
 @onready var pivot: Node = $Pivot
 @onready var hitbox: Node = $HitBox
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var anim_sprite: AnimatedSprite2D = $Pivot/AnimatedSprite2D
+@onready var anim_sprite: AnimatedSprite2D = $Pivot/Sprite
 @onready var audio: AudioStreamPlayer = $AudioPlayer
 @onready var cooldown_timer: Timer = $Cooldown_Timer
 

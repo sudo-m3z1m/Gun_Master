@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Weapons/weapon.tscn" id="1_m33bp"]
 [ext_resource type="Script" path="res://Weapons/weapon_melee.gd" id="2_3uf12"]
 
-
 [node name="weapon_melee" instance=ExtResource("1_m33bp")]
 script = ExtResource("2_3uf12")
 

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Enemies/mob_class.gd" id="1_1fuvd"]
 [ext_resource type="Script" path="res://Enemies/state_machine/enemies_state_machine.gd" id="2_lnfqc"]
 
-
 [node name="MobClass" type="CharacterBody2D" groups=["Mob"]]
 collision_layer = 2
 collision_mask = 4

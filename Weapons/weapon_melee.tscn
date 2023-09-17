@@ -5,11 +5,9 @@
 
 [node name="weapon_melee" instance=ExtResource("1_m33bp")]
 script = ExtResource("2_3uf12")
+player_animations = Array[String]([])
 
 [node name="area_for_hurt" type="Area2D" parent="Pivot" index="1"]
 
 [node name="hurtbox" type="CollisionShape2D" parent="Pivot/area_for_hurt" index="0"]
 scale = Vector2(0.3, 0.3)
-
-[connection signal="body_entered" from="Pivot/area_for_hurt" to="." method="check_body"]
-[connection signal="body_exited" from="Pivot/area_for_hurt" to="." method="check_body_exited"]

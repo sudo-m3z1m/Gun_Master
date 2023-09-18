@@ -51,15 +51,15 @@ func bodies_collision_checker(body):
 	weapon_handler.take_throwed_weapon(body)
 
 func set_damage_effect() -> void:	#Remade this into the hp states
-	var invincible_timer: SceneTreeTimer
+#	var invincible_timer: SceneTreeTimer
 	var new_hp_amount: int = health_points.health_points
-	invincible_timer = get_tree().create_timer(invincible_state_duration)
-	invincible_timer.timeout.connect(finish_blinking)
-	blink_timer.wait_time = blink_t
-	blink_timer.timeout.connect(blink_after_damage_take)
-	blink_timer.start()
+#	invincible_timer = get_tree().create_timer(invincible_state_duration)
+#	invincible_timer.timeout.connect(finish_blinking)
+#	blink_timer.wait_time = blink_t
+#	blink_timer.timeout.connect(blink_after_damage_take)
+#	blink_timer.start()
 	
-	health_points.damage_k = 0
+#	health_points.damage_k = 0
 	HUD.update_user_hud(new_hp_amount, GlobalScope.GLOBAL_HUDS.HP)
 
 func set_heal_effect() -> void:

@@ -33,4 +33,4 @@ func fill_items_base() -> void:
 	Items.fill_items_dict()
 	Items.fill_weapons_dict()
 	Items.fill_weapons_dict("res://Weapons/Laser/")
-#	Items.fill_weapons_dict(melee_path)
+	Items.fill_weapons_dict("res://Weapons/Melee/")

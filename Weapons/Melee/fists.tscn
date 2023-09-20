@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfywq4iwellmh"]
+[gd_scene load_steps=13 format=3 uid="uid://cfywq4iwellmh"]
 
 [ext_resource type="PackedScene" uid="uid://dnb5qxkp35xsh" path="res://Weapons/weapon_melee.tscn" id="1_2t7vd"]
 [ext_resource type="Texture2D" uid="uid://cjximv3fwss6k" path="res://Sprites/Weapons/left_fist.png" id="2_s0sa6"]
 [ext_resource type="Texture2D" uid="uid://2bgwna3icvkj" path="res://Sprites/Weapons/right_fist.png" id="3_4r73b"]
+[ext_resource type="AudioStream" uid="uid://cithvtp0gw3q1" path="res://Audio/GunShots/Melee/punch_sound_effect.wav" id="4_608fx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5gd3"]
 animations = [{
@@ -193,3 +194,6 @@ shape = SubResource("RectangleShape2D_p4gul")
 libraries = {
 "": SubResource("AnimationLibrary_h3l1j")
 }
+
+[node name="AudioPlayer" parent="." index="4"]
+stream = ExtResource("4_608fx")

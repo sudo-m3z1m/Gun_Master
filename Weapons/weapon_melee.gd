@@ -21,6 +21,7 @@ func attack(_target_global_position: Vector2) -> void:
 #	hurt_box.set_disabled(false)
 	anim_player.play(player_animation)
 	anim_sprite.play(attack_animation)
+	audio.play()
 
 func check_body(_body) -> void:
 	if _body.get("health_points"):

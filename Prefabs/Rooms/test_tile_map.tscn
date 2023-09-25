@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7i1cvgy4k1ms"]
+[gd_scene load_steps=9 format=3 uid="uid://b7i1cvgy4k1ms"]
 
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
 [ext_resource type="PackedScene" uid="uid://7oiwvues2n0o" path="res://Weapons/Laser/laser_gun.tscn" id="2_lj8ou"]
-[ext_resource type="PackedScene" uid="uid://cfywq4iwellmh" path="res://Weapons/Melee/fists.tscn" id="3_0l35j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
 vertices = PackedVector2Array(-6, -32, 8, -32, 32, -6, 32, 9.5, 7.5, 32, -7, 32, -32, 11.5, -32, -7.5)
@@ -92,6 +91,3 @@ rotation = -0.00671541
 
 [node name="LaserGun" parent="." instance=ExtResource("2_lj8ou")]
 position = Vector2(964, 895)
-
-[node name="Fists" parent="." instance=ExtResource("3_0l35j")]
-position = Vector2(608, 900)

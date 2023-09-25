@@ -162,13 +162,14 @@ _data = {
 }
 
 [node name="Fists" instance=ExtResource("1_2t7vd")]
-player_animations = Array[String](["RightFistAttack", "LeftFistAttack"])
 ID = 20
 damage = 200
 cooldown = 0.4
 length_from_player = 60.0
+player_animation = &"RightFistAttack"
 
 [node name="SecSprite" type="AnimatedSprite2D" parent="Pivot" index="0"]
+visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_y5gd3")

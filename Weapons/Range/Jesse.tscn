@@ -1,9 +1,115 @@
-[gd_scene load_steps=6 format=3 uid="uid://hnnws34qyf12"]
+[gd_scene load_steps=22 format=3 uid="uid://hnnws34qyf12"]
 
 [ext_resource type="PackedScene" uid="uid://ctf00djidd51b" path="res://Weapons/weapon_range.tscn" id="1_vltok"]
 [ext_resource type="PackedScene" uid="uid://bqxecr0nxjvov" path="res://Weapons/Projectiles/poison_projectile.tscn" id="2_gklrm"]
 [ext_resource type="PackedScene" uid="uid://nvwgv8l3rtvp" path="res://Weapons/Throwable_weapons/jesse_throw.tscn" id="2_jjcbm"]
 [ext_resource type="AudioStream" uid="uid://cnqyu8yrvuust" path="res://Audio/GunShots/Guns/zapsplat_science_fiction_weapon_gun_shoot_003_32196.mp3" id="4_6kbpr"]
+[ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="4_tem3v"]
+[ext_resource type="Texture2D" uid="uid://cytvxikbipcbn" path="res://Sprites/Weapons/Jesse_frog_gun_Scream.png" id="4_ue0gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s484"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it1bg"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frfqf"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtnd2"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2574t"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v0wy"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x7c4"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xj4c"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72bbg"]
+atlas = ExtResource("4_ue0gv")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_450lf"]
+atlas = ExtResource("4_tem3v")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm57a"]
+atlas = ExtResource("4_tem3v")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgiqr"]
+atlas = ExtResource("4_tem3v")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7pi8"]
+atlas = ExtResource("4_tem3v")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bucnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it1bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frfqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtnd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2574t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v0wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x7c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xj4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72bbg")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_450lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm57a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7pi8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh3vx"]
 size = Vector2(156, 84)
@@ -23,9 +129,14 @@ length_from_player = 75.0
 shake_strength = 30.0
 shake_time = 0.1
 throwable_weapon = ExtResource("2_jjcbm")
-main_animation = &"STANDART"
-attack_animation = &"SCREAM"
-player_animation = &"Attack_recoil"
+main_animation = &"Idle"
+attack_animation = &"Attack"
+player_animation = &"Attack"
+
+[node name="Sprite" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_bucnf")
+animation = &"Idle"
+frame_progress = 0.904948
 
 [node name="ShotPosition" parent="Pivot" index="1"]
 position = Vector2(31, -3)

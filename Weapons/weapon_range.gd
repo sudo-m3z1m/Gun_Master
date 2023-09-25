@@ -39,7 +39,7 @@ func bullet_instantiate(instantiate_pos: Vector2, target_global_pos: Vector2) ->
 func make_some_stuff() -> void:
 	anim_player.animation_finished.connect(update_animation)
 	anim_player.play(player_animation)
-	anim_sprite.play(attack_animation)
+#	anim_sprite.play(attack_animation)
 	audio.play()
 
 func update_animation(_anim_name: StringName):

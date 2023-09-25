@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://1l85einc1in0" path="res://Sprites/Weapons/Blowpipe.png" id="2_nspuc"]
 [ext_resource type="AudioStream" uid="uid://b2ctqmtfvhu7d" path="res://Audio/GunShots/Guns/blowpipe.mp3" id="5_yjfmv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ociwb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7idu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_nspuc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
 }]
 
@@ -33,12 +33,14 @@ maximum_ammo_amount = 8
 ammo = 4
 length_from_player = 75.0
 throwable_weapon = ExtResource("2_5o5mr")
-player_animation = &"Attack_recoil"
+main_animation = &"Idle"
+attack_animation = &"Attack"
+player_animation = &"Attack"
 
-[node name="AnimatedSprite2D" parent="Pivot" index="0"]
-texture_filter = 1
-scale = Vector2(4.125, 3.125)
-sprite_frames = SubResource("SpriteFrames_ociwb")
+[node name="Sprite" parent="Pivot" index="0"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_y7idu")
+animation = &"Idle"
 
 [node name="ShotPosition" parent="Pivot" index="1"]
 position = Vector2(25, 0)

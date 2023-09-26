@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c68mhoqihwhqu" path="res://Weapons/weapon.tscn" id="1_xlwlt"]
 [ext_resource type="Script" path="res://Weapons/weapon_range.gd" id="2_3bchy"]
 
-[sub_resource type="Animation" id="Animation_lpj3v"]
-length = 0.001
-
 [sub_resource type="Animation" id="Animation_e4csw"]
 resource_name = "Attack"
 length = 0.3
@@ -34,6 +31,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -1.91986, -1.5708, 0.349066, 0.0]
 }
+
+[sub_resource type="Animation" id="Animation_lpj3v"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t87go"]
 _data = {

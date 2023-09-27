@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfywq4iwellmh"]
+[gd_scene load_steps=15 format=3 uid="uid://cfywq4iwellmh"]
 
 [ext_resource type="PackedScene" uid="uid://dnb5qxkp35xsh" path="res://Weapons/weapon_melee.tscn" id="1_2t7vd"]
+[ext_resource type="Script" path="res://Weapons/Melee/Scripts/fists.gd" id="2_6tguy"]
 [ext_resource type="Texture2D" uid="uid://cjximv3fwss6k" path="res://Sprites/Weapons/left_fist.png" id="2_s0sa6"]
 [ext_resource type="Texture2D" uid="uid://2bgwna3icvkj" path="res://Sprites/Weapons/right_fist.png" id="3_4r73b"]
 [ext_resource type="AudioStream" uid="uid://cithvtp0gw3q1" path="res://Audio/GunShots/Melee/punch_sound_effect.wav" id="4_608fx"]
+[ext_resource type="Texture2D" uid="uid://gku1wjo4ejp3" path="res://Sprites/Other/quick_guide.png" id="5_nhp3j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5gd3"]
 animations = [{
@@ -40,7 +42,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/SecSprite:position")
+tracks/0/path = NodePath("Pivot/Sprite_2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/SecSprite:position")
+tracks/1/path = NodePath("Pivot/Sprite_2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -132,7 +134,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/SecSprite:position")
+tracks/1/path = NodePath("Pivot/Sprite_2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -162,14 +164,14 @@ _data = {
 }
 
 [node name="Fists" instance=ExtResource("1_2t7vd")]
+script = ExtResource("2_6tguy")
+player_animations = Array[String](["RightFistAttack", "LeftFistAttack"])
 ID = 20
 damage = 200
 cooldown = 0.4
 length_from_player = 60.0
-player_animation = &"RightFistAttack"
 
-[node name="SecSprite" type="AnimatedSprite2D" parent="Pivot" index="0"]
-visible = false
+[node name="Sprite_2" type="AnimatedSprite2D" parent="Pivot" index="0"]
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_y5gd3")
@@ -187,14 +189,20 @@ collision_mask = 2
 position = Vector2(35, 20)
 shape = SubResource("RectangleShape2D_uwgrq")
 
-[node name="HitBox" parent="." index="1"]
+[node name="CostyleShit" type="Sprite2D" parent="." index="1"]
+texture_filter = 1
+position = Vector2(14, 6)
+scale = Vector2(2.58333, 2.04167)
+texture = ExtResource("5_nhp3j")
+
+[node name="HitBox" parent="." index="2"]
 position = Vector2(15.5, 6)
 shape = SubResource("RectangleShape2D_p4gul")
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_h3l1j")
 }
 
-[node name="AudioPlayer" parent="." index="4"]
+[node name="AudioPlayer" parent="." index="5"]
 stream = ExtResource("4_608fx")

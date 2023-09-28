@@ -24,8 +24,12 @@ func attack(_target_global_position: Vector2) -> void:
 	audio.play()
 
 func check_body(_body) -> void:
+	var vector_to_player: Vector2
+	vector_to_player = global_position.direction_to(vector_to_player)
 	if _body.get("health_points"):
 		_body.health_points.take_damage(damage)
+		vector_to_player *= 100
+		_body.move_and_collide(vector_to_player)
 
 func finish_animation(anim_name) -> void:
 	hurt_box_area.body_entered.disconnect(check_body)

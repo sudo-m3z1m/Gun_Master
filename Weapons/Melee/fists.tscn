@@ -167,7 +167,7 @@ _data = {
 script = ExtResource("2_6tguy")
 player_animations = Array[String](["RightFistAttack", "LeftFistAttack"])
 ID = 20
-damage = 200
+damage = 50
 cooldown = 0.4
 length_from_player = 60.0
 

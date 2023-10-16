@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7i1cvgy4k1ms"]
+[gd_scene load_steps=8 format=3 uid="uid://b7i1cvgy4k1ms"]
 
-[ext_resource type="PackedScene" uid="uid://cfywq4iwellmh" path="res://Weapons/Melee/fists.tscn" id="2_43mi4"]
 [ext_resource type="Texture2D" uid="uid://doxpcpdn6ujtw" path="res://Sprites/TileSpriteSheet.png" id="2_gk8pi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wi2ro"]
@@ -88,6 +87,3 @@ curve = SubResource("Curve2D_oxp3j")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(152, 198)
 rotation = -0.00671541
-
-[node name="Fists" parent="." instance=ExtResource("2_43mi4")]
-position = Vector2(954, 892)

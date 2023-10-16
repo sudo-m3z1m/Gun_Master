@@ -61,7 +61,7 @@ func rotate_to_target(angle_to_target) -> void:
 func throw_self(global_target_position: Vector2) -> void:
 	if !_is_active:
 		return
-		
+	
 	var throw_velocity := _get_vector_to_target(global_target_position)
 	var throw_weap: RigidBody2D = inst_and_set_thr()
 	get_tree().current_scene.add_child(throw_weap)

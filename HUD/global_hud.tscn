@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://beh2mwcpbamds" path="res://HUD/settings.tscn" id="6_uja6o"]
 [ext_resource type="PackedScene" uid="uid://b2c02ndjr4a25" path="res://HUD/main_timer_hud.tscn" id="8_8feok"]
 
-
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_41u33")

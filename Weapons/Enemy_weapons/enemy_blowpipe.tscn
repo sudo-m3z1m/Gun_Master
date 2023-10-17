@@ -31,7 +31,7 @@ cooldown = 0.1
 maximum_ammo_amount = 10000000
 ammo = 10000000
 length_from_player = 75.0
-player_animation = &"Attack_recoil"
+player_animation = &"Attack"
 
 [node name="Sprite" parent="Pivot" index="0"]
 scale = Vector2(4, 4)

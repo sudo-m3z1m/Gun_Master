@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c7g1qcycc3lyi" path="res://Weapons/weapon_throw.tscn" id="1_1is6u"]
 [ext_resource type="Texture2D" uid="uid://dc8yw173m52s8" path="res://Sprites/Weapons/Jesse_frog_gun.png" id="2_4if6o"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ym7xs"]
 atlas = ExtResource("2_4if6o")
 region = Rect2(0, 0, 256, 256)

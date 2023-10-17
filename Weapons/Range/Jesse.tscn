@@ -136,7 +136,7 @@ player_animation = &"Attack"
 [node name="Sprite" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_bucnf")
 animation = &"Idle"
-frame_progress = 0.904948
+autoplay = "Idle"
 
 [node name="ShotPosition" parent="Pivot" index="1"]
 position = Vector2(31, -3)

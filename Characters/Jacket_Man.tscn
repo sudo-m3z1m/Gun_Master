@@ -4,7 +4,7 @@
 
 [node name="Jacket_Man" instance=ExtResource("1")]
 max_speed = 400.0
-money = 20
+money = 25
 invincible_state_duration = 1.5
 blink_t = 0.1
 

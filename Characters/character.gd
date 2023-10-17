@@ -58,7 +58,7 @@ func set_damage_effect() -> void:	#Remade this into the hp states
 #	blink_timer.wait_time = blink_t
 #	blink_timer.timeout.connect(blink_after_damage_take)
 #	blink_timer.start()
-	
+
 #	health_points.damage_k = 0
 	HUD.update_user_hud(new_hp_amount, GlobalScope.GLOBAL_HUDS.HP)
 
